@@ -123,6 +123,121 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &128550112
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 128550113}
+  - component: {fileID: 128550118}
+  - component: {fileID: 128550117}
+  - component: {fileID: 128550116}
+  - component: {fileID: 128550114}
+  m_Layer: 6
+  m_Name: inv_Handle
+  m_TagString: ClickableObject
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &128550113
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 128550112}
+  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
+  m_LocalPosition: {x: -0.93873096, y: 1.9828186, z: 3.7209692}
+  m_LocalScale: {x: 0.048000008, y: 0.72, z: 0.048000008}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1034254362}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &128550114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 128550112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1e66d78d2cd603448d398b4d7f336e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doorAnimation: {fileID: 8953643127916298240}
+  openAnimationName: temper_oven_open
+  closeAnimationName: temper_oven_close
+  waitTimer: 1
+  pauseInteraction: 0
+--- !u!65 &128550116
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 128550112}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &128550117
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 128550112}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: f1db0c312214e8c46857d9d21f7b1369, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &128550118
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 128550112}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &132132551
 GameObject:
   m_ObjectHideFlags: 0
@@ -232,7 +347,6 @@ GameObject:
   - component: {fileID: 162149626}
   - component: {fileID: 162149625}
   - component: {fileID: 162149624}
-  - component: {fileID: 162149629}
   - component: {fileID: 162149628}
   m_Layer: 6
   m_Name: inv_Cube_Tongs
@@ -331,20 +445,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acf59615471f82048896445e1caa2255, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 786990206}
---- !u!114 &162149629
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 162149623}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44adc57e2cc0087469c536ad9af5f5dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnEnter:
+  OnHoverStart:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1742899130}
@@ -359,7 +460,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  OnExit:
+  OnHoverStop:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1742899130}
@@ -374,6 +475,11 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnClickStart:
+    m_PersistentCalls:
+      m_Calls: []
+  isHovering: 0
+  cam: {fileID: 786990206}
 --- !u!1 &182428344
 GameObject:
   m_ObjectHideFlags: 3
@@ -1260,7 +1366,6 @@ GameObject:
   - component: {fileID: 591650203}
   - component: {fileID: 591650202}
   - component: {fileID: 591650201}
-  - component: {fileID: 591650206}
   - component: {fileID: 591650205}
   m_Layer: 6
   m_Name: inv_Cube_Forge
@@ -1359,20 +1464,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acf59615471f82048896445e1caa2255, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 1983709404}
---- !u!114 &591650206
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 591650200}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44adc57e2cc0087469c536ad9af5f5dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnEnter:
+  OnHoverStart:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1742899130}
@@ -1387,7 +1479,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  OnExit:
+  OnHoverStop:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1742899130}
@@ -1402,6 +1494,11 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnClickStart:
+    m_PersistentCalls:
+      m_Calls: []
+  isHovering: 0
+  cam: {fileID: 1983709404}
 --- !u!1 &726786974
 GameObject:
   m_ObjectHideFlags: 0
@@ -2164,6 +2261,7 @@ Transform:
   - {fileID: 162149627}
   - {fileID: 591650204}
   - {fileID: 1174887941}
+  - {fileID: 128550113}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2303,7 +2401,6 @@ GameObject:
   - component: {fileID: 1174887940}
   - component: {fileID: 1174887939}
   - component: {fileID: 1174887938}
-  - component: {fileID: 1174887943}
   - component: {fileID: 1174887942}
   m_Layer: 6
   m_Name: inv_Cube_TemperOven
@@ -2402,20 +2499,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acf59615471f82048896445e1caa2255, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 335160456}
---- !u!114 &1174887943
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1174887937}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44adc57e2cc0087469c536ad9af5f5dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnEnter:
+  OnHoverStart:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1742899130}
@@ -2430,7 +2514,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  OnExit:
+  OnHoverStop:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1742899130}
@@ -2445,6 +2529,11 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnClickStart:
+    m_PersistentCalls:
+      m_Calls: []
+  isHovering: 0
+  cam: {fileID: 335160456}
 --- !u!1 &1297953466
 GameObject:
   m_ObjectHideFlags: 0
@@ -2882,7 +2971,6 @@ GameObject:
   - component: {fileID: 1878100017}
   - component: {fileID: 1878100016}
   - component: {fileID: 1878100015}
-  - component: {fileID: 1878100020}
   - component: {fileID: 1878100019}
   m_Layer: 6
   m_Name: inv_Cube_OilBath
@@ -2981,20 +3069,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acf59615471f82048896445e1caa2255, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 1972730493}
---- !u!114 &1878100020
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1878100014}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44adc57e2cc0087469c536ad9af5f5dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnEnter:
+  OnHoverStart:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1742899130}
@@ -3009,7 +3084,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  OnExit:
+  OnHoverStop:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1742899130}
@@ -3024,6 +3099,11 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnClickStart:
+    m_PersistentCalls:
+      m_Calls: []
+  isHovering: 0
+  cam: {fileID: 1972730493}
 --- !u!1 &1955138084
 GameObject:
   m_ObjectHideFlags: 0
@@ -4544,14 +4624,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4659957663019373756}
-  m_LocalRotation: {x: 0, y: 0.3420201, z: 0, w: 0.9396927}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -0.8970521, y: 0.75403106, z: -1.1281152}
   m_LocalScale: {x: 0.9999999, y: 1, z: 0.9999999}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 543450651702969752}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 40, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!23 &1512822586664659951
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7147,6 +7227,8 @@ GameObject:
   - component: {fileID: 1495531777273603748}
   - component: {fileID: 8953643127916298239}
   - component: {fileID: 136045245211852431}
+  - component: {fileID: 8953643127916298240}
+  - component: {fileID: 8953643127916298241}
   m_Layer: 0
   m_Name: DoorNew
   m_TagString: Untagged
@@ -9903,6 +9985,72 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4659957663019373756}
   m_Mesh: {fileID: -6633809235856634191, guid: 65d96371023b9db4190dff7a2e3951bb, type: 3}
+--- !u!95 &8953643127916298240
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4659957663019373756}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1cf042e5e457fda409094f525322f722, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &8953643127916298241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4659957663019373756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f72e26d0f8df3146909313e7e97e889, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnHoverStart:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1742899130}
+        m_TargetAssemblyTypeName: CursorPainter, Assembly-CSharp
+        m_MethodName: Interact
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnHoverStop:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1742899130}
+        m_TargetAssemblyTypeName: CursorPainter, Assembly-CSharp
+        m_MethodName: Default
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnClickStart:
+    m_PersistentCalls:
+      m_Calls: []
+  isHovering: 0
 --- !u!4 &8982996865409707216
 Transform:
   m_ObjectHideFlags: 0
