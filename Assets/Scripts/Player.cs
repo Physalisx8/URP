@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
     [SerializeField] CinemachineVirtualCamera firstPersonCam;
     
     void Awake(){
+                CameraSwitch.Instance.SetMainCam(firstPersonCam);
                 CameraSwitch.Instance.Register(firstPersonCam);
                 CameraSwitch.Instance.SwitchCamera(firstPersonCam);
             }

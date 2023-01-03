@@ -16,9 +16,8 @@ public class CameraSwitch : Singleton<CameraSwitch>
         Instance.cameraTriggers = obj;
     }
 
-    void SetTriggers(){
-        // Instance.cameraTriggers.SetActive(IsActiveCamera(mainCam));
-        // (De)activates all triggers depending on active camera
+    public void SetMainCam(CinemachineVirtualCamera camera){
+        Instance.mainCam = camera;
     }
 
     public bool IsActiveCamera(CinemachineVirtualCamera camera) => Instance.ActiveCamera.Equals(camera);
@@ -30,7 +29,10 @@ public class CameraSwitch : Singleton<CameraSwitch>
             if (c != ActiveCamera)
                 c.Priority = 0;
 
-        SetTriggers();
+        // Set Camera Triggers active when main cam is active, otherwise deactivate
+        bool triggerState = camera.Equals(Instance.mainCam);
+        Debug.Log(Instance.mainCam.name);
+        cameraTriggers.SetActive(triggerState);	
 
     }
 
