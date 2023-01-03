@@ -135,7 +135,6 @@ GameObject:
   - component: {fileID: 128550118}
   - component: {fileID: 128550117}
   - component: {fileID: 128550116}
-  - component: {fileID: 128550114}
   m_Layer: 6
   m_Name: inv_Handle
   m_TagString: ClickableObject
@@ -158,23 +157,6 @@ Transform:
   m_Father: {fileID: 1034254362}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &128550114
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 128550112}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1e66d78d2cd603448d398b4d7f336e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  doorAnimation: {fileID: 8953643127916298240}
-  openAnimationName: temper_oven_open
-  closeAnimationName: temper_oven_close
-  waitTimer: 1
-  pauseInteraction: 0
 --- !u!65 &128550116
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2861,6 +2843,7 @@ MonoBehaviour:
   cursorDefault: {fileID: 2800000, guid: 3a3b099b023498f40b76caaa49e6cbb7, type: 3}
   cursorZoomIn: {fileID: 2800000, guid: 20857abf2e9ebe6438eaa160c206e54e, type: 3}
   cursorInteract: {fileID: 2800000, guid: 28de59d75fc316c49ac52c597a91023f, type: 3}
+  cursorZoomOut: {fileID: 0}
 --- !u!1 &1795980073
 GameObject:
   m_ObjectHideFlags: 0

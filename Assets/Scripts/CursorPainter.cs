@@ -7,6 +7,7 @@ public class CursorPainter : MonoBehaviour
     [SerializeField] Texture2D cursorDefault;
     [SerializeField] Texture2D cursorZoomIn;
     [SerializeField] Texture2D cursorInteract;
+    [SerializeField] Texture2D cursorZoomOut;
 
     void Awake(){
         Default();
@@ -22,5 +23,9 @@ public class CursorPainter : MonoBehaviour
     }
     public void Interact(){
         Cursor.SetCursor(cursorInteract, Vector2.zero, CursorMode.Auto);
+    }
+
+    public void ZoomOut(){
+        Cursor.SetCursor(cursorZoomOut, Vector2.zero, CursorMode.Auto);
     }
 }
