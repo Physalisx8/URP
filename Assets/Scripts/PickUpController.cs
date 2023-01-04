@@ -39,7 +39,7 @@ public class PickUpController : MonoBehaviour
             //wäre schöner raus zu finden wie man den deaktivieren kann/machen kann, dass er den Ray durchlässt
 
             //wenn das GameObject getroffen wird und die Zange nicht equipped ist und Player nah genug dran (kann also nicht vom start bedient werden)
-            if(hit.transform.gameObject.name == "inv_Cube_Tongs" && !equipped && distanceToPlayer.magnitude <= pickUpRange) {
+            if(hit.transform.gameObject.name == "tongs" && !equipped && distanceToPlayer.magnitude <= pickUpRange) {
                 PickUp();
              }
          }
