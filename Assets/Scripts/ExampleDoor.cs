@@ -5,10 +5,28 @@ using UnityEngine;
 // Von InteractableObject erben lassen
 public class ExampleDoor : InteractableObject
 {
+    GameManager gameManager;
+
+    void Awake(){
+        gameManager = FindObjectOfType<GameManager>();
+    }
     public override void OnClick()
     {
+        base.OnClick(); // Immer den BUms hier ausführen
+
         // Your code what happens on a click
-        base.OnClick(); // Immer den BUms hier ausführen danach
+        if (gameManager != null)
+        {
+            if (!isInteractable){
+                gameManager.IncreaseErrorCounter();
+            }
+            else{
+                gameManager.SetNextSection();
+            }
+        } else {
+            Debug.Log("gameManager = null");
+        }
+        
         
     }
 

@@ -9,10 +9,23 @@ public class InteractableObject : MonoBehaviour
     public UnityEvent OnHoverStop;
 
     public UnityEvent OnClickStart;
+    public UnityEvent OnInactiveClick;
     public bool isHovering; // is there currentkly a hover?
 
+    public bool isInteractable; // dont change here please
+
+    public void SetInteractable(bool interactable)
+    {
+        isInteractable = interactable;
+    }
+
     // Triggered when Object is clicked
-    public virtual void OnClick() { OnClickStart.Invoke();}
+    public virtual void OnClick() { 
+        if (isInteractable)
+            OnClickStart.Invoke();
+        else
+            OnInactiveClick.Invoke();
+        }
 
     #region Hover
     // Just filter for hovering actions
