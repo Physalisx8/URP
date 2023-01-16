@@ -42,6 +42,7 @@ public class TempReg : InteractableObject
      public void Update(){
         if (adjustable == true){
             changeTemperature();
+            //triggers stopIncrease when rechtsklick, vll was anderes mit UI?
             if (Input.GetMouseButtonDown(1)){
                 StopInc();
             }
@@ -69,10 +70,8 @@ if (Input.GetAxis("Mouse ScrollWheel") < 0 && increasing >0 && increasing<=750) 
     
         increasing -=10;
         text.SetText(increasing + "°");
-    
-  
-  
 }
+
 
 }
 

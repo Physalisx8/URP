@@ -15,26 +15,53 @@ public class Tongs : InteractableObject
     // Anfangsposition der Zange
     private Vector3 initialPos;
     private Quaternion initalRot;
+
+    GameManager gameManager;
+
+    void Awake(){
+        gameManager = FindObjectOfType<GameManager>();
+      
+    }
   
     private void Start()
-    {
-        // initiale Position speichern
-        initialPos = transform.localPosition;
+    {  initialPos = transform.localPosition;
         initalRot = transform.localRotation;
+        // initiale Position speichern
+      
     }
     public override void OnClick()
     {
+        
+      
         base.OnClick(); // Immer den BUms hier ausführen
-
-        // Your code what happens on a click
-           Vector3 distanceToPlayer = player.position - transform.position;
-
-     
-
-            //wenn das GameObject getroffen wird und die Zange nicht equipped ist und Player nah genug dran (kann also nicht vom start bedient werden)
+         Vector3 distanceToPlayer = player.position - transform.position;
+          if (gameManager != null)
+        {
+            if (!isInteractable){
+                gameManager.IncreaseErrorCounter();
+            }
+            else{
+                gameManager.SetNextSection();
+                      //wenn das GameObject getroffen wird und die Zange nicht equipped ist und Player nah genug dran (kann also nicht vom start bedient werden)
             if(!equipped && distanceToPlayer.magnitude <= pickUpRange) {
                 PickUp();
              }
+
+
+            }
+        } else {
+            Debug.Log("gameManager = null");
+        }
+        
+
+       // Your code what happens on a click
+        
+
+     
+
+      
+
+ 
          }
     
     private void Update(){
@@ -50,6 +77,7 @@ public class Tongs : InteractableObject
         transform.localPosition = Vector3.zero;
         transform.localRotation = Quaternion.Euler(Vector3.zero);
         transform.localScale = Vector3.one;
+      
     }
 
     private void Drop()
@@ -68,11 +96,17 @@ public class Tongs : InteractableObject
     {
         // Your Code
         base.HoverStart();
+         if (equipped ==true){
+            HoverStop();
+        }
+
+        
     }
 
         public override void HoverStop()
     {
         // Your Code
         base.HoverStop();
+       
     }
 }
