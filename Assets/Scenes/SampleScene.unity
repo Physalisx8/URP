@@ -1405,7 +1405,7 @@ MonoBehaviour:
     instruction: "Du arbeitest mit hohen Temperaturen. Sicherheitskleidung ist unerl\xE4sslich."
     hint: "Leg die Sicherheitshandschuhe und die Ledersch\xFCrze an. "
     activeObjects:
-    - {fileID: 3402049540203317609}
+    - {fileID: 5776878504555758546}
   - sectionName: Schritt 2
     instruction: "Auch Lederhandschuhe sch\xFCtzen deine H\xE4nde nicht vor 850\xB0C.
       Du willst etwas Distanz zwischen dir, dem Material und den Flammen. "
@@ -6458,7 +6458,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3402049540203317608}
   - component: {fileID: 3402049540203317610}
-  - component: {fileID: 3402049540203317609}
+  - component: {fileID: 3402049540203317611}
   m_Layer: 0
   m_Name: leathergloves
   m_TagString: ClickableObject
@@ -7064,7 +7064,20 @@ Transform:
   m_Father: {fileID: 1970464114}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -120, z: 0}
---- !u!114 &3402049540203317609
+--- !u!65 &3402049540203317610
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2629348624645608402}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.3, y: 0.15, z: 0.3}
+  m_Center: {x: 0, y: 0.2, z: 0.05}
+--- !u!114 &3402049540203317611
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -7114,20 +7127,6 @@ MonoBehaviour:
       m_Calls: []
   isHovering: 0
   isInteractable: 0
-  securityItems: {fileID: 4394080506615482475}
---- !u!65 &3402049540203317610
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2629348624645608402}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.3, y: 0.15, z: 0.3}
-  m_Center: {x: 0, y: 0.2, z: 0.05}
 --- !u!23 &3423011045086218531
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8246,9 +8245,10 @@ GameObject:
   - component: {fileID: 5776878504555758544}
   - component: {fileID: 5331169985173406017}
   - component: {fileID: 5776878504555758545}
+  - component: {fileID: 5776878504555758547}
   - component: {fileID: 5776878504555758546}
   m_Layer: 0
-  m_Name: Leather_Apron
+  m_Name: Apron
   m_TagString: ClickableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9281,19 +9281,74 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnHoverStart:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1742899130}
+        m_TargetAssemblyTypeName: CursorPainter, Assembly-CSharp
+        m_MethodName: Interact
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnHoverStop:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1742899130}
+        m_TargetAssemblyTypeName: CursorPainter, Assembly-CSharp
+        m_MethodName: Default
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnClickStart:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5776878504555758547}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: SetTrigger
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: fly
+          m_BoolArgument: 0
+        m_CallState: 2
   OnInactiveClick:
     m_PersistentCalls:
       m_Calls: []
   isHovering: 0
   isInteractable: 0
-  securityItems: {fileID: 0}
+--- !u!95 &5776878504555758547
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4394080506615482475}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 527e0bdce648a864abe5c72e33be54b0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &5789335357283131390
 GameObject:
   m_ObjectHideFlags: 0

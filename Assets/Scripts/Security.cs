@@ -6,13 +6,15 @@ using UnityEngine;
 public class Security : InteractableObject
 {
     GameManager gameManager;
-    [SerializeField] GameObject securityItems;
     GameObject leathergloves;
+    GameObject leatherap;
      
 
     void Awake(){
         gameManager = FindObjectOfType<GameManager>();
         leathergloves = GameObject.Find("leathergloves");
+        leatherap = GameObject.Find("Apron");
+
     }
     public override void OnClick()
     {
@@ -24,9 +26,11 @@ public class Security : InteractableObject
             if (!isInteractable){
                 gameManager.IncreaseErrorCounter();
             }
+       
             else{
-                leathergloves.SetActive(false);
-                securityItems.SetActive(false);
+                
+              //  leathergloves.SetActive(false);
+              //  leatherap.SetActive(false);
                 gameManager.SetNextSection();
             }
         } else {
@@ -35,6 +39,8 @@ public class Security : InteractableObject
         
         
     }
+
+
 
     public override void HoverStart()
     {
