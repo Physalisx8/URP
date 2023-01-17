@@ -1439,6 +1439,7 @@ MonoBehaviour:
     instruction: 
     hint: 
     activeObjects: []
+  showHint: {fileID: 1160815873}
   errorCount: 0
 --- !u!1 &591650200
 GameObject:

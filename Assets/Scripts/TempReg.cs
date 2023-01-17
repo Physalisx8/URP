@@ -31,21 +31,20 @@ public class TempReg : InteractableObject
              if (!isInteractable){
                  gameManager.IncreaseErrorCounter();
              }
-             else{
-                 gameManager.SetNextSection();
-             }
+         
          } else {
              Debug.Log("gameManager = null");
          }
      }
 
      public void Update(){
-        if (adjustable == true){
+        if (adjustable){
             changeTemperature();
+          
             //triggers stopIncrease when rechtsklick, vll was anderes mit UI?
-            if (Input.GetMouseButtonDown(1)){
-                StopInc();
-            }
+                 if (Input.GetMouseButtonDown(0) && increasing ==220){
+                    StopInc();
+          }
         }
    
      }
@@ -61,6 +60,7 @@ public void changeTemperature(){
   
         increasing +=10;
         text.SetText(increasing + "°");
+
         
 
   
@@ -70,13 +70,15 @@ if (Input.GetAxis("Mouse ScrollWheel") < 0 && increasing >0 && increasing<=750) 
     
         increasing -=10;
         text.SetText(increasing + "°");
-}
+       
+}}
 
 
-}
 
 public void StopInc(){
+
     adjustable= false;
+    gameManager.SetNextSection();
     Debug.Log("nopedidy");
 }
 }
