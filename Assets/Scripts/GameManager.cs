@@ -7,12 +7,15 @@ public class GameManager : MonoBehaviour
     [SerializeField] TMPro.TextMeshProUGUI errorText;
     [SerializeField] SceneSection[] sections;
     [SerializeField] SceneSection activeSection;
+    [SerializeField] ShowHint showHint;
     [SerializeField] int errorCount;
 
     public int ErrorCount => errorCount;
 
-    public string Hint => activeSection.Hint; // Access from other scripts, gets u the instruction
+    public string Hint => activeSection.Hint; // Access from other scripts, gets u the hint
     public string Instruction => activeSection.Instruction; // Access from other scripts, gets u the instruction
+
+    //ShowHint  showHint;
 
     private void OnEnable()
     {
@@ -36,6 +39,7 @@ public class GameManager : MonoBehaviour
             return;
         }
 
+        showHint.Hide();
         activeSectionIndex += 1;
         SetupActiveSection(sections[activeSectionIndex]);
     }

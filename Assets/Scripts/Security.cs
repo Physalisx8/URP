@@ -15,30 +15,22 @@ public class Security : InteractableObject
         leathergloves = GameObject.Find("leathergloves");
         leatherap = GameObject.Find("Apron");
 
+       
+
     }
     public override void OnClick()
     {
         base.OnClick(); // Immer den BUms hier ausführen
 
-        // Your code what happens on a click
-        if (gameManager != null)
-        {
-            if (!isInteractable){
-                gameManager.IncreaseErrorCounter();
-            }
-       
-            else{
-                
-              //  leathergloves.SetActive(false);
-              //  leatherap.SetActive(false);
-                gameManager.SetNextSection();
-            }
-        } else {
-            Debug.Log("gameManager = null");
+        if(leathergloves.activeSelf == false){
+            leathergloves.GetComponent<SecurityGloves>().NextSection();
+          
         }
-        
+      
         
     }
+
+
 
 
 
