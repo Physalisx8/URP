@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using Cinemachine;
 
 // Von InteractableObject erben lassen
-public class TempReg : InteractableObject
+public class TempReg : CameraTriggerZone
 {
  GameManager gameManager;
 
@@ -13,18 +14,24 @@ public class TempReg : InteractableObject
 [SerializeField] GameObject Obj;
  private int increasing = 0;
  private string stringy; 
+ [SerializeField] CinemachineVirtualCamera temperCam;
+ [SerializeField] GameObject tongsContainer;
+
 
 
 
       void Awake(){
         gameManager = FindObjectOfType<GameManager>();
-        
+      
     }
     public override void OnClick()
 
-    {
+    {   
+        
         base.OnClick();
         adjustable = true;
+        tongsContainer.SetActive(false);
+    
        
              if (gameManager != null)
          {
@@ -44,6 +51,9 @@ public class TempReg : InteractableObject
             //triggers stopIncrease when rechtsklick, vll was anderes mit UI?
                  if (Input.GetMouseButtonDown(0) && increasing ==220){
                     StopInc();
+          }
+          if(Input.GetMouseButtonDown(0) && increasing !=220){
+            gameManager.IncreaseErrorCounter();
           }
         }
    
@@ -78,7 +88,9 @@ if (Input.GetAxis("Mouse ScrollWheel") < 0 && increasing >0 && increasing<=750) 
 public void StopInc(){
 
     adjustable= false;
+    CameraSwitch.Instance.SwitchCamera(temperCam);
     gameManager.SetNextSection();
     Debug.Log("nopedidy");
+    tongsContainer.SetActive(true);
 }
 }
