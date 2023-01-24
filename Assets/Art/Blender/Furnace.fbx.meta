@@ -3,7 +3,57 @@ guid: 3d81105e6179d234599d372c6b5d5090
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BlueRubber
+    second: {fileID: 2100000, guid: ee1890aeb840be54c8cf2b74247d3f16, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Copper
+    second: {fileID: 2100000, guid: da1fdd7cec8b08f4787c0f9438d99997, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: InnerValveBitMaterial
+    second: {fileID: 2100000, guid: 1df0cd285e5cedc42a931290ff9a7443, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Metal
+    second: {fileID: 2100000, guid: 5b900e135c0fafb4ab4843c044323e37, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Orange Rubber
+    second: {fileID: 2100000, guid: 83bf5881597b3e544a624db95aa0de74, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PipeMaterial
+    second: {fileID: 2100000, guid: a4b98567175606743a370ea44127264d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Schamott
+    second: {fileID: 2100000, guid: 1f1c9de2a2b96214cb91e9717fd2a289, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ShinyMetal
+    second: {fileID: 2100000, guid: 1f5050262a0138444a66dc24017c05a1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Stone
+    second: {fileID: 2100000, guid: 232e483262009a54b9b24a2d53b4ad50, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: White Paint
+    second: {fileID: 2100000, guid: 50d87f5b5fb61514a92425b5bbc9d1a5, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
