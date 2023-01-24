@@ -66,7 +66,7 @@ public class Tongs : InteractableObject
     
     private void Update(){
           //Zange zurück legen, wenn space gedrückt wird
-        if (equipped && Input.GetKeyDown(KeyCode.Space)) Drop();
+      //  if (equipped && Input.GetKeyDown(KeyCode.Space)) Drop();
     }
         private void PickUp()
     {

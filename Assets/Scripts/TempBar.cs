@@ -13,7 +13,7 @@ public int maximum;
 public Image temp;
 
 void Start(){
-    //StartCoroutine(IncreaseSeconds(maximum));
+    StartCoroutine(IncreaseSeconds(maximum));
 }
 
 
@@ -28,7 +28,7 @@ void CheckInput(float amount){
 public IEnumerator IncreaseSeconds (float seconds){
     float elapsedTime= 0;
     while (elapsedTime < seconds){
-         elapsedTime += Time.deltaTime;
+        elapsedTime += Time.deltaTime;
         float fillAmount = elapsedTime/seconds;
         CheckInput(fillAmount);
         temp.fillAmount = fillAmount;

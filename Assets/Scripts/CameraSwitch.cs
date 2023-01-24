@@ -21,6 +21,8 @@ public class CameraSwitch : Singleton<CameraSwitch>
     }
 
     public bool IsActiveCamera(CinemachineVirtualCamera camera) => Instance.ActiveCamera.Equals(camera);
+
+    
     public void SwitchCamera(CinemachineVirtualCamera camera)
     {
         SetActiveCam(camera);

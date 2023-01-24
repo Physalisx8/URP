@@ -21,13 +21,15 @@ public class ShowHint : MonoBehaviour
         gameManager = FindObjectOfType<GameManager>();
     }
 
-  void Update(){
+  /*void Update(){
     if(Input.GetKeyDown(KeyCode.H)){
         Show();
     }
   }
+  */
 
-void Show(){
+
+public void Show(){
     
     hintText.text = gameManager.Hint;
     IncreaseHintCounter();
