@@ -5,6 +5,7 @@ public class GameManager : MonoBehaviour
     int activeSectionIndex;
     [SerializeField] TMPro.TextMeshProUGUI instructionsText;
     [SerializeField] TMPro.TextMeshProUGUI errorText;
+    [SerializeField] TMPro.TextMeshProUGUI sectionNameText;
     [SerializeField] SceneSection[] sections;
     [SerializeField] SceneSection activeSection;
     [SerializeField] ShowHint showHint;
@@ -14,6 +15,7 @@ public class GameManager : MonoBehaviour
 
     public string Hint => activeSection.Hint; // Access from other scripts, gets u the hint
     public string Instruction => activeSection.Instruction; // Access from other scripts, gets u the instruction
+    public string sectionName => activeSection.SectionName;
 
     //ShowHint  showHint;
 
@@ -57,6 +59,8 @@ public class GameManager : MonoBehaviour
             script.SetInteractable(true);
 
         instructionsText.text = Instruction;
+        sectionNameText.text = sectionName;
+
     }
 
     public void IncreaseErrorCounter()

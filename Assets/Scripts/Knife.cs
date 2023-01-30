@@ -4,6 +4,23 @@ using UnityEngine;
 
 // Von InteractableObject erben lassen
 public class Knife : InteractableObject
+
+/*
+550 Dunkelbraun #352201
+630 Braunrot #542803
+680 Dunkelrot #681100
+740 Dunkelkirschrot #861600
+780 Kirschrot #a00000
+810 Hellkirschrot #c11b1b
+850 Hellrot #d44115
+900 Gut Hellrot #e9582c
+950 Gelbrot #e97e1c
+1000 Hellgelbrot #ffaa0f
+1100 Gelb #fbc034
+1200 Hellgelb #ffcf61
+>1300 Gelbweiß #ffe6ad
+*/
+
 {
     GameManager gameManager;
 
@@ -15,7 +32,7 @@ public class Knife : InteractableObject
         base.OnClick(); // Immer den BUms hier ausführen
 
         // Your code what happens on a click
-        
+       /* 
          if (gameManager != null)
         {
             if (!isInteractable){
@@ -27,8 +44,12 @@ public class Knife : InteractableObject
         } else {
             Debug.Log("gameManager = null");
         }
+        */
         
-        
+    }
+
+    public void CoolDownOverTime(){
+
     }
 
     public override void HoverStart()

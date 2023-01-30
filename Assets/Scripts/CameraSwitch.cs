@@ -42,6 +42,8 @@ public class CameraSwitch : Singleton<CameraSwitch>
         Instance.ActiveCamera = camera;
         Instance.ActiveCamera.Priority = 1;
         Debug.Log(ActiveCamera.name);
+        
+
     }
 
     public void Register(CinemachineVirtualCamera camera)

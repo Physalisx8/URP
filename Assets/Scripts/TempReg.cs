@@ -28,6 +28,9 @@ public class TempReg : CameraTriggerZone
     [SerializeField]
     GameObject tongsContainer;
 
+    [SerializeField]
+    GameObject UI_;
+
     void Awake()
     {
         gameManager = FindObjectOfType<GameManager>();
@@ -38,6 +41,7 @@ public class TempReg : CameraTriggerZone
         base.OnClick();
         adjustable = true;
         tongsContainer.SetActive(false);
+        UI_.SetActive(true);
 
         if (gameManager != null)
         {
@@ -99,6 +103,7 @@ public class TempReg : CameraTriggerZone
 
     public void StopInc()
     {
+        UI_.SetActive(false);
         adjustable = false;
         gameManager.SetNextSection();
         Debug.Log("nopedidy");
