@@ -45,7 +45,7 @@ public float pickUpRange;
     public override void OnClick()
     {
         base.OnClick(); // Immer den BUms hier ausführen
-  Vector3 distanceToPlayer = player.position - transform.position;
+        Vector3 distanceToPlayer = player.position - transform.position;
         // Your code what happens on a click
        
          if (gameManager != null)
@@ -55,12 +55,9 @@ public float pickUpRange;
             }
             else{
                 gameManager.SetNextSection();
-        if(!equipped && distanceToPlayer.magnitude <= pickUpRange) {
-                PickUp();
+                if(!equipped && distanceToPlayer.magnitude <= pickUpRange) {
+                    PickUp();
              }
-                
-             
-
             }
         } else {
             Debug.Log("gameManager = null");
@@ -75,9 +72,9 @@ public float pickUpRange;
 
         transform.SetParent(tongsContainer);
     
-          transform.localPosition = Vector3.zero;
+        transform.localPosition = Vector3.zero;
         transform.localRotation = Quaternion.Euler(Vector3.zero);
-        transform.localScale = Vector3.one;
+        //transform.scale = Vector3.one;
        
       
     }
@@ -91,10 +88,6 @@ public float pickUpRange;
               transform.localPosition = initialPos;
         transform.localRotation = initalRot;
     }
-
-
- 
-
 
 
     public override void HoverStart()
