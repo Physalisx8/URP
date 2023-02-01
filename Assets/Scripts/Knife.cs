@@ -6,34 +6,48 @@ using UnityEngine;
 public class Knife : InteractableObject
 
 /*
-550 Dunkelbraun #352201
-630 Braunrot #542803
-680 Dunkelrot #681100
-740 Dunkelkirschrot #861600
-780 Kirschrot #a00000
-810 Hellkirschrot #c11b1b
-850 Hellrot #d44115
-900 Gut Hellrot #e9582c
-950 Gelbrot #e97e1c
-1000 Hellgelbrot #ffaa0f
-1100 Gelb #fbc034
-1200 Hellgelb #ffcf61
->1300 Gelbweiß #ffe6ad
+#352201
+#542803
+#681100
+#861600
+#a00000
+#c11b1b
+#d44115
+#e9582c
+#e97e1c
+#ffaa0f
+#fbc034
+#ffcf61
+#ffe6ad
 */
 
-{
+{      
+     public Transform player, tongsContainer;
+public float pickUpRange;
+    public bool equipped;
     GameManager gameManager;
-    //inFurnace muss gesetzt werden, wenn das Messer in der Esse ist und ide Tür geschlossen wurde. KP wie wir das realisieren. Wird schon irgendwie xD
-
+     private Vector3 initialPos;
+    private Quaternion initalRot;
+  
     void Awake(){
         gameManager = FindObjectOfType<GameManager>();
     }
+
+    private void Start()
+    {  initialPos = transform.localPosition;
+  
+        initalRot = transform.localRotation;
+        // initiale Position speichern
+      
+    }
+
+
     public override void OnClick()
     {
         base.OnClick(); // Immer den BUms hier ausführen
-
+  Vector3 distanceToPlayer = player.position - transform.position;
         // Your code what happens on a click
-       /* 
+       
          if (gameManager != null)
         {
             if (!isInteractable){
@@ -41,13 +55,43 @@ public class Knife : InteractableObject
             }
             else{
                 gameManager.SetNextSection();
+        if(!equipped && distanceToPlayer.magnitude <= pickUpRange) {
+                PickUp();
+             }
+                
+             
+
             }
         } else {
             Debug.Log("gameManager = null");
         }
-        */
+        
         
     }
+
+    private void PickUp()
+    {
+        equipped = true;
+
+        transform.SetParent(tongsContainer);
+    
+          transform.localPosition = Vector3.zero;
+        transform.localRotation = Quaternion.Euler(Vector3.zero);
+        transform.localScale = Vector3.one;
+       
+      
+    }
+
+    private void Drop()
+    {
+        equipped = false;
+
+        //Wieder vom tongsContainer entfernen
+        transform.SetParent(null);
+              transform.localPosition = initialPos;
+        transform.localRotation = initalRot;
+    }
+
 
  
 
@@ -57,6 +101,9 @@ public class Knife : InteractableObject
     {
         // Your Code
         base.HoverStart();
+        if (equipped ==true){
+            HoverStop();
+        }
     }
 
         public override void HoverStop()

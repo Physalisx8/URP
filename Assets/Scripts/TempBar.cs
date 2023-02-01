@@ -22,7 +22,7 @@ bool window;
 bool stap;
 void Start(){
     //TemperatureRise dann irgendwann callen, wenn wir wissen wo.
-    TemperatureRise();
+    //TemperatureRise();
     //ToDo: wir müssen unbedingt die UI dann auch enablen, sonst sieht man ja nix.
 }
 

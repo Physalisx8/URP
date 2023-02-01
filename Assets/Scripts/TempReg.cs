@@ -76,7 +76,6 @@ public class TempReg : CameraTriggerZone
 
     public void changeTemperature()
     {
-        // Debug.Log("DAKJSLÖDJSALKJDALKSJDLKAJDLKWAJDWJLKWAJDÖLWAJöd");
         if (
             Input.GetAxis("Mouse ScrollWheel") > 0 &&
             increasing >= 0 &&
