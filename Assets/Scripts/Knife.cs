@@ -23,6 +23,7 @@ public class Knife : InteractableObject
 
 {
     GameManager gameManager;
+    //inFurnace muss gesetzt werden, wenn das Messer in der Esse ist und ide Tür geschlossen wurde. KP wie wir das realisieren. Wird schon irgendwie xD
 
     void Awake(){
         gameManager = FindObjectOfType<GameManager>();
@@ -48,9 +49,9 @@ public class Knife : InteractableObject
         
     }
 
-    public void CoolDownOverTime(){
+ 
 
-    }
+
 
     public override void HoverStart()
     {
