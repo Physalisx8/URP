@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 using Cinemachine;
 
@@ -21,6 +22,10 @@ public void StartTraining(){
     UI_Training.SetActive(true);
     Obj.SetActive(true);
     
+}
+
+public void StartApp(){
+    SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 }
 
 public void QuitApplication(){
