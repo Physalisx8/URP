@@ -20,14 +20,23 @@ public Image temp;
 
 bool window;
 bool stap;
+  GameManager gameManager;
 void Start(){
     //TemperatureRise dann irgendwann callen, wenn wir wissen wo.
-    //TemperatureRise();
+    TemperatureRise();
     //ToDo: wir müssen unbedingt die UI dann auch enablen, sonst sieht man ja nix.
 }
+    void Awake(){
+        gameManager = FindObjectOfType<GameManager>();
+    }
 
 void Update(){
 
+if(!window){
+        if(Input.GetMouseButtonDown(0)){
+            gameManager.IncreaseErrorCounter();
+        }
+    }
 //if Flag, then check for input from User, if Input comes, Stop animation and set flag for Stopping Coroutine
     if (window){
            if(Input.GetMouseButtonDown(0)){
@@ -35,16 +44,17 @@ void Update(){
              stap = true;
              _UI.SetActive(false);
     }
+    
+       
 }}
 
 
 //checking timeframe from temperature Bar & sets Flag
 void CheckInput(float amount){
- 
         if (amount > 0.397 && amount < 0.52){
              window= true;
              }
-        else if(amount >=0.52){
+        else if(amount <= 0.397 || amount >=0.52){
             window=false;
         }
 }
