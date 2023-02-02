@@ -23,37 +23,32 @@ public class SecurityGloves : InteractableObject
     public override void OnClick()
     {
         base.OnClick(); // Immer den BUms hier ausführen
-         leathergloves.SetActive(false);
-
-         if (animator.GetCurrentAnimatorStateInfo(0).IsName("flying_apron")){
-            leatherap.SetActive(false);
-            NextSection();
-         }
-            
-        }
-        // Your code what happens on a click
-   
-    
-    
-
-public void NextSection(){
-
-     if (gameManager != null)
+         if (gameManager != null)
         {
             if (!isInteractable){
                 gameManager.IncreaseErrorCounter();
             }
        
             else{
-                
-              // leathergloves.SetActive(false);
-              //  leatherap.SetActive(false);
-                gameManager.SetNextSection();
+            leathergloves.SetActive(false);
+
+            if (animator.GetCurrentAnimatorStateInfo(0).IsName("flying_apron")){
+            leatherap.SetActive(false);
+                gameManager.SetNextSection();}
             }
         } else {
             Debug.Log("gameManager = null");
         }
-        
+
+        }
+ 
+   
+    
+    
+
+public void NextSection(){
+                gameManager.SetNextSection();
+    
 }
 
 

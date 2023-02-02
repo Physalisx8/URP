@@ -21,15 +21,28 @@ public class Security : InteractableObject
     public override void OnClick()
     {
         base.OnClick(); // Immer den BUms hier ausführen
-
-        if(leathergloves.activeSelf == false){
+        if (gameManager != null)
+        {
+            if (!isInteractable){
+                gameManager.IncreaseErrorCounter();
+            }
+       
+            else if(leathergloves.activeSelf == false && isInteractable){
             leathergloves.GetComponent<SecurityGloves>().NextSection();
+            }
+            else if(isInteractable){
+                Debug.Log("Probably play animation here");
+            }
+        }
+         else {
+            Debug.Log("gameManager = null");
+        }
+       
           
         }
       
         
-    }
-
+    
 
 
 
