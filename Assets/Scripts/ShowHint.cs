@@ -9,8 +9,9 @@ public class ShowHint : MonoBehaviour
 
 [SerializeField] TMPro.TextMeshProUGUI hintText;
 [SerializeField] TMPro.TextMeshProUGUI hintCountText;
+[SerializeField] TMPro.TextMeshProUGUI hintCountOutro;
 [SerializeField] GameObject Button;
-[SerializeField] int hintCount;
+[SerializeField] public int hintCount;
  GameManager gameManager;
 
     private void OnEnable()
@@ -42,6 +43,7 @@ public void Show(){
     {
     hintCount+=1;
     hintCountText.text = "Hinweise: " + hintCount;
+    hintCountOutro.text = "Hinweise: "+ hintCount;
     }
 public void Hide(){
     Button.SetActive(true);
@@ -52,5 +54,6 @@ public void Hide(){
     {
         hintCount = 0;
         hintCountText.text = "Hinweise: 0";
+        hintCountOutro.text = "Hinweise: 0";
     }
 }

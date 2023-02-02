@@ -15,7 +15,7 @@ public class Forge : InteractableObject
         base.OnClick(); // Immer den BUms hier ausführen
 
         // Your code what happens on a click
-      /*  if (gameManager != null)
+       if (gameManager != null)
         {
             if (!isInteractable){
                 gameManager.IncreaseErrorCounter();
@@ -26,7 +26,7 @@ public class Forge : InteractableObject
         } else {
             Debug.Log("gameManager = null");
         }
-        */
+        
         
     }
 
