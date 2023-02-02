@@ -2,9 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// Von InteractableObject erben lassen
-public class Knife : InteractableObject
-
+#region Colors
 /*
 #352201
 #542803
@@ -20,9 +18,13 @@ public class Knife : InteractableObject
 #ffcf61
 #ffe6ad
 */
+#endregion
 
+// Von InteractableObject erben lassen
+public class Knife : InteractableObject
 {      
      public Transform player, tongsContainer;
+
 public float pickUpRange;
     public bool equipped;
     GameManager gameManager;
@@ -41,10 +43,21 @@ public float pickUpRange;
       
     }
 
+    public override void SectionChange(bool isActive){
+        base.SectionChange(isActive);
+        if (isActive){
+            // Wenn Event(Section) auf aktiv gesetzt wird.
+        } else {
+            // Wenn Event inaktiv wird. Brauchen wir aber eigentlich nicht
+            PickUp();
+        }
+    }
+
 
     public override void OnClick()
     {
         base.OnClick(); // Immer den BUms hier ausführen
+        Debug.Log("Knife Click");
         Vector3 distanceToPlayer = player.position - transform.position;
         // Your code what happens on a click
        

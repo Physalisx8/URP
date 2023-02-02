@@ -5,6 +5,7 @@ using UnityEngine.Events;
 
 public class InteractableObject : MonoBehaviour
 {
+    public bool debug;
     public UnityEvent OnHoverStart;
     public UnityEvent OnHoverStop;
 
@@ -13,6 +14,32 @@ public class InteractableObject : MonoBehaviour
     public bool isHovering; // is there currentkly a hover?
 
     public bool isInteractable; // dont change here please
+
+        [Header("Listening to ...")]
+    public BoolEventSO OnSectionChange;
+
+    void OnEnable(){
+        if (OnSectionChange != null){
+            OnSectionChange.OnInvoke += SectionChange;
+            if (debug)
+            Debug.Log("Subsrcibed! " + name);
+        }
+    }
+    
+    void OnDisable(){
+        if (OnSectionChange != null){
+            OnSectionChange.OnInvoke -= SectionChange;
+            if (debug)
+                Debug.Log("Unsubscribed! " + name);
+        }
+    }
+
+    public virtual void SectionChange(bool isActive){
+        if (debug){
+            Debug.Log("Section Change " + isActive);
+        }
+        // Do stuff
+    }
 
     public void SetInteractable(bool interactable)
     {

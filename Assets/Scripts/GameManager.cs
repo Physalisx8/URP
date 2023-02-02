@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] int errorCount;
     [SerializeField] GameObject startMenu;
 
+    public bool isDemoMode;
+
     public int ErrorCount => errorCount;
 
     public string Hint => activeSection.Hint; // Access from other scripts, gets u the hint
@@ -32,21 +34,41 @@ public class GameManager : MonoBehaviour
         if (activeSectionIndex <= 0)
             return;
 
+
+        if (isDemoMode){
+            foreach (BoolEventSO interaction in activeSection.Interactions)
+                interaction.Invoke(false);
+        }
+
+        if (isDemoMode){
+            foreach (BoolEventSO interaction in sections[activeSectionIndex -1].Interactions)
+                interaction.Invoke(true);
+        }
+
         activeSectionIndex -= 1;
         SetupActiveSection(sections[activeSectionIndex]);
     }
     public void SetNextSection()
     {
         Debug.Log("Next Section");
-             if (sections.Length <= activeSectionIndex+1)
+        if (sections.Length <= activeSectionIndex)
         {
-      
             SectionsFinished();
             return;
         }
 
+        if (isDemoMode){
+            foreach (BoolEventSO interaction in activeSection.Interactions)
+                interaction.Invoke(false);
+        }
+
         showHint.Hide();
         activeSectionIndex += 1;
+
+                if (isDemoMode){
+            foreach (BoolEventSO interaction in sections[activeSectionIndex].Interactions)
+                interaction.Invoke(true);
+        }
  
         SetupActiveSection(sections[activeSectionIndex]);
    
@@ -56,6 +78,7 @@ public class GameManager : MonoBehaviour
     void SetupActiveSection(SceneSection activeSection)
     {
         Debug.Log("Set Section");
+
         this.activeSection = activeSection;
         // Sets all Interactable Objects inactive
         foreach (SceneSection section in sections)

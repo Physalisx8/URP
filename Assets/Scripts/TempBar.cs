@@ -12,6 +12,7 @@ public class TempBar : MonoBehaviour
     
    [SerializeField] GameObject _GO;
    [SerializeField] GameObject _UI;
+   [SerializeField] GameObject _UI2;
 private int maximum = 15;
 float fillAmount;
 
@@ -20,14 +21,19 @@ public Image temp;
 
 bool window;
 bool stap;
+
+Animator animator;
   GameManager gameManager;
+  GameObject door;
 void Start(){
     //TemperatureRise dann irgendwann callen, wenn wir wissen wo.
-    TemperatureRise();
+    //TemperatureRise();
     //ToDo: wir müssen unbedingt die UI dann auch enablen, sonst sieht man ja nix.
 }
     void Awake(){
         gameManager = FindObjectOfType<GameManager>();
+         door = GameObject.Find("Door");
+        animator = door.GetComponent<Animator>();
     }
 
 void Update(){
@@ -40,14 +46,20 @@ if(!window){
 //if Flag, then check for input from User, if Input comes, Stop animation and set flag for Stopping Coroutine
     if (window){
            if(Input.GetMouseButtonDown(0)){
-             _GO.GetComponent<Animator>().enabled = false;
-             stap = true;
-             _UI.SetActive(false);
+            Successfull();
     }
     
        
 }}
 
+void Successfull(){
+       _GO.GetComponent<Animator>().enabled = false;
+             stap = true;
+             _UI.SetActive(false);
+             _UI2.SetActive(false);
+             animator.Play("ForgeDoor_open");
+             gameManager.SetNextSection();
+}
 
 //checking timeframe from temperature Bar & sets Flag
 void CheckInput(float amount){
@@ -61,7 +73,8 @@ void CheckInput(float amount){
 
 //starting Coroutine to fill up the TemperatureBar, start Animation
    public void TemperatureRise(){
-        _UI.SetActive(true);
+       // _UI.SetActive(true);
+       Debug.Log("Verhungert");
         StartCoroutine(IncreaseSeconds(maximum));
         _GO.GetComponent<Animator>().Play("changeEmission");
         }

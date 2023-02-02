@@ -11,6 +11,15 @@ public class CameraTriggerZone : InteractableObject
         base.OnClick();
     }
 
+    public override void SectionChange(bool isActive){
+        if (isActive){
+            // Wenn Section aktiviert wird
+        }else{
+            // Wenn section deaktiviert wird
+            OnClick();
+        }
+    }
+
     public override void HoverStart()
     {
         base.HoverStart();

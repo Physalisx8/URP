@@ -8,6 +8,9 @@ public class SceneSection
     [TextArea][SerializeField] string hint;
     [SerializeField] InteractableObject[] activeObjects;
 
+    [SerializeField] BoolEventSO[] interactions;
+    public BoolEventSO[] Interactions => interactions;
+
     public InteractableObject[] ActiveObjects => activeObjects;
     public string SectionName => sectionName;
         public string Instruction => instruction;

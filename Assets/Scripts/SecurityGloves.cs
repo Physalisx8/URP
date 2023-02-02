@@ -7,17 +7,18 @@ public class SecurityGloves : InteractableObject
 {
     GameManager gameManager;
     GameObject leathergloves;
+   /*
     GameObject leatherap;
     Animator animator;
-
+*/
      
 
     void Awake(){
         gameManager = FindObjectOfType<GameManager>();
         leathergloves = GameObject.Find("leathergloves");
     
-        leatherap = GameObject.Find("Apron");
-        animator = leatherap.GetComponent<Animator> ();
+       // leatherap = GameObject.Find("Apron");
+       // animator = leatherap.GetComponent<Animator> ();
 
     }
     public override void OnClick()
@@ -32,25 +33,25 @@ public class SecurityGloves : InteractableObject
             else{
             leathergloves.SetActive(false);
 
-            if (animator.GetCurrentAnimatorStateInfo(0).IsName("flying_apron")){
-            leatherap.SetActive(false);
-                gameManager.SetNextSection();}
+           /* if (animator.GetCurrentAnimatorStateInfo(0).IsName("flying_apron")){
+            leatherap.SetActive(false);*/
+                gameManager.SetNextSection();
             }
         } else {
             Debug.Log("gameManager = null");
-        }
+        }}
 
-        }
+        
  
    
     
-    
+    /*
 
 public void NextSection(){
                 gameManager.SetNextSection();
     
 }
-
+*/
 
     public override void HoverStart()
     {
