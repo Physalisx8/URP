@@ -8,104 +8,124 @@ using UnityEngine.UI;
 //ToDo: increase current over time
 public class TempBar : MonoBehaviour
 {
-    
-    
-   [SerializeField] GameObject _GO;
-   [SerializeField] GameObject _UI;
-   [SerializeField] GameObject _UI2;
-private int maximum = 15;
-float fillAmount;
 
-  float elapsedTime= 0;
-public Image temp;
 
-bool window;
-bool stap;
+    [SerializeField] GameObject _GO;
+    [SerializeField] GameObject _UI;
+    [SerializeField] GameObject _UI2;
+    private int maximum = 15;
+    float fillAmount;
 
-Animator animator;
-  GameManager gameManager;
-  GameObject door;
-void Start(){
-    //TemperatureRise dann irgendwann callen, wenn wir wissen wo.
-    //TemperatureRise();
-    //ToDo: wir müssen unbedingt die UI dann auch enablen, sonst sieht man ja nix.
-}
-    void Awake(){
+    float elapsedTime = 0;
+    public Image temp;
+
+    bool window;
+    bool stap;
+
+    Animator animator;
+    GameManager gameManager;
+    GameObject door;
+    void Start()
+    {
+        //TemperatureRise dann irgendwann callen, wenn wir wissen wo.
+        //TemperatureRise();
+        //ToDo: wir müssen unbedingt die UI dann auch enablen, sonst sieht man ja nix.
+    }
+    void Awake()
+    {
         gameManager = FindObjectOfType<GameManager>();
-         door = GameObject.Find("Door");
+        door = GameObject.Find("Door");
         animator = door.GetComponent<Animator>();
     }
 
-void Update(){
+    void Update()
+    {
 
-if(!window){
-        if(Input.GetMouseButtonDown(0)){
-            gameManager.IncreaseErrorCounter();
+        if (!window)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                gameManager.IncreaseErrorCounter();
+            }
+        }
+        //if Flag, then check for input from User, if Input comes, Stop animation and set flag for Stopping Coroutine
+        if (window)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                Successfull();
+            }
+
+
         }
     }
-//if Flag, then check for input from User, if Input comes, Stop animation and set flag for Stopping Coroutine
-    if (window){
-           if(Input.GetMouseButtonDown(0)){
-            Successfull();
+
+    void Successfull()
+    {
+        _GO.GetComponent<Animator>().enabled = false;
+        stap = true;
+        _UI.SetActive(false);
+        _UI2.SetActive(false);
+        animator.Play("ForgeDoor_open");
+        gameManager.SetNextSection();
     }
-    
-       
-}}
 
-void Successfull(){
-       _GO.GetComponent<Animator>().enabled = false;
-             stap = true;
-             _UI.SetActive(false);
-             _UI2.SetActive(false);
-             animator.Play("ForgeDoor_open");
-             gameManager.SetNextSection();
-}
+    //checking timeframe from temperature Bar & sets Flag
+    void CheckInput(float amount)
+    {
+        window = amount > 0.397 && amount < 0.52;
 
-//checking timeframe from temperature Bar & sets Flag
-void CheckInput(float amount){
-        if (amount > 0.397 && amount < 0.52){
-             window= true;
-             }
-        else if(amount <= 0.397 || amount >=0.52){
-            window=false;
-        }
-}
+        //if (amount > 0.397 && amount < 0.52)
+        //{
+        //    window = true;
+        //}
+        //else if (amount <= 0.397 || amount >= 0.52)
+        //{
+        //    window = false;
+        //}
+    }
 
-//starting Coroutine to fill up the TemperatureBar, start Animation
-   public void TemperatureRise(){
-       // _UI.SetActive(true);
-       Debug.Log("Verhungert");
+    //starting Coroutine to fill up the TemperatureBar, start Animation
+    public void TemperatureRise()
+    {
+        // _UI.SetActive(true);
+        Debug.Log("Verhungert");
         StartCoroutine(IncreaseSeconds(maximum));
         _GO.GetComponent<Animator>().Play("changeEmission");
+    }
+
+
+    //Coroutine to increase the Temperature Bar.
+    public IEnumerator IncreaseSeconds(float seconds)
+    {
+
+        while (elapsedTime < seconds && !stap)
+        {
+            elapsedTime += Time.deltaTime;
+            fillAmount = elapsedTime / seconds;
+            CheckInput(fillAmount);
+            temp.fillAmount = fillAmount;
+
+
+            yield return new WaitForEndOfFrame();
+
         }
-        
-    
-//Coroutine to increase the Temperature Bar.
-public IEnumerator IncreaseSeconds (float seconds){
 
-    while (elapsedTime < seconds && !stap){
-        elapsedTime += Time.deltaTime;
-        fillAmount = elapsedTime/seconds;
-        CheckInput(fillAmount);
-        temp.fillAmount = fillAmount;
-      
-          
-        yield return new WaitForEndOfFrame();
-    
+        //stops coroutine and sets fillAmount with last known fill
+        if (stap)
+        {
+            temp.fillAmount = fillAmount;
+        }
+
+        //looping it in case User failed to click while window was open
+        else
+        {
+            temp.fillAmount = 0;
+            stap = false;
+            elapsedTime = 0;
+            TemperatureRise();
+        }
     }
 
-    //stops coroutine and sets fillAmount with last known fill
-    if (stap){
-    temp.fillAmount = fillAmount;}
 
-    //looping it in case User failed to click while window was open
-    else {
-        temp.fillAmount = 0;
-        stap=false;
-        elapsedTime=0;
-        TemperatureRise();
-    }
-}
-
-    
 }

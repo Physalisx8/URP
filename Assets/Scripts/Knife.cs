@@ -22,32 +22,38 @@ using UnityEngine;
 
 // Von InteractableObject erben lassen
 public class Knife : InteractableObject
-{      
-     public Transform player, tongsContainer;
+{
+    public Transform player, tongsContainer;
 
-public float pickUpRange;
+    public float pickUpRange;
     public bool equipped;
     GameManager gameManager;
-     private Vector3 initialPos;
+    private Vector3 initialPos;
     private Quaternion initalRot;
-  
-    void Awake(){
+
+    void Awake()
+    {
         gameManager = FindObjectOfType<GameManager>();
     }
 
     private void Start()
-    {  initialPos = transform.localPosition;
-  
+    {
+        initialPos = transform.localPosition;
+
         initalRot = transform.localRotation;
         // initiale Position speichern
-      
+
     }
 
-    public override void SectionChange(bool isActive){
+    public override void SectionChange(bool isActive)
+    {
         base.SectionChange(isActive);
-        if (isActive){
+        if (isActive)
+        {
             // Wenn Event(Section) auf aktiv gesetzt wird.
-        } else {
+        }
+        else
+        {
             // Wenn Event inaktiv wird. Brauchen wir aber eigentlich nicht
             PickUp();
         }
@@ -60,23 +66,29 @@ public float pickUpRange;
         Debug.Log("Knife Click");
         Vector3 distanceToPlayer = player.position - transform.position;
         // Your code what happens on a click
-       
-         if (gameManager != null)
+
+        if (gameManager != null)
         {
-            if (!isInteractable){
+            if (!isInteractable)
+            {
                 gameManager.IncreaseErrorCounter();
             }
-            else{
+            else
+            {
                 gameManager.SetNextSection();
-                if(!equipped && distanceToPlayer.magnitude <= pickUpRange) {
+                if (!equipped && distanceToPlayer.magnitude <= pickUpRange)
+                {
                     PickUp();
-             }
+                }
+
             }
-        } else {
+        }
+        else
+        {
             Debug.Log("gameManager = null");
         }
-        
-        
+
+
     }
 
     private void PickUp()
@@ -84,12 +96,12 @@ public float pickUpRange;
         equipped = true;
 
         transform.SetParent(tongsContainer);
-    
+
         transform.localPosition = Vector3.zero;
         transform.localRotation = Quaternion.Euler(Vector3.zero);
         //transform.scale = Vector3.one;
-       
-      
+
+
     }
 
     private void Drop()
@@ -98,7 +110,7 @@ public float pickUpRange;
 
         //Wieder vom tongsContainer entfernen
         transform.SetParent(null);
-              transform.localPosition = initialPos;
+        transform.localPosition = initialPos;
         transform.localRotation = initalRot;
     }
 
@@ -107,12 +119,13 @@ public float pickUpRange;
     {
         // Your Code
         base.HoverStart();
-        if (equipped ==true){
+        if (equipped == true)
+        {
             HoverStop();
         }
     }
 
-        public override void HoverStop()
+    public override void HoverStop()
     {
         // Your Code
         base.HoverStop();

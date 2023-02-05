@@ -5,12 +5,14 @@ using UnityEngine;
 public class KnifeContainer : InteractableObject
 {
     // Start is called before the first frame update
-  
-    GameManager gameManager;
-    [SerializeField] GameObject messer;
-    [SerializeField] GameObject selfie;
 
-    void Awake(){
+    GameManager gameManager;
+    [SerializeField] GameObject knife;
+
+    private GameObject oldKnifeTransform = null;
+
+    void Awake()
+    {
         gameManager = FindObjectOfType<GameManager>();
     }
     public override void OnClick()
@@ -20,18 +22,42 @@ public class KnifeContainer : InteractableObject
         // Your code what happens on a click
         if (gameManager != null)
         {
-            if (!isInteractable){
+            if (!isInteractable)
+            {
                 gameManager.IncreaseErrorCounter();
             }
-            else{
-                messer.transform.parent = selfie.transform;
-                gameManager.SetNextSection();
+            else
+            {
+                
+                if (oldKnifeTransform != null)
+                {
+                    Debug.Log(oldKnifeTransform.transform.parent);
+
+
+                    knife.transform.parent = oldKnifeTransform.transform.parent;
+                    knife.transform.localPosition = oldKnifeTransform.transform.localPosition;
+                    knife.transform.eulerAngles = oldKnifeTransform.transform.eulerAngles;
+                    gameManager.SetNextSection();
+                }
+                else
+                {
+                    oldKnifeTransform = knife;
+                    Debug.Log(knife.transform.parent);
+
+                    knife.transform.parent = transform;
+                    knife.transform.localPosition = new Vector3(0, -0.48f, 0);
+                    Vector3 rotation = knife.transform.eulerAngles;
+                    knife.transform.eulerAngles = new Vector3(90, rotation.y, rotation.z);
+                    gameManager.SetNextSection();
+                }
             }
-        } else {
+        }
+        else
+        {
             Debug.Log("gameManager = null");
         }
-        
-        
+
+
     }
 
     public override void HoverStart()
@@ -40,7 +66,7 @@ public class KnifeContainer : InteractableObject
         base.HoverStart();
     }
 
-        public override void HoverStop()
+    public override void HoverStop()
     {
         // Your Code
         base.HoverStop();

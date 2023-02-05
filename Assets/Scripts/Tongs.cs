@@ -5,7 +5,7 @@ using UnityEngine;
 // Von InteractableObject erben lassen
 public class Tongs : InteractableObject
 {
-  
+
     public Transform player, tongsContainer;
 
     public float pickUpRange;
@@ -18,57 +18,65 @@ public class Tongs : InteractableObject
 
     GameManager gameManager;
 
-    void Awake(){
+    void Awake()
+    {
         gameManager = FindObjectOfType<GameManager>();
-      
+
     }
-  
+
     private void Start()
-    {  initialPos = transform.localPosition;
+    {
+        initialPos = transform.localPosition;
         initalRot = transform.localRotation;
         // initiale Position speichern
-      
+
     }
     public override void OnClick()
     {
-        
-      
+
+
         base.OnClick(); // Immer den BUms hier ausführen
-         Vector3 distanceToPlayer = player.position - transform.position;
-          if (gameManager != null)
+        Vector3 distanceToPlayer = player.position - transform.position;
+        if (gameManager != null)
         {
-            if (!isInteractable){
+            if (!isInteractable)
+            {
                 gameManager.IncreaseErrorCounter();
             }
-            else{
+            else
+            {
                 gameManager.SetNextSection();
-                      //wenn das GameObject getroffen wird und die Zange nicht equipped ist und Player nah genug dran (kann also nicht vom start bedient werden)
-            if(!equipped && distanceToPlayer.magnitude <= pickUpRange) {
-                PickUp();
-             }
+                //wenn das GameObject getroffen wird und die Zange nicht equipped ist und Player nah genug dran (kann also nicht vom start bedient werden)
+                if (!equipped && distanceToPlayer.magnitude <= pickUpRange)
+                {
+                    PickUp();
+                }
 
 
             }
-        } else {
+        }
+        else
+        {
             Debug.Log("gameManager = null");
         }
-        
 
-       // Your code what happens on a click
-        
 
-     
+        // Your code what happens on a click
 
-      
 
- 
-         }
-    
-    private void Update(){
-          //Zange zurück legen, wenn space gedrückt wird
-      //  if (equipped && Input.GetKeyDown(KeyCode.Space)) Drop();
+
+
+
+
+
     }
-        private void PickUp()
+
+    private void Update()
+    {
+        //Zange zurück legen, wenn space gedrückt wird
+        //  if (equipped && Input.GetKeyDown(KeyCode.Space)) Drop();
+    }
+    private void PickUp()
     {
         equipped = true;
 
@@ -77,7 +85,7 @@ public class Tongs : InteractableObject
         transform.localPosition = Vector3.zero;
         transform.localRotation = Quaternion.Euler(Vector3.zero);
         transform.localScale = Vector3.one;
-      
+
     }
 
     private void Drop()
@@ -96,17 +104,18 @@ public class Tongs : InteractableObject
     {
         // Your Code
         base.HoverStart();
-         if (equipped ==true){
+        if (equipped == true)
+        {
             HoverStop();
         }
 
-        
+
     }
 
-        public override void HoverStop()
+    public override void HoverStop()
     {
         // Your Code
         base.HoverStop();
-       
+
     }
 }
