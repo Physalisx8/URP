@@ -7,15 +7,35 @@ public class OilBath : InteractableObject
 [SerializeField] ParticleSystem smoke;
   Animator animator;
   GameObject knife;
+  GameManager gameManager;
         void Awake(){
         gameManager = FindObjectOfType<GameManager>();
         knife = GameObject.Find("knife");
         animator = knife.GetComponent<Animator>();
     }
-  void Start(){
-// ParticleSystem smoke = GameObject.Find("Smoke").GetComponent<ParticleSystem>();
+  public override void SectionChange(SectionState state)
+    {
+        base.SectionChange(state);
 
-  } GameManager gameManager;
+        switch (state){
+            case SectionState.Start:
+            if (debug)
+                Debug.Log("START");
+            Reset();
+            break;
+            case SectionState.End:
+                OnClick();
+            break;
+        }
+    }
+
+    void Reset(){
+        if (debug)
+            Debug.Log("Reset");
+        
+      
+    }
+
 
 
     public override void OnClick()
@@ -30,7 +50,7 @@ public class OilBath : InteractableObject
             }
             else{
                 KnifeDips();
-                gameManager.SetNextSection();
+                
             }
         } else {
             Debug.Log("gameManager = null");
@@ -52,9 +72,12 @@ public class OilBath : InteractableObject
     }
 
     public IEnumerator wait()
-    {
+    {   Debug.Log("Why no?!");
 
         yield return new WaitForSeconds(2);
+        
+        smoke.Stop();
+        gameManager.SetNextSection();
 
     }
 
@@ -62,13 +85,10 @@ public class OilBath : InteractableObject
     public void KnifeDips(){
         //onClick Animation Messer reinhalten abspielen, dann wenn das Messer einetaucht ist den Rauch aufsteigen lassen.
                 smoke.Play();
-                animator.Play("chillOff");
+                animator.SetTrigger("coolOff");
                 StartCoroutine(wait());
          /*
-         anim ["cubeanimation"].speed = -1;
-			anim ["cubeanimation"].time = anim ["cubeanimation"].length;
-			anim.Play ("cubeanimation");
-            Cooling Off Animation spielen
+    
             wir müssen dann vmtl abfragen wann die coolingOff Animation des Messers fertig ist, um dann die rauszieh animation spielen zu können und die Particel wieder zu pausen
             Mangelnder Realismus weil keiner Bock hat die Partikel weniger zu machen, je kühler es wird.. 
          */

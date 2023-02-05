@@ -8,14 +8,38 @@ public class Security : InteractableObject
     GameManager gameManager;
     GameObject leathergloves;
     GameObject leatherap;
+
+    Vector3 startPos;
      
 
     void Awake(){
         gameManager = FindObjectOfType<GameManager>();
-
-       
-
+        startPos = transform.position;
     }
+
+        public override void SectionChange(SectionState state)
+    {
+        base.SectionChange(state);
+
+        switch (state){
+            case SectionState.Start:
+            if (debug)
+                Debug.Log("START");
+            Reset();
+            break;
+            case SectionState.End:
+                OnClick();
+            break;
+        }
+    }
+
+    void Reset(){
+        if (debug)
+            Debug.Log("Reset");
+        transform.SetParent(null);
+        transform.position = startPos;
+    }
+
     public override void OnClick()
     {
         base.OnClick(); // Immer den BUms hier ausführen

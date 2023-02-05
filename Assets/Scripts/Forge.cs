@@ -14,6 +14,7 @@ public class Forge : InteractableObject
     TempBar tempBar;
     int count;
 
+
     void Awake()
     {
         gameManager = FindObjectOfType<GameManager>();
@@ -21,6 +22,31 @@ public class Forge : InteractableObject
         animator = door.GetComponent<Animator>();
         tempBar = skript.GetComponent<TempBar>();
     }
+
+    public override void SectionChange(SectionState state)
+    {
+        base.SectionChange(state);
+
+        switch (state){
+            case SectionState.Start:
+            if (debug)
+                Debug.Log("START");
+            Reset();
+            break;
+            case SectionState.End:
+                OnClick();
+            break;
+        }
+    }
+
+    void Reset(){
+        if (debug)
+            Debug.Log("Reset");
+            UI.SetActive(false);
+            StopAllCoroutines();
+            tempBar.Reset();
+    }
+
     public override void OnClick()
     {
         base.OnClick(); // Immer den BUms hier ausführen

@@ -1,10 +1,10 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 
 public class CameraSwitch : Singleton<CameraSwitch>
 {
+    [SerializeField] bool debug;
     public CinemachineVirtualCamera mainCam;
     [SerializeField] List<CinemachineVirtualCamera> cameras = new List<CinemachineVirtualCamera>();
 
@@ -25,6 +25,8 @@ public class CameraSwitch : Singleton<CameraSwitch>
     
     public void SwitchCamera(CinemachineVirtualCamera camera)
     {
+        if (debug)
+            Debug.Log("SWITCH CAMERA: " + camera.name);
         SetActiveCam(camera);
 
         foreach (CinemachineVirtualCamera c in Instance.cameras)
@@ -33,15 +35,16 @@ public class CameraSwitch : Singleton<CameraSwitch>
 
         // Set Camera Triggers active when main cam is active, otherwise deactivate
         bool triggerState = camera.Equals(Instance.mainCam);
-        Debug.Log(Instance.mainCam.name);
         cameraTriggers.SetActive(triggerState);	
+
+        if (debug)
+            Debug.Log("Active Camera: " + ActiveCamera.name);
 
     }
 
     void SetActiveCam(CinemachineVirtualCamera camera){
         Instance.ActiveCamera = camera;
         Instance.ActiveCamera.Priority = 1;
-        Debug.Log(ActiveCamera.name);
         
 
     }
@@ -52,7 +55,6 @@ public class CameraSwitch : Singleton<CameraSwitch>
             return;
 
         Instance.cameras.Add(camera);
-        Debug.Log("Camera registered: " + camera);
         if (Instance.ActiveCamera == null)
             Instance.SwitchCamera(camera);
     }
@@ -63,6 +65,5 @@ public class CameraSwitch : Singleton<CameraSwitch>
             return;
 
         Instance.cameras.Remove(camera);
-        Debug.Log("Camera unregistered: " + camera);
     }
 }

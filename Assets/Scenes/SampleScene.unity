@@ -594,42 +594,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!21 &64138003
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: UI/RoundedCorners/RoundedCorners
-  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _ColorMask: 15
-    - _Stencil: 0
-    - _StencilComp: 8
-    - _StencilOp: 0
-    - _StencilReadMask: 255
-    - _StencilWriteMask: 255
-    - _UseUIAlphaClip: 0
-    m_Colors:
-    - _WidthHeightRadius: {r: 193.818, g: 955.57, b: 30, a: 0}
-  m_BuildTextureStacks: []
 --- !u!1 &91218013
 GameObject:
   m_ObjectHideFlags: 0
@@ -766,6 +730,157 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 91218013}
   m_CullTransparentMesh: 1
+--- !u!1 &99355120
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 99355121}
+  - component: {fileID: 99355124}
+  - component: {fileID: 99355123}
+  - component: {fileID: 99355122}
+  - component: {fileID: 99355125}
+  m_Layer: 6
+  m_Name: inv_Cube_Chill
+  m_TagString: ClickableObject
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &99355121
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 99355120}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 5.899, y: 1.682, z: 3.46}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1034254362}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &99355122
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 99355120}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &99355123
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 99355120}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: f1db0c312214e8c46857d9d21f7b1369, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &99355124
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 99355120}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &99355125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 99355120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acf59615471f82048896445e1caa2255, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debug: 0
+  OnHoverStart:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1742899130}
+        m_TargetAssemblyTypeName: CursorPainter, Assembly-CSharp
+        m_MethodName: Zoom
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnHoverStop:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1742899130}
+        m_TargetAssemblyTypeName: CursorPainter, Assembly-CSharp
+        m_MethodName: Default
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnClickStart:
+    m_PersistentCalls:
+      m_Calls: []
+  OnInactiveClick:
+    m_PersistentCalls:
+      m_Calls: []
+  isHovering: 0
+  isInteractable: 0
+  OnSectionChange: {fileID: 11400000, guid: 5a7aa448f9f71eb45933d1c3d85bacc9, type: 2}
+  cam: {fileID: 758739518}
 --- !u!1 &131822495
 GameObject:
   m_ObjectHideFlags: 0
@@ -941,6 +1056,42 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 132132551}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!21 &149422391
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UI/RoundedCorners/RoundedCorners
+  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _ColorMask: 15
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _UseUIAlphaClip: 0
+    m_Colors:
+    - _WidthHeightRadius: {r: 324.233, g: 1013.2192, b: 90, a: 0}
+  m_BuildTextureStacks: []
 --- !u!1 &162149623
 GameObject:
   m_ObjectHideFlags: 0
@@ -1136,6 +1287,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!21 &204677877
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UI/RoundedCorners/RoundedCorners
+  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _ColorMask: 15
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _UseUIAlphaClip: 0
+    m_Colors:
+    - _WidthHeightRadius: {r: 193.818, g: 955.57, b: 30, a: 0}
+  m_BuildTextureStacks: []
 --- !u!1 &208209927
 GameObject:
   m_ObjectHideFlags: 0
@@ -1176,7 +1363,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -1, y: -18.500427}
+  m_AnchoredPosition: {x: -1, y: -18.500488}
   m_SizeDelta: {x: 932, y: -12.8845215}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &222852999
@@ -2315,7 +2502,7 @@ MonoBehaviour:
       m_Calls: []
   isHovering: 0
   isInteractable: 0
-  OnSectionChange: {fileID: 0}
+  OnSectionChange: {fileID: 11400000, guid: 6825d33c0aae1d24cb3de1ef7cca9e67, type: 2}
   knife: {fileID: 919132149101536966}
 --- !u!65 &420433751
 BoxCollider:
@@ -7293,6 +7480,42 @@ Transform:
   m_Father: {fileID: 543450653619968205}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!21 &566194162
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UI/RoundedCorners/RoundedCorners
+  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _ColorMask: 15
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _UseUIAlphaClip: 0
+    m_Colors:
+    - _WidthHeightRadius: {r: 188.738, g: 949.831, b: 30, a: 0}
+  m_BuildTextureStacks: []
 --- !u!1 &581793740
 GameObject:
   m_ObjectHideFlags: 0
@@ -7382,6 +7605,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b72f950d7982f334bb9a0fd658bfa539, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debug: 1
   instructionsText: {fileID: 11658234}
   errorText: {fileID: 2105546313}
   errorTextOutro: {fileID: 1793724954}
@@ -7396,21 +7620,24 @@ MonoBehaviour:
     hint: "Nimm dir die Sch\xFCrze"
     activeObjects:
     - {fileID: 5776878504555758546}
-    interactions: []
+    stateEvent: {fileID: 11400000, guid: 26fd769fe4b59d142b1aa7890488e4be, type: 2}
+    triggerZone: {fileID: 1549753819}
   - sectionName: Handschuhe
     instruction: "Um die H\xE4nde vor Hitze und mechanischen Einfl\xFCssen zu sch\xFCtzen,
       lege die Handschuhe an."
     hint: Nimm die Handschuhe.
     activeObjects:
     - {fileID: 3402049540203317611}
-    interactions: []
+    stateEvent: {fileID: 11400000, guid: 471cb76c766b880489e243d19adf2959, type: 2}
+    triggerZone: {fileID: 162149628}
   - sectionName: 'Werkzeug '
     instruction: "Das Werkst\xFCck kann sehr hei\xDF werden. Schmiedende wollen Abstand
       zwischen sich und dem Feuer. Finde einen geeigneten Gegenstand."
     hint: Finde eine Zange
     activeObjects:
     - {fileID: 4577074105070462296}
-    interactions: []
+    stateEvent: {fileID: 11400000, guid: 72a55624a94293143a528b8ae49d0007, type: 2}
+    triggerZone: {fileID: 162149628}
   - sectionName: Messer
     instruction: "Die H\xE4rtetemperatur des ausgew\xE4hlten Stahls betr\xE4gt 840\xB0,
       die Gasesse ist bereits auf Temperatur gebracht worden. Nimm das Werkst\xFCck
@@ -7418,21 +7645,22 @@ MonoBehaviour:
     hint: Nimm das Messer mit der Zange auf und bewege dich zu der Gasesse.
     activeObjects:
     - {fileID: 3469287837544346586}
-    interactions: []
+    stateEvent: {fileID: 11400000, guid: c5dd7a0b3de5309408ef690fdda8129b, type: 2}
+    triggerZone: {fileID: 162149628}
   - sectionName: Esse
     instruction: "Die Esse wurde bereits vorbereitet.\r\n\xD6ffne die Esse \n"
     hint: "Interagiere mit dem blauen Hebel. \n"
     activeObjects:
     - {fileID: 837687562}
-    interactions:
-    - {fileID: 11400000, guid: 5a7aa448f9f71eb45933d1c3d85bacc9, type: 2}
+    stateEvent: {fileID: 11400000, guid: 41ef7a6196ef6fc4d97b95595d9e74b7, type: 2}
+    triggerZone: {fileID: 591650205}
   - sectionName: Esse II
     instruction: "Lege das Werkst\xFCck auf die Grundplatte.\r"
     hint: "Die Grundplatte ist eine Platte auf dem Essenboden.\r"
     activeObjects:
     - {fileID: 420433750}
-    interactions:
-    - {fileID: 11400000, guid: 5a7aa448f9f71eb45933d1c3d85bacc9, type: 2}
+    stateEvent: {fileID: 11400000, guid: ad79fed696033e74d9bcddffacd09ffd, type: 2}
+    triggerZone: {fileID: 591650205}
   - sectionName: "H\xE4rtetemperatur "
     instruction: "Die Haltezeit, die das Werkst\xFCck nun verbleiben muss, ist abh\xE4ngig
       von der Dicke des Materials. Pro mm Dicke, 1-2 Minuten Haltezeit. Warte bis
@@ -7441,8 +7669,8 @@ MonoBehaviour:
       Die Esse \xF6ffnest du an dem blauen Hebel."
     activeObjects:
     - {fileID: 837687562}
-    interactions:
-    - {fileID: 11400000, guid: 5a7aa448f9f71eb45933d1c3d85bacc9, type: 2}
+    stateEvent: {fileID: 11400000, guid: bb093761f86b0e141b839e54a7874f38, type: 2}
+    triggerZone: {fileID: 591650205}
   - sectionName: Abschrecken
     instruction: "Damit die Strukturen des Metalls ihre maximale H\xE4rte erreichen,
       muss das Werkst\xFCck abgeschreckt werden. Es ist wichtig, den Stahl innerhalb
@@ -7453,7 +7681,8 @@ MonoBehaviour:
       Tisch rechts von dir "
     activeObjects:
     - {fileID: 420433750}
-    interactions: []
+    stateEvent: {fileID: 11400000, guid: 6825d33c0aae1d24cb3de1ef7cca9e67, type: 2}
+    triggerZone: {fileID: 591650205}
   - sectionName: "\xD6lbad"
     instruction: "Das \xD6l ist bereits auf 60\xB0C erw\xE4rmt worden.\r\nSollte
       die Abk\xFChlung zu schnell oder zu langsam erfolgen, ist die H\xE4rtung fehlgeschlagen.\r\nSchrecke
@@ -7462,7 +7691,8 @@ MonoBehaviour:
       Farbe mehr hat."
     activeObjects:
     - {fileID: 919132149142553208}
-    interactions: []
+    stateEvent: {fileID: 11400000, guid: 55fab1301ad3e91489318a4f7929cccc, type: 2}
+    triggerZone: {fileID: 1878100019}
   - sectionName: "Abk\xFChlen"
     instruction: "Lehne das Messer gegen die Dose, damit es auf Zimmertemperatur
       abk\xFChlen kann."
@@ -7470,7 +7700,8 @@ MonoBehaviour:
       wo du es aufgesammelt hast"
     activeObjects:
     - {fileID: 659398530}
-    interactions: []
+    stateEvent: {fileID: 11400000, guid: 312d5a597c27da142914b191d8d08f0a, type: 2}
+    triggerZone: {fileID: 99355125}
   - sectionName: Anlassen
     instruction: "Nach dem H\xE4rten ist der Stahl noch sehr spr\xF6de. Daher muss
       er angelassen werden, damit es an Stabilit\xE4t und Z\xE4higkeit zunimmt. Das
@@ -7478,31 +7709,36 @@ MonoBehaviour:
     hint: Nimm das Messer mit der Zange. Der Anlassofen ist links neben dir.
     activeObjects:
     - {fileID: 659398530}
-    interactions: []
+    stateEvent: {fileID: 11400000, guid: 5708c3a3fb0fa894a9c7c358b7086bb1, type: 2}
+    triggerZone: {fileID: 162149628}
   - sectionName: "T\xFCr \xF6ffnen"
     instruction: "\xD6ffne die T\xFCr des Anlassofens."
     hint: "Interagiere mit der T\xFCr."
     activeObjects:
     - {fileID: 8953643127916298241}
-    interactions: []
+    stateEvent: {fileID: 11400000, guid: 9687b4962a1c4df4cad1b4d1b086f210, type: 2}
+    triggerZone: {fileID: 1174887942}
   - sectionName: Messer rein
     instruction: Lege das Messer in den Anlassofen
     hint: Lege das Messer auf das Gitter.
     activeObjects:
     - {fileID: 2051048730}
-    interactions: []
+    stateEvent: {fileID: 11400000, guid: 4484509a78fa2924ba38575b4c21fa24, type: 2}
+    triggerZone: {fileID: 1174887942}
   - sectionName: "T\xFCr schlie\xDFen"
     instruction: "Schlie\xDFe die T\xFCr"
     hint: "Schlie\xDFe die T\xFCr von dem Anlassofen"
     activeObjects:
     - {fileID: 8953643127916298241}
-    interactions: []
+    stateEvent: {fileID: 11400000, guid: 004a97e521fa4c24ca29535277594610, type: 2}
+    triggerZone: {fileID: 1174887942}
   - sectionName: Anschalten
     instruction: "Bet\xE4tige den Hauptschalter, um den Temperofen anzuschalten. "
     hint: Der Hautschalter ist etwas rotes.
     activeObjects:
     - {fileID: 6052442437199083789}
-    interactions: []
+    stateEvent: {fileID: 11400000, guid: 3005fb48d24854c4eb6c290f99d4c8b5, type: 2}
+    triggerZone: {fileID: 1174887942}
   - sectionName: Temperatur
     instruction: "F\xFCr diesen Stahl liegt die Anlasstemperatur bei 220\xB0. Stelle
       die Anlasstemperatur ein und best\xE4tige mit einem Linksklick"
@@ -7510,7 +7746,8 @@ MonoBehaviour:
       220\xB0 erreicht sind. Best\xE4tige mit der linken Maustaste"
     activeObjects:
     - {fileID: 7616169160425191047}
-    interactions: []
+    stateEvent: {fileID: 11400000, guid: ac842e56c3fdfa244a19e566c2937fdf, type: 2}
+    triggerZone: {fileID: 1174887942}
   - sectionName: Warte
     instruction: "Warte so lange, bis das Werkst\xFCck ein Strohgelb und damit die
       Anlasstemperatur erreicht hat. Das dauert ungef\xE4hr eine Stunde. Schalte
@@ -7518,36 +7755,42 @@ MonoBehaviour:
     hint: "Schalte das Ger\xE4t am roten Hauptschalter aus."
     activeObjects:
     - {fileID: 6052442437199083789}
-    interactions: []
+    stateEvent: {fileID: 11400000, guid: 1655c3a74d9bbdc41bf17c8dda1ed59e, type: 2}
+    triggerZone: {fileID: 1174887942}
   - sectionName: "T\xFCr \xF6ffnen"
     instruction: "\xD6ffne die T\xFCr und halte die Zange bereit."
     hint: "Die T\xFCr ist ein gro\xDFer silberner Block"
     activeObjects:
     - {fileID: 8953643127916298241}
-    interactions: []
+    stateEvent: {fileID: 11400000, guid: 1fd679df0ca15e140a7ad7e55d18c059, type: 2}
+    triggerZone: {fileID: 1174887942}
   - sectionName: "Entnehme das Werkst\xFCck"
     instruction: "Das Werkst\xFCck muss jetzt an der Luft abk\xFChlen. Entnehme es
       aus dem Ofen "
     hint: Interagiere mit dem Messer
     activeObjects:
     - {fileID: 2051048730}
-    interactions: []
+    stateEvent: {fileID: 11400000, guid: 28589436d1b68e14b9d78714dfadd941, type: 2}
+    triggerZone: {fileID: 1174887942}
   - sectionName: Lehne es an die Dose
     instruction: "Damit es abk\xFChlen kann, lehne es an die Dose mit der Zange."
     hint: 'Interagiere mit der Dose auf dem Tisch. '
     activeObjects:
     - {fileID: 659398530}
-    interactions: []
+    stateEvent: {fileID: 11400000, guid: c934ee4cc70791a4c88527dad361743f, type: 2}
+    triggerZone: {fileID: 99355125}
   activeSection:
     sectionName: new Section
     instruction: 
     hint: 
     activeObjects: []
-    interactions: []
+    stateEvent: {fileID: 0}
+    triggerZone: {fileID: 0}
   showHint: {fileID: 1160815873}
   errorCount: 0
-  startMenu: {fileID: 0}
-  isDemoMode: 0
+  startMenu: {fileID: 21170421}
+  brain: {fileID: 330585548}
+  cameraSwitch: {fileID: 835494461}
 --- !u!1 &591650200
 GameObject:
   m_ObjectHideFlags: 0
@@ -7874,7 +8117,7 @@ MonoBehaviour:
       m_Calls: []
   isHovering: 0
   isInteractable: 0
-  OnSectionChange: {fileID: 0}
+  OnSectionChange: {fileID: 11400000, guid: 312d5a597c27da142914b191d8d08f0a, type: 2}
   knife: {fileID: 919132149101536966}
 --- !u!1 &707109433
 GameObject:
@@ -8471,42 +8714,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 103458b6e6814d345813eb7ad11f86d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!21 &805292565
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: UI/RoundedCorners/RoundedCorners
-  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _ColorMask: 15
-    - _Stencil: 0
-    - _StencilComp: 8
-    - _StencilOp: 0
-    - _StencilReadMask: 255
-    - _StencilWriteMask: 255
-    - _UseUIAlphaClip: 0
-    m_Colors:
-    - _WidthHeightRadius: {r: 374.006, g: 1103.089, b: 90, a: 0}
-  m_BuildTextureStacks: []
 --- !u!1 &806944274
 GameObject:
   m_ObjectHideFlags: 0
@@ -8821,6 +9028,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b408cd37d68cf24eae2f1859074c181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debug: 0
   mainCam: {fileID: 359552715}
   cameras:
   - {fileID: 359552715}
@@ -8953,7 +9161,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: interaction4
+          m_StringArgument: OpenDoor
           m_BoolArgument: 0
         m_CallState: 2
   OnInactiveClick:
@@ -8961,7 +9169,7 @@ MonoBehaviour:
       m_Calls: []
   isHovering: 0
   isInteractable: 0
-  OnSectionChange: {fileID: 0}
+  OnSectionChange: {fileID: 11400000, guid: 41ef7a6196ef6fc4d97b95595d9e74b7, type: 2}
   UI: {fileID: 1690112657}
   skript: {fileID: 957571074}
 --- !u!1 &837827988
@@ -10017,6 +10225,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 142004bd2dcedd543a9fa53e8e708f13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!21 &901120932
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UI/RoundedCorners/RoundedCorners
+  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _ColorMask: 15
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _UseUIAlphaClip: 0
+    m_Colors:
+    - _WidthHeightRadius: {r: 374.006, g: 1103.089, b: 90, a: 0}
+  m_BuildTextureStacks: []
 --- !u!1 &906722002
 GameObject:
   m_ObjectHideFlags: 0
@@ -10478,7 +10722,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 1663314503}
+  m_Material: {fileID: 566194162}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -10837,7 +11081,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1034254362
 Transform:
   m_ObjectHideFlags: 0
@@ -10854,6 +11098,8 @@ Transform:
   - {fileID: 162149627}
   - {fileID: 591650204}
   - {fileID: 1174887941}
+  - {fileID: 1549753815}
+  - {fileID: 99355121}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -12515,7 +12761,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 588623079}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: SetNextSection
+        m_MethodName: SkipToNext
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -12914,7 +13160,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 588623079}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: SetPreviousSection
+        m_MethodName: SkipToPrev
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -13181,6 +13427,143 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1497805776}
   m_Mesh: {fileID: 5060444177187149915, guid: ac2c69c74700f274a974bd184408bc00, type: 3}
+--- !u!1 &1549753814
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1549753815}
+  - component: {fileID: 1549753818}
+  - component: {fileID: 1549753817}
+  - component: {fileID: 1549753819}
+  m_Layer: 6
+  m_Name: inv_Cube_Main(DEMO MODE ONLY)
+  m_TagString: ClickableObject
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1549753815
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1549753814}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 19.16, y: 2, z: 1.01}
+  m_LocalScale: {x: 1.5, y: 1, z: 1.5}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1034254362}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!23 &1549753817
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1549753814}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: f1db0c312214e8c46857d9d21f7b1369, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1549753818
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1549753814}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1549753819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1549753814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acf59615471f82048896445e1caa2255, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debug: 0
+  OnHoverStart:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1742899130}
+        m_TargetAssemblyTypeName: CursorPainter, Assembly-CSharp
+        m_MethodName: Zoom
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnHoverStop:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1742899130}
+        m_TargetAssemblyTypeName: CursorPainter, Assembly-CSharp
+        m_MethodName: Default
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnClickStart:
+    m_PersistentCalls:
+      m_Calls: []
+  OnInactiveClick:
+    m_PersistentCalls:
+      m_Calls: []
+  isHovering: 0
+  isInteractable: 0
+  OnSectionChange: {fileID: 0}
+  cam: {fileID: 359552715}
 --- !u!1 &1596499934
 GameObject:
   m_ObjectHideFlags: 0
@@ -13489,7 +13872,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 805292565}
+  m_Material: {fileID: 901120932}
   m_Color: {r: 0.4339623, g: 0.4339623, b: 0.4339623, a: 0.45882353}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -13580,42 +13963,6 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
---- !u!21 &1663314503
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: UI/RoundedCorners/RoundedCorners
-  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _ColorMask: 15
-    - _Stencil: 0
-    - _StencilComp: 8
-    - _StencilOp: 0
-    - _StencilReadMask: 255
-    - _StencilWriteMask: 255
-    - _UseUIAlphaClip: 0
-    m_Colors:
-    - _WidthHeightRadius: {r: 188.738, g: 949.831, b: 30, a: 0}
-  m_BuildTextureStacks: []
 --- !u!1 &1690112657
 GameObject:
   m_ObjectHideFlags: 0
@@ -13625,6 +13972,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1690112658}
+  - component: {fileID: 1690112659}
   m_Layer: 5
   m_Name: UI_TempRange
   m_TagString: Untagged
@@ -13654,6 +14002,18 @@ RectTransform:
   m_AnchoredPosition: {x: 331, y: 95}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!225 &1690112659
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1690112657}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &1725996382
 GameObject:
   m_ObjectHideFlags: 0
@@ -15356,42 +15716,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 103458b6e6814d345813eb7ad11f86d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!21 &1973340922
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: UI/RoundedCorners/RoundedCorners
-  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _ColorMask: 15
-    - _Stencil: 0
-    - _StencilComp: 8
-    - _StencilOp: 0
-    - _StencilReadMask: 255
-    - _StencilWriteMask: 255
-    - _UseUIAlphaClip: 0
-    m_Colors:
-    - _WidthHeightRadius: {r: 324.233, g: 1013.2192, b: 90, a: 0}
-  m_BuildTextureStacks: []
 --- !u!1 &1974928328
 GameObject:
   m_ObjectHideFlags: 0
@@ -15758,7 +16082,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 64138003}
+  m_Material: {fileID: 204677877}
   m_Color: {r: 0.4245283, g: 0.40477037, b: 0.3504361, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -15881,7 +16205,7 @@ MonoBehaviour:
       m_Calls: []
   isHovering: 0
   isInteractable: 0
-  OnSectionChange: {fileID: 0}
+  OnSectionChange: {fileID: 11400000, guid: 4484509a78fa2924ba38575b4c21fa24, type: 2}
   knife: {fileID: 919132149101536966}
 --- !u!1 &2076559730
 GameObject:
@@ -15934,7 +16258,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 1973340922}
+  m_Material: {fileID: 149422391}
   m_Color: {r: 0.4339623, g: 0.4339623, b: 0.4339623, a: 0.53333336}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -16919,7 +17243,7 @@ MonoBehaviour:
       m_Calls: []
   isHovering: 0
   isInteractable: 0
-  OnSectionChange: {fileID: 0}
+  OnSectionChange: {fileID: 11400000, guid: 55fab1301ad3e91489318a4f7929cccc, type: 2}
   smoke: {fileID: 563617542}
 --- !u!65 &919132149142553209
 BoxCollider:
@@ -17925,7 +18249,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7202d844944945941b64febab7d3548f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debug: 0
+  debug: 1
   OnHoverStart:
     m_PersistentCalls:
       m_Calls:
@@ -17964,7 +18288,7 @@ MonoBehaviour:
       m_Calls: []
   isHovering: 0
   isInteractable: 0
-  OnSectionChange: {fileID: 0}
+  OnSectionChange: {fileID: 11400000, guid: 471cb76c766b880489e243d19adf2959, type: 2}
 --- !u!23 &3456687878920449522
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -18027,7 +18351,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05ec45bf51bd35f45a6f8de0a36b1894, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debug: 1
+  debug: 0
   OnHoverStart:
     m_PersistentCalls:
       m_Calls:
@@ -18066,7 +18390,7 @@ MonoBehaviour:
       m_Calls: []
   isHovering: 0
   isInteractable: 0
-  OnSectionChange: {fileID: 11400000, guid: 5a7aa448f9f71eb45933d1c3d85bacc9, type: 2}
+  OnSectionChange: {fileID: 11400000, guid: c5dd7a0b3de5309408ef690fdda8129b, type: 2}
   player: {fileID: 330585546}
   tongsContainer: {fileID: 1025421624}
   pickUpRange: 3
@@ -18733,7 +19057,7 @@ MonoBehaviour:
       m_Calls: []
   isHovering: 0
   isInteractable: 0
-  OnSectionChange: {fileID: 0}
+  OnSectionChange: {fileID: 11400000, guid: 72a55624a94293143a528b8ae49d0007, type: 2}
   player: {fileID: 330585546}
   tongsContainer: {fileID: 1974928329}
   pickUpRange: 3
@@ -19601,7 +19925,7 @@ MonoBehaviour:
       m_Calls: []
   isHovering: 0
   isInteractable: 0
-  OnSectionChange: {fileID: 0}
+  OnSectionChange: {fileID: 11400000, guid: 26fd769fe4b59d142b1aa7890488e4be, type: 2}
 --- !u!95 &5776878504555758547
 Animator:
   serializedVersion: 4
@@ -19809,7 +20133,7 @@ MonoBehaviour:
       m_Calls: []
   isHovering: 0
   isInteractable: 0
-  OnSectionChange: {fileID: 0}
+  OnSectionChange: {fileID: 11400000, guid: 3005fb48d24854c4eb6c290f99d4c8b5, type: 2}
   lampMaterial: {fileID: 2100000, guid: edbaa92d8730fba4f80fe563288343b3, type: 2}
   Obj: {fileID: 1846598319}
 --- !u!95 &6052442437199083790
@@ -20787,7 +21111,7 @@ MonoBehaviour:
       m_Calls: []
   isHovering: 0
   isInteractable: 1
-  OnSectionChange: {fileID: 0}
+  OnSectionChange: {fileID: 11400000, guid: ac842e56c3fdfa244a19e566c2937fdf, type: 2}
   cam: {fileID: 1763750177}
   adjustable: 0
   text: {fileID: 1262340697}
@@ -21644,7 +21968,7 @@ MonoBehaviour:
       m_Calls: []
   isHovering: 0
   isInteractable: 0
-  OnSectionChange: {fileID: 0}
+  OnSectionChange: {fileID: 11400000, guid: 9687b4962a1c4df4cad1b4d1b086f210, type: 2}
 --- !u!65 &8953643127916298242
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -19,7 +19,6 @@ public class StartMenu : MonoBehaviour
 
     // Start is called before the first frame update
 public void StartTraining(){
-    gameManager.isDemoMode = false;
     UI_Start.SetActive(false);
     cameraSwitch.SetActive(true);
     camera.m_Priority = 0;
@@ -31,7 +30,6 @@ public void StartTraining(){
 public void StartDemoMode(){
     StartTraining();
         UI_Demo?.SetActive(true);
-        gameManager.isDemoMode = true;
 }
 
 public void StartApp(){

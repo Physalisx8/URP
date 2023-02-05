@@ -62,7 +62,9 @@ public class TempBar : MonoBehaviour
 
     void Successfull()
     {
-        _GO.GetComponent<Animator>().enabled = false;
+        //_GO.GetComponent<Animator>().enabled=false;
+        _GO.GetComponent<Animator>().enabled=false;
+        _GO.GetComponent<Animator>().SetTrigger("paused");
         stap = true;
         _UI.SetActive(false);
         _UI2.SetActive(false);
@@ -91,6 +93,21 @@ public class TempBar : MonoBehaviour
         // _UI.SetActive(true);
         StartCoroutine(IncreaseSeconds(maximum));
         _GO.GetComponent<Animator>().Play("changeEmission");
+
+        //Animationen anpsrechen:
+        // 1. Spielt Animation direkt ab ohne transition von der jetzigen
+        // Animator.Play("AnimationsName"); 
+        // 2. Ändert Condition, wenn alle Conditions erfüllt sind macht er ne Transition
+        // Animator.SetTrigger("TriggerName");
+        // Animation.SetFloat("FloatName", 5);
+    }
+
+    public void Reset(){
+        StopAllCoroutines();
+        temp.fillAmount = 0;
+        _GO.GetComponent<Animator>().enabled = true;
+        _GO.GetComponent<Animator>().SetTrigger("coolOff");
+        // Animation Resetten!
     }
 
 

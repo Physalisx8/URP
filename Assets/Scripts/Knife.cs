@@ -31,9 +31,38 @@ public class Knife : InteractableObject
     private Vector3 initialPos;
     private Quaternion initalRot;
 
-    void Awake()
-    {
+    Vector3 startPos;
+    Quaternion startRot;
+
+        void Awake(){
         gameManager = FindObjectOfType<GameManager>();
+        startPos = transform.position;
+        startRot = transform.rotation;
+
+    }
+
+        public override void SectionChange(SectionState state)
+    {
+        base.SectionChange(state);
+
+        switch (state){
+            case SectionState.Start:
+            if (debug)
+                Debug.Log("START");
+            Reset();
+            break;
+            case SectionState.End:
+                OnClick();
+            break;
+        }
+    }
+
+    void Reset(){
+        if (debug)
+            Debug.Log("Reset");
+        transform.SetParent(null);
+        transform.position = startPos;
+        transform.rotation = startRot;
     }
 
     private void Start()
@@ -43,20 +72,6 @@ public class Knife : InteractableObject
         initalRot = transform.localRotation;
         // initiale Position speichern
 
-    }
-
-    public override void SectionChange(bool isActive)
-    {
-        base.SectionChange(isActive);
-        if (isActive)
-        {
-            // Wenn Event(Section) auf aktiv gesetzt wird.
-        }
-        else
-        {
-            // Wenn Event inaktiv wird. Brauchen wir aber eigentlich nicht
-            PickUp();
-        }
     }
 
 

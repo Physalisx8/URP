@@ -8,12 +8,43 @@ public class KnifeContainer : InteractableObject
 
     GameManager gameManager;
     [SerializeField] GameObject knife;
+    private GameObject knifeContainer;
 
     private GameObject oldKnifeTransform = null;
 
-    void Awake()
-    {
+      Vector3 startPos;
+    Quaternion startRot;
+
+        void Awake(){
         gameManager = FindObjectOfType<GameManager>();
+        knifeContainer = GameObject.Find("knifeContainer");
+        startPos = transform.position;
+        startRot = transform.rotation;
+
+    }
+
+        public override void SectionChange(SectionState state)
+    {
+        base.SectionChange(state);
+
+        switch (state){
+            case SectionState.Start:
+            if (debug)
+                Debug.Log("START");
+            Reset();
+            break;
+            case SectionState.End:
+                OnClick();
+            break;
+        }
+    }
+
+    void Reset(){
+        if (debug)
+            Debug.Log("Reset");
+        transform.SetParent(null);
+        transform.position = startPos;
+        transform.rotation = startRot;
     }
     public override void OnClick()
     {

@@ -14,6 +14,29 @@ public class ChangeEmission : InteractableObject
         gameManager = FindObjectOfType<GameManager>();
     }
 
+     public override void SectionChange(SectionState state)
+    {
+        base.SectionChange(state);
+
+        switch (state){
+            case SectionState.Start:
+            if (debug)
+                Debug.Log("START");
+            Reset();
+            break;
+            case SectionState.End:
+                OnClick();
+            break;
+        }
+    }
+
+    void Reset(){
+        if (debug)
+            Debug.Log("Reset");
+    
+    }
+
+
     public override void OnClick()
     {
         base.OnClick();
