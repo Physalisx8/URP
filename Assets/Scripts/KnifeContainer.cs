@@ -10,7 +10,10 @@ public class KnifeContainer : InteractableObject
     [SerializeField] GameObject knife;
     private GameObject knifeContainer;
 
-    private GameObject oldKnifeTransform = null;
+    private string oldParent = null;
+    private Vector3 oldPosition;
+    private Vector3 oldRotation;
+        
 
       Vector3 startPos;
     Quaternion startRot;
@@ -60,20 +63,16 @@ public class KnifeContainer : InteractableObject
             else
             {
                 
-                if (oldKnifeTransform != null)
+                if (oldParent != null)
                 {
-                    Debug.Log(oldKnifeTransform.transform.parent);
-
-
-                    knife.transform.parent = oldKnifeTransform.transform.parent;
-                    knife.transform.localPosition = oldKnifeTransform.transform.localPosition;
-                    knife.transform.eulerAngles = oldKnifeTransform.transform.eulerAngles;
+                    knife.transform.parent = GameObject.Find(oldParent).transform;
+                    knife.transform.localPosition = oldPosition;
+                    knife.transform.eulerAngles = oldRotation;
                     gameManager.SetNextSection();
                 }
                 else
                 {
-                    oldKnifeTransform = knife;
-                    Debug.Log(knife.transform.parent);
+                    saveOldValues();
 
                     knife.transform.parent = transform;
                     knife.transform.localPosition = new Vector3(0, -0.48f, 0);
@@ -89,6 +88,13 @@ public class KnifeContainer : InteractableObject
         }
 
 
+    }
+
+    private void saveOldValues()
+    {
+        oldParent = knife.transform.parent.name;
+        oldPosition = knife.transform.localPosition;
+        oldRotation = knife.transform.eulerAngles;
     }
 
     public override void HoverStart()
