@@ -66,8 +66,8 @@ public class TempBar : MonoBehaviour
         stap = true;
         _UI.SetActive(false);
         _UI2.SetActive(false);
-        animator.Play("ForgeDoor_open");
-        gameManager.SetNextSection();
+        //animator.Play("ForgeDoor_open");
+        //gameManager.SetNextSection();
     }
 
     //checking timeframe from temperature Bar & sets Flag
@@ -89,7 +89,6 @@ public class TempBar : MonoBehaviour
     public void TemperatureRise()
     {
         // _UI.SetActive(true);
-        Debug.Log("Verhungert");
         StartCoroutine(IncreaseSeconds(maximum));
         _GO.GetComponent<Animator>().Play("changeEmission");
     }
