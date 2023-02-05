@@ -42,6 +42,8 @@ public class TempReg : CameraTriggerZone
         adjustable = true;
         tongsContainer.SetActive(false);
         UI_.SetActive(true);
+        GetComponent<Collider>().enabled = false;
+        
 
         if (gameManager != null)
         {
@@ -104,9 +106,10 @@ public class TempReg : CameraTriggerZone
     {
         UI_.SetActive(false);
         adjustable = false;
-        gameManager.SetNextSection();
-        Debug.Log("nopedidy");
         CameraSwitch.Instance.SwitchCamera (temperCam);
         tongsContainer.SetActive(true);
+        gameManager.SetNextSection();
+        Debug.Log("nopedidy");
+       
     }
 }
