@@ -25,6 +25,7 @@ public class Tongs : InteractableObject
     void Awake(){
         gameManager = FindObjectOfType<GameManager>();
         startPos = transform.position;
+        startRot = transform.rotation;
     }
 
         public override void SectionChange(SectionState state)
@@ -35,7 +36,7 @@ public class Tongs : InteractableObject
             case SectionState.Start:
             if (debug)
                 Debug.Log("START");
-            Reset();
+            Drop();
             break;
             case SectionState.End:
                 OnClick();
@@ -46,6 +47,7 @@ public class Tongs : InteractableObject
     void Reset(){
         if (debug)
             Debug.Log("Reset");
+
         transform.SetParent(null);
         transform.position = startPos;
         transform.rotation = startRot;
@@ -72,11 +74,12 @@ public class Tongs : InteractableObject
             }
             else
             {
-                gameManager.SetNextSection();
+               
                 //wenn das GameObject getroffen wird und die Zange nicht equipped ist und Player nah genug dran (kann also nicht vom start bedient werden)
                 if (!equipped && distanceToPlayer.magnitude <= pickUpRange)
                 {
                     PickUp();
+                    gameManager.SetNextSection();
                 }
 
 

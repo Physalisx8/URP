@@ -25,6 +25,43 @@ public class KnifeContainer : InteractableObject
         startRot = transform.rotation;
 
     }
+    
+#region Additional Events
+// Hier die Events hinzufügen und für alle subscriben/unsubscriben + Change Methode anlegen und befüllen
+    [SerializeField] SectionEventSO OnEsseII;
+    //[SerializeField] SectionEventSO OnDings;
+
+    public override void Enable()
+    {
+                // Alle event subscriben
+        OnEsseII.OnInvoke += OnEsseIIChange;
+    //    OnDings.OnInvoke += OnDingsChange;
+    }
+
+        public override void Disable()
+    {
+                // Alle event unsubscriben
+        OnEsseII.OnInvoke -= OnEsseIIChange;
+    //    OnDings.OnInvoke -= OnDingsChange;
+    }
+
+    void OnEsseIIChange(SectionState state){
+        switch (state){
+            case SectionState.Start:
+            // Section Resetten
+            Reset();
+            break;
+            case SectionState.End:
+            OnClick();
+            // OnClick auslösen
+            break;
+        }
+    }
+
+
+    #endregion
+
+    
 
         public override void SectionChange(SectionState state)
     {

@@ -23,6 +23,40 @@ public class Forge : InteractableObject
         tempBar = skript.GetComponent<TempBar>();
     }
 
+#region Additional Events
+// Hier die Events hinzufügen und für alle subscriben/unsubscriben + Change Methode anlegen und befüllen
+    [SerializeField] SectionEventSO OnHaerteTemperatur;
+    //[SerializeField] SectionEventSO OnDings;
+
+    public override void Enable()
+    {
+                // Alle event subscriben
+        OnHaerteTemperatur.OnInvoke += OnHaerteTemperaturChange;
+    //    OnDings.OnInvoke += OnDingsChange;
+    }
+
+        public override void Disable()
+    {
+                // Alle event unsubscriben
+        OnHaerteTemperatur.OnInvoke -= OnHaerteTemperaturChange;
+    //    OnDings.OnInvoke -= OnDingsChange;
+    }
+
+    void OnHaerteTemperaturChange(SectionState state){
+        switch (state){
+            case SectionState.Start:
+            // Section Resetten
+            Reset();
+            break;
+            case SectionState.End:
+            OnDemo();
+            // OnClick auslösen
+            break;
+        }
+    }
+
+    #endregion
+
     public override void SectionChange(SectionState state)
     {
         base.SectionChange(state);
@@ -31,7 +65,7 @@ public class Forge : InteractableObject
             case SectionState.Start:
             if (debug)
                 Debug.Log("START");
-            Reset();
+            OnClick();
             break;
             case SectionState.End:
                 OnClick();
@@ -47,12 +81,36 @@ public class Forge : InteractableObject
             tempBar.Reset();
     }
 
+        public void OnDemo()
+    {
+                count += 1;
+                Debug.Log("print count " + count);
+                
+                animator.SetTrigger("OpenDoor");
+                gameManager.SetNextSection();
+            
+
+                if ((count%2)==0 && count != 0)
+                {
+                    Debug.Log(" count = " + count + " this section should be UI ploppy");
+                    UI.SetActive(true);
+                    StartCoroutine(wait());
+                    tempBar.OnDemo(true);
+                   
+
+                }
+
+            
+        }
+       
+        
+
     public override void OnClick()
     {
         base.OnClick(); // Immer den BUms hier ausführen
 
         // Your code what happens on a click
-        if (gameManager != null)
+        if (gameManager != null) 
         {
             if (!isInteractable)
             {
@@ -61,13 +119,15 @@ public class Forge : InteractableObject
             else
             {
                 count += 1;
-                if (count < 2 || count > 2)
-                {
-                    gameManager.SetNextSection();
-                }
+                Debug.Log("print count " + count);
+                
+                animator.SetTrigger("OpenDoor");
+                gameManager.SetNextSection();
+            
 
-                if (count == 2)
+                if ((count%2)==0 && count != 0)
                 {
+                    Debug.Log(" count = " + count + " this section should be UI ploppy");
                     UI.SetActive(true);
                     StartCoroutine(wait());
 
@@ -85,6 +145,7 @@ public class Forge : InteractableObject
     {
 
         yield return new WaitForSeconds(2);
+       
         tempBar.TemperatureRise();
 
     }

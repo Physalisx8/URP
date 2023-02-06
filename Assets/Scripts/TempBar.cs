@@ -21,6 +21,7 @@ public class TempBar : MonoBehaviour
 
     bool window;
     bool stap;
+    public bool demo;
 
     Animator animator;
     GameManager gameManager;
@@ -51,7 +52,7 @@ public class TempBar : MonoBehaviour
         //if Flag, then check for input from User, if Input comes, Stop animation and set flag for Stopping Coroutine
         if (window)
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) || OnDemo(demo))
             {
                 Successfull();
             }
@@ -60,6 +61,9 @@ public class TempBar : MonoBehaviour
         }
     }
 
+public bool OnDemo(bool demo){
+   return true;
+}
     void Successfull()
     {
         //_GO.GetComponent<Animator>().enabled=false;
@@ -68,7 +72,7 @@ public class TempBar : MonoBehaviour
         stap = true;
         _UI.SetActive(false);
         _UI2.SetActive(false);
-        //animator.Play("ForgeDoor_open");
+        animator.Play("ForgeDoor_open");
         //gameManager.SetNextSection();
     }
 
@@ -76,7 +80,7 @@ public class TempBar : MonoBehaviour
     void CheckInput(float amount)
     {
         window = amount > 0.397 && amount < 0.52;
-
+       
         //if (amount > 0.397 && amount < 0.52)
         //{
         //    window = true;
@@ -105,8 +109,10 @@ public class TempBar : MonoBehaviour
     public void Reset(){
         StopAllCoroutines();
         temp.fillAmount = 0;
+        elapsedTime = 0;
+        stap = false;
         _GO.GetComponent<Animator>().enabled = true;
-        _GO.GetComponent<Animator>().SetTrigger("coolOff");
+        _GO.GetComponent<Animator>().Play("chillOff");
         // Animation Resetten!
     }
 

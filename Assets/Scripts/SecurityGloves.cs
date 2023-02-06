@@ -19,9 +19,6 @@ Vector3 startPos;
         leathergloves = GameObject.Find("leathergloves");
 
         startPos = transform.position;
-    
-       // leatherap = GameObject.Find("Apron");
-       // animator = leatherap.GetComponent<Animator> ();
 
     }
 
@@ -44,13 +41,13 @@ Vector3 startPos;
         void Reset(){
         if (debug)
             Debug.Log("Reset");
-        transform.SetParent(null);
-        transform.position = startPos;
+            transform.SetParent(null);
+            transform.position = startPos;
     }
 
     public override void OnClick()
     {
-        base.OnClick(); // Immer den BUms hier ausführen
+        base.OnClick(); 
          if (gameManager != null)
         {
             if (!isInteractable){
@@ -58,28 +55,15 @@ Vector3 startPos;
             }
        
             else{
-            //leathergloves.SetActive(false);
+            //yeeted die Handschuhe ins nirvana
             transform.position = Vector3.down * 100;
-
-           /* if (animator.GetCurrentAnimatorStateInfo(0).IsName("flying_apron")){
-            leatherap.SetActive(false);*/
-                gameManager.SetNextSection();
+            gameManager.SetNextSection();
             }
         } else {
             Debug.Log("gameManager = null");
         }}
 
         
- 
-   
-    
-    /*
-
-public void NextSection(){
-                gameManager.SetNextSection();
-    
-}
-*/
 
     public override void HoverStart()
     {

@@ -23,14 +23,6 @@ public class ShowHint : MonoBehaviour
         gameManager = FindObjectOfType<GameManager>();
     }
 
-  /*void Update(){
-    if(Input.GetKeyDown(KeyCode.H)){
-        Show();
-    }
-  }
-  */
-
-
 public void Show(){
     
     hintText.text = gameManager.Hint;

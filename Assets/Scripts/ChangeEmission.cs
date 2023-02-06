@@ -14,6 +14,40 @@ public class ChangeEmission : InteractableObject
         gameManager = FindObjectOfType<GameManager>();
     }
 
+#region Additional Events
+// Hier die Events hinzufügen und für alle subscriben/unsubscriben + Change Methode anlegen und befüllen
+    [SerializeField] SectionEventSO OnWarte;
+    //[SerializeField] SectionEventSO OnDings;
+
+    public override void Enable()
+    {
+                // Alle event subscriben
+        OnWarte.OnInvoke += OnWarteChange;
+    //    OnDings.OnInvoke += OnDingsChange;
+    }
+
+        public override void Disable()
+    {
+                // Alle event unsubscriben
+        OnWarte.OnInvoke -= OnWarteChange;
+    //    OnDings.OnInvoke -= OnDingsChange;
+    }
+
+    void OnWarteChange(SectionState state){
+        switch (state){
+            case SectionState.Start:
+            // Section Resetten
+            Reset();
+            break;
+            case SectionState.End:
+            OnClick();
+            // OnClick auslösen
+            break;
+        }
+    }
+
+
+    #endregion
      public override void SectionChange(SectionState state)
     {
         base.SectionChange(state);

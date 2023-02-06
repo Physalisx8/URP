@@ -19,6 +19,7 @@ public class InteractableObject : MonoBehaviour
     public SectionEventSO OnSectionChange;
 
     void OnEnable(){
+        Enable();
         if (OnSectionChange != null){
             OnSectionChange.OnInvoke += SectionChange;
             if (debug)
@@ -27,11 +28,20 @@ public class InteractableObject : MonoBehaviour
     }
     
     void OnDisable(){
+        Disable();
         if (OnSectionChange != null){
             OnSectionChange.OnInvoke -= SectionChange;
             if (debug)
                 Debug.Log("Unsubscribed! " + name);
         }
+    }
+
+    public virtual void Enable(){
+
+    }
+
+    public virtual void Disable(){
+
     }
 
     public virtual void SectionChange(SectionState state){

@@ -49,7 +49,7 @@ public class Knife : InteractableObject
             case SectionState.Start:
             if (debug)
                 Debug.Log("START");
-            Reset();
+            Drop();
             break;
             case SectionState.End:
                 OnClick();

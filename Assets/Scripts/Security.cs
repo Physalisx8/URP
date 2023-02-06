@@ -8,13 +8,18 @@ public class Security : InteractableObject
     GameManager gameManager;
     GameObject leathergloves;
     GameObject leatherap;
+    Animator animator;
 
     Vector3 startPos;
+    Quaternion startRot;
      
 
     void Awake(){
         gameManager = FindObjectOfType<GameManager>();
+        leatherap = GameObject.Find("Apron");
+        animator = leatherap.GetComponent<Animator>();
         startPos = transform.position;
+        startRot = transform.rotation;
     }
 
         public override void SectionChange(SectionState state)
@@ -23,8 +28,7 @@ public class Security : InteractableObject
 
         switch (state){
             case SectionState.Start:
-            if (debug)
-                Debug.Log("START");
+            Debug.Log("Start SecurityApron");
             Reset();
             break;
             case SectionState.End:
@@ -34,11 +38,11 @@ public class Security : InteractableObject
     }
 
     void Reset(){
-        if (debug)
-            Debug.Log("Reset");
-        transform.SetParent(null);
-        transform.position = startPos;
+            animator.Play("flying_apron_back");
+            transform.position = startPos;
+            transform.rotation = startRot;
     }
+
 
     public override void OnClick()
     {
@@ -49,6 +53,7 @@ public class Security : InteractableObject
                 gameManager.IncreaseErrorCounter();
             }
             else{
+                animator.Play("flying_apron");
                 gameManager.SetNextSection();
             }
         } else {

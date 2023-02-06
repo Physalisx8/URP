@@ -77,6 +77,7 @@ public class OilBath : InteractableObject
         yield return new WaitForSeconds(2);
         
         smoke.Stop();
+        
         gameManager.SetNextSection();
 
     }
@@ -85,7 +86,8 @@ public class OilBath : InteractableObject
     public void KnifeDips(){
         //onClick Animation Messer reinhalten abspielen, dann wenn das Messer einetaucht ist den Rauch aufsteigen lassen.
                 smoke.Play();
-                animator.SetTrigger("coolOff");
+                animator.enabled = true;
+                animator.Play("coolingOff");
                 StartCoroutine(wait());
          /*
     
