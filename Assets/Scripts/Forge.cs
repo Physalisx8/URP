@@ -43,6 +43,7 @@ public class Forge : InteractableObject
                 if (count == 2)
                 {
                     UI.SetActive(true);
+                    door.GetComponent<BoxCollider>().enabled = false;
                     StartCoroutine(wait());
 
                 }

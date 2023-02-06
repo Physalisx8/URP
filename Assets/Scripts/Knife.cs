@@ -31,6 +31,15 @@ public class Knife : InteractableObject
     private Vector3 initialPos;
     private Quaternion initalRot;
 
+    private bool moveToParent;
+    private Vector3 position = Vector3.zero;
+    private Vector3 angles = Vector3.zero;
+
+    [SerializeField] private float speed;
+
+    //public bool move => moveToParent;
+    //public Vector3 rotateToEulerangles => angles;
+
     void Awake()
     {
         gameManager = FindObjectOfType<GameManager>();
@@ -59,6 +68,28 @@ public class Knife : InteractableObject
         }
     }
 
+    private void Update()
+    {
+        if (moveToParent)
+        {
+            Move();
+        }
+    }
+
+    public void MoveKnife(Vector3 target, Vector3 eulerAngles)
+    {
+        position = target;
+        angles = eulerAngles;
+        moveToParent = true;
+    }
+
+    private void Move()
+    {
+        transform.localPosition = Vector3.MoveTowards(transform.localPosition, position, Time.deltaTime * speed);
+        transform.localEulerAngles = angles;
+
+        if (transform.localPosition.Equals(position)) { moveToParent = false; }
+    }
 
     public override void OnClick()
     {
@@ -97,9 +128,13 @@ public class Knife : InteractableObject
 
         transform.SetParent(tongsContainer);
 
-        transform.localPosition = Vector3.zero;
-        transform.localRotation = Quaternion.Euler(Vector3.zero);
+        //GetComponent<Animator>().Play("moveToParent");
+
+        //transform.localPosition = Vector3.zero;
+        //transform.localRotation = Quaternion.Euler(Vector3.zero);
         //transform.scale = Vector3.one;
+
+        moveToParent = true;
 
 
     }

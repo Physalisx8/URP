@@ -62,27 +62,20 @@ public class TempBar : MonoBehaviour
 
     void Successfull()
     {
+
+        GameObject.Find("Door").GetComponent<BoxCollider>().enabled = true;
         _GO.GetComponent<Animator>().enabled = false;
         stap = true;
         _UI.SetActive(false);
         _UI2.SetActive(false);
-        //animator.Play("ForgeDoor_open");
-        //gameManager.SetNextSection();
+        animator.Play("ForgeDoor_open");
+        gameManager.SetNextSection();
     }
 
     //checking timeframe from temperature Bar & sets Flag
     void CheckInput(float amount)
     {
         window = amount > 0.397 && amount < 0.52;
-
-        //if (amount > 0.397 && amount < 0.52)
-        //{
-        //    window = true;
-        //}
-        //else if (amount <= 0.397 || amount >= 0.52)
-        //{
-        //    window = false;
-        //}
     }
 
     //starting Coroutine to fill up the TemperatureBar, start Animation
