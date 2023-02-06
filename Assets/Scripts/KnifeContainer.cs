@@ -13,73 +13,78 @@ public class KnifeContainer : InteractableObject
     private string oldParent = null;
     private Vector3 oldPosition;
     private Vector3 oldRotation;
-        
 
-      Vector3 startPos;
+
+    Vector3 startPos;
     Quaternion startRot;
 
-        void Awake(){
+    void Awake()
+    {
         gameManager = FindObjectOfType<GameManager>();
         knifeContainer = GameObject.Find("knifeContainer");
         startPos = transform.position;
         startRot = transform.rotation;
 
     }
-    
-#region Additional Events
-// Hier die Events hinzufügen und für alle subscriben/unsubscriben + Change Methode anlegen und befüllen
+
+    #region Additional Events
+    // Hier die Events hinzufügen und für alle subscriben/unsubscriben + Change Methode anlegen und befüllen
     [SerializeField] SectionEventSO OnEsseII;
     //[SerializeField] SectionEventSO OnDings;
 
     public override void Enable()
     {
-                // Alle event subscriben
+        // Alle event subscriben
         OnEsseII.OnInvoke += OnEsseIIChange;
-    //    OnDings.OnInvoke += OnDingsChange;
+        //    OnDings.OnInvoke += OnDingsChange;
     }
 
-        public override void Disable()
+    public override void Disable()
     {
-                // Alle event unsubscriben
+        // Alle event unsubscriben
         OnEsseII.OnInvoke -= OnEsseIIChange;
-    //    OnDings.OnInvoke -= OnDingsChange;
+        //    OnDings.OnInvoke -= OnDingsChange;
     }
 
-    void OnEsseIIChange(SectionState state){
-        switch (state){
+    void OnEsseIIChange(SectionState state)
+    {
+        switch (state)
+        {
             case SectionState.Start:
-            // Section Resetten
-            Reset();
-            break;
+                // Section Resetten
+                Reset();
+                break;
             case SectionState.End:
-            OnClick();
-            // OnClick auslösen
-            break;
+                OnClick();
+                // OnClick auslösen
+                break;
         }
     }
 
 
     #endregion
 
-    
 
-        public override void SectionChange(SectionState state)
+
+    public override void SectionChange(SectionState state)
     {
         base.SectionChange(state);
 
-        switch (state){
+        switch (state)
+        {
             case SectionState.Start:
-            if (debug)
-                Debug.Log("START");
-            Reset();
-            break;
+                if (debug)
+                    Debug.Log("START");
+                Reset();
+                break;
             case SectionState.End:
                 OnClick();
-            break;
+                break;
         }
     }
 
-    void Reset(){
+    void Reset()
+    {
         if (debug)
             Debug.Log("Reset");
         transform.SetParent(null);
@@ -99,7 +104,7 @@ public class KnifeContainer : InteractableObject
             }
             else
             {
-                
+
                 if (oldParent != null)
                 {
                     knife.transform.parent = GameObject.Find(oldParent).transform;

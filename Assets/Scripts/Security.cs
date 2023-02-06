@@ -12,9 +12,10 @@ public class Security : InteractableObject
 
     Vector3 startPos;
     Quaternion startRot;
-     
 
-    void Awake(){
+
+    void Awake()
+    {
         gameManager = FindObjectOfType<GameManager>();
         leatherap = GameObject.Find("Apron");
         animator = leatherap.GetComponent<Animator>();
@@ -22,48 +23,54 @@ public class Security : InteractableObject
         startRot = transform.rotation;
     }
 
-        public override void SectionChange(SectionState state)
+    public override void SectionChange(SectionState state)
     {
         base.SectionChange(state);
 
-        switch (state){
+        switch (state)
+        {
             case SectionState.Start:
-            Debug.Log("Start SecurityApron");
-            Reset();
-            break;
+                Debug.Log("Start SecurityApron");
+                Reset();
+                break;
             case SectionState.End:
                 OnClick();
-            break;
+                break;
         }
     }
 
-    void Reset(){
-            animator.Play("flying_apron_back");
-            transform.position = startPos;
-            transform.rotation = startRot;
+    void Reset()
+    {
+        animator.Play("flying_apron_back");
+        transform.position = startPos;
+        transform.rotation = startRot;
     }
 
 
     public override void OnClick()
     {
         base.OnClick(); // Immer den BUms hier ausführen
-     if (gameManager != null)
+        if (gameManager != null)
         {
-            if (!isInteractable){
+            if (!isInteractable)
+            {
                 gameManager.IncreaseErrorCounter();
             }
-            else{
+            else
+            {
                 animator.Play("flying_apron");
                 gameManager.SetNextSection();
             }
-        } else {
+        }
+        else
+        {
             Debug.Log("gameManager = null");
         }
-          
-        }
-      
-        
-    
+
+    }
+
+
+
 
 
 
@@ -74,7 +81,7 @@ public class Security : InteractableObject
         base.HoverStart();
     }
 
-        public override void HoverStop()
+    public override void HoverStop()
     {
         // Your Code
         base.HoverStop();

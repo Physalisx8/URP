@@ -7663,15 +7663,8 @@ MonoBehaviour:
       Die Esse \xF6ffnest du an dem blauen Hebel."
     activeObjects:
     - {fileID: 837687562}
-    interactions:
-    - {fileID: 11400000, guid: 5a7aa448f9f71eb45933d1c3d85bacc9, type: 2}
-  - sectionName: Esse III
-    instruction: Nimm nun das Messer aus der Esse.
-    hint: "Die Grundplatte ist eine Platte auf dem Essenboden.\r"
-    activeObjects:
-    - {fileID: 420433750}
-    interactions:
-    - {fileID: 11400000, guid: 5a7aa448f9f71eb45933d1c3d85bacc9, type: 2}
+    stateEvent: {fileID: 11400000, guid: bb093761f86b0e141b839e54a7874f38, type: 2}
+    triggerZone: {fileID: 591650205}
   - sectionName: Abschrecken
     instruction: "Damit die Strukturen des Metalls ihre maximale H\xE4rte erreichen,
       muss das Werkst\xFCck abgeschreckt werden. Es ist wichtig, den Stahl innerhalb
@@ -16501,11 +16494,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< HEAD
-  m_Material: {fileID: 1196927853}
-=======
   m_Material: {fileID: 2013139314}
->>>>>>> main
   m_Color: {r: 0.4245283, g: 0.40477037, b: 0.3504361, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -16682,11 +16671,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< HEAD
-  m_Material: {fileID: 1296984568}
-=======
   m_Material: {fileID: 1965674803}
->>>>>>> main
   m_Color: {r: 0.4339623, g: 0.4339623, b: 0.4339623, a: 0.53333336}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}

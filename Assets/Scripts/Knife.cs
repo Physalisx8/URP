@@ -1,4 +1,4 @@
-conusing System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -31,6 +31,9 @@ public class Knife : InteractableObject
     private Vector3 initialPos;
     private Quaternion initalRot;
 
+    Vector3 startPos;
+    Quaternion startRot;
+
     private bool moveToParent;
     private Vector3 position = Vector3.zero;
     private Vector3 angles = Vector3.zero;
@@ -48,23 +51,25 @@ public class Knife : InteractableObject
 
     }
 
-        public override void SectionChange(SectionState state)
+    public override void SectionChange(SectionState state)
     {
         base.SectionChange(state);
 
-        switch (state){
+        switch (state)
+        {
             case SectionState.Start:
-            if (debug)
-                Debug.Log("START");
-            Drop();
-            break;
+                if (debug)
+                    Debug.Log("START");
+                Drop();
+                break;
             case SectionState.End:
                 OnClick();
-            break;
+                break;
         }
     }
 
-    void Reset(){
+    void Reset()
+    {
         if (debug)
             Debug.Log("Reset");
         transform.SetParent(null);
@@ -79,20 +84,6 @@ public class Knife : InteractableObject
         initalRot = transform.localRotation;
         // initiale Position speichern
 
-    }
-
-    public override void SectionChange(bool isActive)
-    {
-        base.SectionChange(isActive);
-        if (isActive)
-        {
-            // Wenn Event(Section) auf aktiv gesetzt wird.
-        }
-        else
-        {
-            // Wenn Event inaktiv wird. Brauchen wir aber eigentlich nicht
-            PickUp();
-        }
     }
 
     private void Update()
@@ -154,12 +145,6 @@ public class Knife : InteractableObject
         equipped = true;
 
         transform.SetParent(tongsContainer);
-
-        //GetComponent<Animator>().Play("moveToParent");
-
-        //transform.localPosition = Vector3.zero;
-        //transform.localRotation = Quaternion.Euler(Vector3.zero);
-        //transform.scale = Vector3.one;
 
         moveToParent = true;
 
