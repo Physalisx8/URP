@@ -23,7 +23,7 @@ using UnityEngine;
 // Von InteractableObject erben lassen
 public class Knife : InteractableObject
 {
-    public Transform player, tongsContainer;
+    public Transform player, knifeContainer;
 
     public float pickUpRange;
     public bool equipped;
@@ -106,6 +106,8 @@ public class Knife : InteractableObject
         transform.localPosition = Vector3.MoveTowards(transform.localPosition, position, Time.deltaTime * speed);
         transform.localEulerAngles = angles;
 
+        Debug.Log(transform.localPosition + " --- " + position);
+
         if (transform.localPosition.Equals(position)) { moveToParent = false; }
     }
 
@@ -144,7 +146,7 @@ public class Knife : InteractableObject
     {
         equipped = true;
 
-        transform.SetParent(tongsContainer);
+        transform.SetParent(knifeContainer);
 
         moveToParent = true;
 

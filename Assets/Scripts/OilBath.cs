@@ -4,39 +4,42 @@ using UnityEngine;
 
 public class OilBath : InteractableObject
 {
-[SerializeField] ParticleSystem smoke;
-  Animator animator;
-  GameObject knife;
-  GameManager gameManager;
-        void Awake(){
+    [SerializeField] ParticleSystem smoke;
+    Animator animator;
+    GameObject knife;
+    GameObject quenchContainer;
+    GameManager gameManager;
+
+    void Awake()
+    {
         gameManager = FindObjectOfType<GameManager>();
         knife = GameObject.Find("knife");
+        quenchContainer = GameObject.Find("QuenchContainer");
         animator = knife.GetComponent<Animator>();
     }
-  public override void SectionChange(SectionState state)
+
+    public override void SectionChange(SectionState state)
     {
         base.SectionChange(state);
 
-        switch (state){
+        switch (state)
+        {
             case SectionState.Start:
-            if (debug)
-                Debug.Log("START");
-            Reset();
-            break;
+                if (debug)
+                    Debug.Log("START");
+                Reset();
+                break;
             case SectionState.End:
                 OnClick();
-            break;
+                break;
         }
     }
 
-    void Reset(){
+    void Reset()
+    {
         if (debug)
             Debug.Log("Reset");
-        
-      
     }
-
-
 
     public override void OnClick()
     {
@@ -52,15 +55,12 @@ public class OilBath : InteractableObject
             else
             {
                 KnifeDips();
-                
             }
         }
         else
         {
             Debug.Log("gameManager = null");
         }
-
-
     }
 
     public override void HoverStart()
@@ -79,6 +79,8 @@ public class OilBath : InteractableObject
     {
         yield return new WaitForSeconds(seconds);
         smoke.Stop();
+        yield return new WaitForSeconds(seconds);
+        quenchContainer.GetComponent<Animator>().Play("returnFromQuench");
         gameManager.SetNextSection();
     }
 
@@ -92,18 +94,17 @@ public class OilBath : InteractableObject
     {
         //onClick Animation Messer reinhalten abspielen, dann wenn das Messer einetaucht ist den Rauch aufsteigen lassen.
 
-        GameObject quenchCont = GameObject.Find("QuenchContainer");
-        quenchCont.GetComponent<Animator>().Play("quench");
+        quenchContainer.GetComponent<Animator>().Play("quench");
         StartCoroutine(waitToStart(0.47f));
 
         //smoke.Play();
         animator.enabled = true;
         animator.Play("coolingOff");
         StartCoroutine(waitToStop(2f));
-
-
-
         
+
+
+
         /*
         anim ["cubeanimation"].speed = -1;
            anim ["cubeanimation"].time = anim ["cubeanimation"].length;
@@ -114,14 +115,4 @@ public class OilBath : InteractableObject
         */
 
     }
-
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    Debug.Log(other.transform.name);
-    //    if(other.transform.name.Equals("Knife")) {
-    //        smoke.Play();
-
-    //    }
-    //}
-
 }

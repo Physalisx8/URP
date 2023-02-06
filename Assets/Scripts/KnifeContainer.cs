@@ -108,9 +108,7 @@ public class KnifeContainer : InteractableObject
                 if (oldParent != null)
                 {
                     knife.transform.parent = GameObject.Find(oldParent).transform;
-                    knife.GetComponent<Knife>().MoveKnife(oldPosition, oldRotation);
-                    //knife.transform.localPosition = oldPosition;
-                    //knife.transform.eulerAngles = oldRotation;
+                    knife.GetComponent<Knife>().MoveKnife(Vector3.zero, oldRotation);
                     GameObject.Find("Door").GetComponent<Animator>().Play("ForgeDoor_close");
                     gameManager.SetNextSection();
                 }
@@ -121,10 +119,6 @@ public class KnifeContainer : InteractableObject
                     knife.transform.parent = transform;
                     Vector3 rotation = knife.transform.localEulerAngles;
                     knife.GetComponent<Knife>().MoveKnife(new Vector3(0, -0.48f, 0), new Vector3(90, rotation.y, rotation.z));
-
-                    //knife.transform.localPosition = new Vector3(0, -0.48f, 0);
-                    //Vector3 rotation = knife.transform.eulerAngles;
-                    //knife.transform.eulerAngles = new Vector3(90, rotation.y, rotation.z);
                     gameManager.SetNextSection();
                 }
             }
