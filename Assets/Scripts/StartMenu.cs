@@ -18,6 +18,7 @@ public class StartMenu : MonoBehaviour
 [SerializeField] GameObject[] stabbing;
 
 [SerializeField] GameManager gameManager;
+bool demo;
 
     // Start is called before the first frame update
 public void StartTraining(){
@@ -30,9 +31,10 @@ public void StartTraining(){
 }
 
 public void StartDemoMode(){
+
     StartTraining();
     Obj.SetActive(false);
-   
+   demo = true;
     stabbing[0].SetActive(false);
     stabbing[1].SetActive(false);
     stabbing[2].SetActive(false);
@@ -44,9 +46,9 @@ public void StartDemoMode(){
 
 //very hacky aber whatever
 void Update(){
-
+if (demo){
     stabbing[2].SetActive(false);
-    stabbing[4].SetActive(false);}
+    stabbing[4].SetActive(false);}}
 
 public void StartApp(){
     SceneManager.LoadScene(SceneManager.GetActiveScene().name);
