@@ -79,6 +79,7 @@ public class OilBath : InteractableObject
     {
         yield return new WaitForSeconds(seconds);
         smoke.Stop();
+        gameManager.SetNextSection();
     }
 
     public IEnumerator waitToStart(float seconds)
@@ -96,8 +97,11 @@ public class OilBath : InteractableObject
         StartCoroutine(waitToStart(0.47f));
 
         //smoke.Play();
-        animator.Play("chillOff");
+        animator.enabled = true;
+        animator.Play("coolingOff");
         StartCoroutine(waitToStop(2f));
+
+
 
         
         /*
