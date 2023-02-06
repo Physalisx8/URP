@@ -11,12 +11,14 @@ public class CameraTriggerZone : InteractableObject
         base.OnClick();
     }
 
-    public override void SectionChange(bool isActive){
-        if (isActive){
-            // Wenn Section aktiviert wird
-        }else{
-            // Wenn section deaktiviert wird
-            OnClick();
+    public override void SectionChange(SectionState state){
+        
+        switch (state){
+            case SectionState.Start:
+            break;
+            case SectionState.End:
+                OnClick();
+            break;
         }
     }
 

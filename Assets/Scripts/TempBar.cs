@@ -21,6 +21,7 @@ public class TempBar : MonoBehaviour
 
     bool window;
     bool stap;
+    public bool demo;
 
     Animator animator;
     GameManager gameManager;
@@ -51,7 +52,7 @@ public class TempBar : MonoBehaviour
         //if Flag, then check for input from User, if Input comes, Stop animation and set flag for Stopping Coroutine
         if (window)
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) || OnDemo(demo))
             {
                 Successfull();
             }
@@ -60,11 +61,15 @@ public class TempBar : MonoBehaviour
         }
     }
 
+public bool OnDemo(bool demo){
+   return true;
+}
     void Successfull()
     {
 
         GameObject.Find("Door").GetComponent<BoxCollider>().enabled = true;
-        _GO.GetComponent<Animator>().enabled = false;
+        _GO.GetComponent<Animator>().enabled=false;
+        _GO.GetComponent<Animator>().SetTrigger("paused");
         stap = true;
         _UI.SetActive(false);
         _UI2.SetActive(false);
@@ -84,6 +89,23 @@ public class TempBar : MonoBehaviour
         // _UI.SetActive(true);
         StartCoroutine(IncreaseSeconds(maximum));
         _GO.GetComponent<Animator>().Play("changeEmission");
+
+        //Animationen anpsrechen:
+        // 1. Spielt Animation direkt ab ohne transition von der jetzigen
+        // Animator.Play("AnimationsName"); 
+        // 2. Ändert Condition, wenn alle Conditions erfüllt sind macht er ne Transition
+        // Animator.SetTrigger("TriggerName");
+        // Animation.SetFloat("FloatName", 5);
+    }
+
+    public void Reset(){
+        StopAllCoroutines();
+        temp.fillAmount = 0;
+        elapsedTime = 0;
+        stap = false;
+        _GO.GetComponent<Animator>().enabled = true;
+        _GO.GetComponent<Animator>().Play("chillOff");
+        // Animation Resetten!
     }
 
 

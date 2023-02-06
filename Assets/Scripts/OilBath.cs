@@ -4,21 +4,38 @@ using UnityEngine;
 
 public class OilBath : InteractableObject
 {
-    [SerializeField] ParticleSystem smoke;
-    Animator animator;
-    GameObject knife;
-    void Awake()
-    {
+[SerializeField] ParticleSystem smoke;
+  Animator animator;
+  GameObject knife;
+  GameManager gameManager;
+        void Awake(){
         gameManager = FindObjectOfType<GameManager>();
         knife = GameObject.Find("knife");
         animator = knife.GetComponent<Animator>();
     }
-    void Start()
+  public override void SectionChange(SectionState state)
     {
-        // ParticleSystem smoke = GameObject.Find("Smoke").GetComponent<ParticleSystem>();
+        base.SectionChange(state);
 
+        switch (state){
+            case SectionState.Start:
+            if (debug)
+                Debug.Log("START");
+            Reset();
+            break;
+            case SectionState.End:
+                OnClick();
+            break;
+        }
     }
-    GameManager gameManager;
+
+    void Reset(){
+        if (debug)
+            Debug.Log("Reset");
+        
+      
+    }
+
 
 
     public override void OnClick()
@@ -35,7 +52,7 @@ public class OilBath : InteractableObject
             else
             {
                 KnifeDips();
-                gameManager.SetNextSection();
+                
             }
         }
         else

@@ -11,19 +11,43 @@ public class SecurityGloves : InteractableObject
     GameObject leatherap;
     Animator animator;
 */
+Vector3 startPos;
      
 
     void Awake(){
         gameManager = FindObjectOfType<GameManager>();
         leathergloves = GameObject.Find("leathergloves");
-    
-       // leatherap = GameObject.Find("Apron");
-       // animator = leatherap.GetComponent<Animator> ();
+
+        startPos = transform.position;
 
     }
+
+            public override void SectionChange(SectionState state)
+    {
+        base.SectionChange(state);
+
+        switch (state){
+            case SectionState.Start:
+            if (debug)
+                Debug.Log("Start");
+            Reset();
+            break;
+            case SectionState.End:
+                OnClick();
+            break;
+        }
+    }
+
+        void Reset(){
+        if (debug)
+            Debug.Log("Reset");
+            transform.SetParent(null);
+            transform.position = startPos;
+    }
+
     public override void OnClick()
     {
-        base.OnClick(); // Immer den BUms hier ausführen
+        base.OnClick(); 
          if (gameManager != null)
         {
             if (!isInteractable){
@@ -31,27 +55,15 @@ public class SecurityGloves : InteractableObject
             }
        
             else{
-            leathergloves.SetActive(false);
-
-           /* if (animator.GetCurrentAnimatorStateInfo(0).IsName("flying_apron")){
-            leatherap.SetActive(false);*/
-                gameManager.SetNextSection();
+            //yeeted die Handschuhe ins nirvana
+            transform.position = Vector3.down * 100;
+            gameManager.SetNextSection();
             }
         } else {
             Debug.Log("gameManager = null");
         }}
 
         
- 
-   
-    
-    /*
-
-public void NextSection(){
-                gameManager.SetNextSection();
-    
-}
-*/
 
     public override void HoverStart()
     {

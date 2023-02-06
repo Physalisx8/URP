@@ -1,4 +1,4 @@
-using System.Collections;
+conusing System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -43,6 +43,33 @@ public class Knife : InteractableObject
     void Awake()
     {
         gameManager = FindObjectOfType<GameManager>();
+        startPos = transform.position;
+        startRot = transform.rotation;
+
+    }
+
+        public override void SectionChange(SectionState state)
+    {
+        base.SectionChange(state);
+
+        switch (state){
+            case SectionState.Start:
+            if (debug)
+                Debug.Log("START");
+            Drop();
+            break;
+            case SectionState.End:
+                OnClick();
+            break;
+        }
+    }
+
+    void Reset(){
+        if (debug)
+            Debug.Log("Reset");
+        transform.SetParent(null);
+        transform.position = startPos;
+        transform.rotation = startRot;
     }
 
     private void Start()

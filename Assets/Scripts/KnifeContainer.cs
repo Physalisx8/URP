@@ -8,15 +8,83 @@ public class KnifeContainer : InteractableObject
 
     GameManager gameManager;
     [SerializeField] GameObject knife;
+    private GameObject knifeContainer;
 
     private string oldParent = null;
     private Vector3 oldPosition;
     private Vector3 oldRotation;
         
 
-    void Awake()
-    {
+      Vector3 startPos;
+    Quaternion startRot;
+
+        void Awake(){
         gameManager = FindObjectOfType<GameManager>();
+        knifeContainer = GameObject.Find("knifeContainer");
+        startPos = transform.position;
+        startRot = transform.rotation;
+
+    }
+    
+#region Additional Events
+// Hier die Events hinzufügen und für alle subscriben/unsubscriben + Change Methode anlegen und befüllen
+    [SerializeField] SectionEventSO OnEsseII;
+    //[SerializeField] SectionEventSO OnDings;
+
+    public override void Enable()
+    {
+                // Alle event subscriben
+        OnEsseII.OnInvoke += OnEsseIIChange;
+    //    OnDings.OnInvoke += OnDingsChange;
+    }
+
+        public override void Disable()
+    {
+                // Alle event unsubscriben
+        OnEsseII.OnInvoke -= OnEsseIIChange;
+    //    OnDings.OnInvoke -= OnDingsChange;
+    }
+
+    void OnEsseIIChange(SectionState state){
+        switch (state){
+            case SectionState.Start:
+            // Section Resetten
+            Reset();
+            break;
+            case SectionState.End:
+            OnClick();
+            // OnClick auslösen
+            break;
+        }
+    }
+
+
+    #endregion
+
+    
+
+        public override void SectionChange(SectionState state)
+    {
+        base.SectionChange(state);
+
+        switch (state){
+            case SectionState.Start:
+            if (debug)
+                Debug.Log("START");
+            Reset();
+            break;
+            case SectionState.End:
+                OnClick();
+            break;
+        }
+    }
+
+    void Reset(){
+        if (debug)
+            Debug.Log("Reset");
+        transform.SetParent(null);
+        transform.position = startPos;
+        transform.rotation = startRot;
     }
     public override void OnClick()
     {

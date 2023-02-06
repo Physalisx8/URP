@@ -16,9 +16,10 @@ public class InteractableObject : MonoBehaviour
     public bool isInteractable; // dont change here please
 
         [Header("Listening to ...")]
-    public BoolEventSO OnSectionChange;
+    public SectionEventSO OnSectionChange;
 
     void OnEnable(){
+        Enable();
         if (OnSectionChange != null){
             OnSectionChange.OnInvoke += SectionChange;
             if (debug)
@@ -27,6 +28,7 @@ public class InteractableObject : MonoBehaviour
     }
     
     void OnDisable(){
+        Disable();
         if (OnSectionChange != null){
             OnSectionChange.OnInvoke -= SectionChange;
             if (debug)
@@ -34,9 +36,17 @@ public class InteractableObject : MonoBehaviour
         }
     }
 
-    public virtual void SectionChange(bool isActive){
+    public virtual void Enable(){
+
+    }
+
+    public virtual void Disable(){
+
+    }
+
+    public virtual void SectionChange(SectionState state){
         if (debug){
-            Debug.Log("Section Change " + isActive);
+            Debug.Log("Section Change " + state.ToString());
         }
         // Do stuff
     }
