@@ -26,37 +26,54 @@ public class Forge : InteractableObject
 #region Additional Events
 // Hier die Events hinzufügen und für alle subscriben/unsubscriben + Change Methode anlegen und befüllen
     [SerializeField] SectionEventSO OnHaerteTemperatur;
-    //[SerializeField] SectionEventSO OnDings;
+    [SerializeField] SectionEventSO OnSchliesseForge;
 
     public override void Enable()
     {
                 // Alle event subscriben
         OnHaerteTemperatur.OnInvoke += OnHaerteTemperaturChange;
-    //    OnDings.OnInvoke += OnDingsChange;
+       OnSchliesseForge.OnInvoke += OnSchliesseForgeChange;
     }
 
         public override void Disable()
     {
                 // Alle event unsubscriben
         OnHaerteTemperatur.OnInvoke -= OnHaerteTemperaturChange;
-    //    OnDings.OnInvoke -= OnDingsChange;
+       OnSchliesseForge.OnInvoke -= OnSchliesseForgeChange;
     }
 
+//OnHaerteTemperatur - wenn das Messer glüht und die Tür sich öffnet 
     void OnHaerteTemperaturChange(SectionState state){
         switch (state){
             case SectionState.Start:
             // Section Resetten
-            Reset();
+            ResetUI();
             break;
             case SectionState.End:
-            OnDemo();
+            UIPlay();
+            // OnClick auslösen
+            break;
+        }
+    }
+        void OnSchliesseForgeChange(SectionState state){
+        switch (state){
+            case SectionState.Start:
+            // Section Resetten
+            animator.Play("ForgeDoor_open");
+            break;
+            case SectionState.End:
+            animator.Play("ForgeDoor_close");
+            gameManager.SetNextSection();
             // OnClick auslösen
             break;
         }
     }
 
+
+
     #endregion
 
+//OnEsse-
     public override void SectionChange(SectionState state)
     {
         base.SectionChange(state);
@@ -65,45 +82,44 @@ public class Forge : InteractableObject
             case SectionState.Start:
             if (debug)
                 Debug.Log("START");
-            OnClick();
+            Reset();
             break;
             case SectionState.End:
-                OnClick();
+                animator.Play("ForgeDoor_open");
+                gameManager.SetNextSection();
             break;
         }
     }
 
-    void Reset(){
+      void Reset(){
+        if (debug)
+            Debug.Log("Reset");
+            animator.Play("ForgeDoor_close");
+    }
+
+    void ResetUI(){
         if (debug)
             Debug.Log("Reset");
             UI.SetActive(false);
-            StopAllCoroutines();
+            //StopAllCoroutines();
+            Debug.Log("I try to cancel you!");
             tempBar.Reset();
+            tempBar.OnDemo(false);
+            animator.Play("ForgeDoor_close");
+           
     }
 
-        public void OnDemo()
-    {
-                count += 1;
-                Debug.Log("print count " + count);
-                
-                animator.SetTrigger("OpenDoor");
-                gameManager.SetNextSection();
-            
-
-                if ((count%2)==0 && count != 0)
-                {
-                    Debug.Log(" count = " + count + " this section should be UI ploppy");
+       
+    public void UIPlay(){
+        Debug.Log("I'm trying to do my Job ffs");
                     UI.SetActive(true);
                     StartCoroutine(wait());
                     tempBar.OnDemo(true);
+                    gameManager.SetNextSection();
                    
 
                 }
-
-            
-        }
-       
-        
+    
 
     public override void OnClick()
     {
@@ -127,7 +143,7 @@ public class Forge : InteractableObject
 
                 if ((count%2)==0 && count != 0)
                 {
-                    Debug.Log(" count = " + count + " this section should be UI ploppy");
+                   // Debug.Log(" count = " + count + " this section should be UI ploppy");
                     UI.SetActive(true);
                     StartCoroutine(wait());
 

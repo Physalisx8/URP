@@ -16,12 +16,14 @@ public class TempBar : MonoBehaviour
     private int maximum = 15;
     float fillAmount;
 
+    public bool demo = false;
+
     float elapsedTime = 0;
     public Image temp;
 
     bool window;
     bool stap;
-    public bool demo;
+   
 
     Animator animator;
     GameManager gameManager;
@@ -52,7 +54,7 @@ public class TempBar : MonoBehaviour
         //if Flag, then check for input from User, if Input comes, Stop animation and set flag for Stopping Coroutine
         if (window)
         {
-            if (Input.GetMouseButtonDown(0) || OnDemo(demo))
+            if (Input.GetMouseButtonDown(0) || demo)
             {
                 Successfull();
             }
@@ -61,8 +63,12 @@ public class TempBar : MonoBehaviour
         }
     }
 
-public bool OnDemo(bool demo){
-   return true;
+public void OnDemo(bool check){
+if (check){
+  demo = true;}
+  else{
+    demo = false;
+  }
 }
     void Successfull()
     {
@@ -112,7 +118,7 @@ public bool OnDemo(bool demo){
         elapsedTime = 0;
         stap = false;
         _GO.GetComponent<Animator>().enabled = true;
-        _GO.GetComponent<Animator>().Play("chillOff");
+        _GO.GetComponent<Animator>().Play("coolingOff");
         // Animation Resetten!
     }
 
