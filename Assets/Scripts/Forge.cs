@@ -8,10 +8,9 @@ public class Forge : InteractableObject
     GameManager gameManager;
     Animator animator;
     GameObject door;
-    [SerializeField] CanvasGroup UI;
 
-    [SerializeField] GameObject skript;
-     [SerializeField] GameObject empties;
+
+  
     TempBar tempBar;
     int count;
 
@@ -23,7 +22,7 @@ public class Forge : InteractableObject
         gameManager = FindObjectOfType<GameManager>();
         door = GameObject.Find("Door");
         animator = door.GetComponent<Animator>();
-        tempBar = skript.GetComponent<TempBar>();
+       
     }
 /*
 #region Additional Events
@@ -141,6 +140,7 @@ public class Forge : InteractableObject
             else
             {
                 GameObject.Find("Door").GetComponent<BoxCollider>().enabled = false;
+                animator.SetTrigger("OpenDoor");
                // empties.transform.position = new Vector3(1.51f,2.34f,7.24f);
                 gameManager.SetNextSection();
             
