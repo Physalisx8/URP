@@ -54,6 +54,7 @@ public class Security : InteractableObject
         {
             if (!isInteractable)
             {
+                Debug.Log("WHy are we here.");
                 gameManager.IncreaseErrorCounter();
             }
             else

@@ -49,6 +49,8 @@ public class Forge2 : InteractableObject
       void Reset(){
         if (debug)
             Debug.Log("Reset");
+            animator.Play("ForgeDoor_open");
+            //animator.SetTrigger("CloseDoor");
            //animator.Play("ForgeDoor_close");
     }
 

@@ -8,7 +8,7 @@ public class KnifeContainer : InteractableObject
 
     GameManager gameManager;
     [SerializeField] GameObject knife;
-    private GameObject knifeContainer;
+    GameObject knifeContainer;
      [SerializeField] GameObject empties;
 
     private string oldParent = null;
@@ -38,7 +38,7 @@ public class KnifeContainer : InteractableObject
         switch (state){
             case SectionState.Start:
             // Section Resetten
-         Reset();
+         Reset2();
             break;
             case SectionState.End:
             OnClick();
@@ -49,6 +49,11 @@ public class KnifeContainer : InteractableObject
 
 
     #endregion
+
+    void Reset2(){
+        knifeContainer.transform.parent =  knife.transform.parent;
+        knife.GetComponent<Knife>().MoveKnife(Vector3.zero,Vector3.zero);
+    }
     void Awake()
     {
        // transform.position = Vector3.down *100;
@@ -79,7 +84,9 @@ public class KnifeContainer : InteractableObject
     {
         if (debug)
             Debug.Log("Reset");
-        transform.SetParent(null);
+        knife.transform.parent = knifeContainer.transform;
+        knife.GetComponent<Knife>().MoveKnife(Vector3.zero,Vector3.zero);
+
    
     }
     public override void OnClick()

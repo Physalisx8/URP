@@ -68,14 +68,6 @@ public class Knife : InteractableObject
         }
     }
 
-    void Reset()
-    {
-        if (debug)
-            Debug.Log("Reset");
-        transform.SetParent(null);
-        transform.position = startPos;
-        transform.rotation = startRot;
-    }
 
     private void Start()
     {

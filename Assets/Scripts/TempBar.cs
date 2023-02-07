@@ -13,6 +13,8 @@ public class TempBar : MonoBehaviour
     [SerializeField] GameObject _GO;
     [SerializeField] GameObject _UI;
     [SerializeField] CanvasGroup _UI2;
+    
+
     private int maximum = 15;
     float fillAmount;
 
@@ -28,6 +30,9 @@ public class TempBar : MonoBehaviour
     Animator animator;
     GameManager gameManager;
     GameObject door;
+    
+
+
     void Start()
     {
         //TemperatureRise dann irgendwann callen, wenn wir wissen wo.
@@ -48,7 +53,7 @@ public class TempBar : MonoBehaviour
 
         if (!window)
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) && _UI2.alpha==1)
             {
                 gameManager.IncreaseErrorCounter();
             }
@@ -56,7 +61,7 @@ public class TempBar : MonoBehaviour
         //if Flag, then check for input from User, if Input comes, Stop animation and set flag for Stopping Coroutine
         if (window)
         {
-            if (Input.GetMouseButtonDown(0) || demo)
+            if ((Input.GetMouseButtonDown(0) || demo) && _UI2.alpha ==1 )
             {
                 Successfull();
             }
@@ -86,8 +91,9 @@ public class TempBar : MonoBehaviour
         //_UI.SetActive(false);
         _UI2.alpha = 0f;
         animator.SetTrigger("OpenDoor");
+
         OnDemo(false);
-        //gameManager.SetNextSection();
+       
 
         /*
         _UI2.SetActive(false);

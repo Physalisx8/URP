@@ -15,6 +15,7 @@ public class OilBath : InteractableObject
         gameManager = FindObjectOfType<GameManager>();
         //knife = GameObject.Find("knife");
         quenchContainer = GameObject.Find("QuenchContainer");
+
         animator = knife.GetComponent<Animator>();
     }
 

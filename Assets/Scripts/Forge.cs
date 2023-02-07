@@ -98,7 +98,8 @@ public class Forge : InteractableObject
         if (debug)
             Debug.Log("Reset");
             GameObject.Find("Door").GetComponent<BoxCollider>().enabled = true;
-           //animator.Play("ForgeDoor_close");
+           animator.Play("idle");
+            
     }
 /*
     void ResetUI(){

@@ -9,6 +9,7 @@ public class Forge3 : InteractableObject
     Animator animator;
     GameObject door;
     TempBar tempBar;
+    public bool check=false;
 
     [SerializeField] CanvasGroup UI;
 
@@ -27,6 +28,7 @@ public class Forge3 : InteractableObject
         animator = door.GetComponent<Animator>();
         //tempBar = skript.GetComponent<TempBar>();
     }
+
 
 //OnHärteTemp
     public override void SectionChange(SectionState state)
@@ -48,6 +50,8 @@ public class Forge3 : InteractableObject
       void Reset(){
         if (debug)
             Debug.Log("Reset");
+           // UI.alpha =0f;
+            //animator.Play("idle");
            //animator.Play("ForgeDoor_close");
     }
 
@@ -68,8 +72,9 @@ public class Forge3 : InteractableObject
             else
             {
                
-
+               
                // empties.transform.position = new Vector3(1.51f,2.34f,7.24f);
+              
                 transform.position = Vector3.down *100;
                 gameManager.SetNextSection();
 
