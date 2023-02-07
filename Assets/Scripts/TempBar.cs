@@ -44,6 +44,8 @@ public class TempBar : MonoBehaviour
     void Update()
     {
 
+        
+
         if (!window)
         {
             if (Input.GetMouseButtonDown(0))
