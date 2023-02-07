@@ -106,15 +106,13 @@ public class Knife : InteractableObject
         transform.localPosition = Vector3.MoveTowards(transform.localPosition, position, Time.deltaTime * speed);
         transform.localEulerAngles = angles;
 
-        Debug.Log(transform.localPosition + " --- " + position);
-
         if (transform.localPosition.Equals(position)) { moveToParent = false; }
     }
 
     public override void OnClick()
     {
         base.OnClick(); // Immer den BUms hier ausführen
-        Debug.Log("Knife Click");
+        //Debug.Log("Knife Click");
         Vector3 distanceToPlayer = player.position - transform.position;
         // Your code what happens on a click
 

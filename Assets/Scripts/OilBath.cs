@@ -6,14 +6,14 @@ public class OilBath : InteractableObject
 {
     [SerializeField] ParticleSystem smoke;
     Animator animator;
-    GameObject knife;
+    [SerializeField] GameObject knife;
     GameObject quenchContainer;
     GameManager gameManager;
 
     void Awake()
     {
         gameManager = FindObjectOfType<GameManager>();
-        knife = GameObject.Find("knife");
+        //knife = GameObject.Find("knife");
         quenchContainer = GameObject.Find("QuenchContainer");
         animator = knife.GetComponent<Animator>();
     }
@@ -75,35 +75,49 @@ public class OilBath : InteractableObject
         base.HoverStop();
     }
 
-    public IEnumerator waitToStop(float seconds)
-    {
-        yield return new WaitForSeconds(seconds);
-        smoke.Stop();
-        yield return new WaitForSeconds(seconds);
-        quenchContainer.GetComponent<Animator>().Play("returnFromQuench");
-        gameManager.SetNextSection();
-    }
 
     public IEnumerator waitToStart(float seconds)
     {
         yield return new WaitForSeconds(seconds);
         smoke.Play();
+
+        //yield return new WaitForSeconds(quenchContainer.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length
+        //    + (quenchContainer.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).normalizedTime % 1));
+        yield return new WaitForSeconds(1.5f);
+        enableAnimator();
+
+        yield return new WaitForSeconds(1f);
+        smoke.Stop();
+        Debug.Log(animator.GetCurrentAnimatorClipInfo(0).Length);
+
+        yield return new WaitWhile(()=> animator.GetCurrentAnimatorStateInfo(0).normalizedTime <= 1);
+        disableAnimator();
+
+        yield return new WaitWhile(() => animator.isActiveAndEnabled);
+        quenchContainer.GetComponent<Animator>().SetTrigger("returnQuench");
+        gameManager.SetNextSection();
+    }
+
+
+    private void disableAnimator()
+    {
+        animator.enabled = false; 
+    }
+
+    private void enableAnimator()
+    {
+        animator.enabled = true;
+        animator.Play("coolingOff");
     }
 
     public void KnifeDips()
     {
         //onClick Animation Messer reinhalten abspielen, dann wenn das Messer einetaucht ist den Rauch aufsteigen lassen.
 
-        quenchContainer.GetComponent<Animator>().Play("quench");
-        StartCoroutine(waitToStart(0.47f));
+        knife = GameObject.Find("knife");
 
-        //smoke.Play();
-        animator.enabled = true;
-        animator.Play("coolingOff");
-        StartCoroutine(waitToStop(2f));
-        
-
-
+        quenchContainer.GetComponent<Animator>().SetTrigger("quenching");
+        StartCoroutine(waitToStart(1f));
 
         /*
         anim ["cubeanimation"].speed = -1;

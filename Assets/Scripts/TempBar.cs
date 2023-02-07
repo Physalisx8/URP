@@ -23,7 +23,7 @@ public class TempBar : MonoBehaviour
 
     bool window;
     bool stap;
-   
+
 
     Animator animator;
     GameManager gameManager;
@@ -63,19 +63,23 @@ public class TempBar : MonoBehaviour
         }
     }
 
-public void OnDemo(bool check){
-if (check){
-  demo = true;}
-  else{
-    demo = false;
-  }
-}
+    public void OnDemo(bool check)
+    {
+        if (check)
+        {
+            demo = true;
+        }
+        else
+        {
+            demo = false;
+        }
+    }
     void Successfull()
     {
 
         GameObject.Find("Door").GetComponent<BoxCollider>().enabled = true;
-        _GO.GetComponent<Animator>().enabled=false;
-        _GO.GetComponent<Animator>().SetTrigger("paused");
+        _GO.GetComponent<Animator>().enabled = false;
+        //_GO.GetComponent<Animator>().SetTrigger("paused");
         stap = true;
         _UI.SetActive(false);
         _UI2.SetActive(false);
@@ -104,7 +108,8 @@ if (check){
         // Animation.SetFloat("FloatName", 5);
     }
 
-    public void Reset(){
+    public void Reset()
+    {
         StopAllCoroutines();
         temp.fillAmount = 0;
         elapsedTime = 0;
