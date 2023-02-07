@@ -64,7 +64,7 @@ public class Forge2 : InteractableObject
         {
             if (!isInteractable)
             {
-                gameManager.IncreaseErrorCounter();
+               // gameManager.IncreaseErrorCounter();
             }
             else
             {
