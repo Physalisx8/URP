@@ -35,20 +35,21 @@ public void StartDemoMode(){
     StartTraining();
     Obj.SetActive(false);
    demo = true;
-    stabbing[0].SetActive(false);
+   /* stabbing[0].SetActive(false);
     stabbing[1].SetActive(false);
     stabbing[2].SetActive(false);
     stabbing[3].SetActive(false);
-    
+    */
     
     UI_Demo?.SetActive(true);
 }
 
-//very hacky aber whatever
+//very hacky aber whatever 
+/*
 void Update(){
 if (demo){
     stabbing[2].SetActive(false);
-    stabbing[4].SetActive(false);}}
+    stabbing[4].SetActive(false);}}*/
 
 public void StartApp(){
     SceneManager.LoadScene(SceneManager.GetActiveScene().name);

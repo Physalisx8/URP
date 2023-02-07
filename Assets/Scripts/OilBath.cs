@@ -86,6 +86,8 @@ public class OilBath : InteractableObject
     {
         yield return new WaitForSeconds(seconds);
         smoke.Play();
+        animator.enabled = true;
+        animator.Play("coolingOff");
     }
 
     public void KnifeDips()
@@ -97,8 +99,7 @@ public class OilBath : InteractableObject
         StartCoroutine(waitToStart(0.47f));
 
         //smoke.Play();
-        animator.enabled = true;
-        animator.Play("coolingOff");
+     
         StartCoroutine(waitToStop(2f));
 
 
