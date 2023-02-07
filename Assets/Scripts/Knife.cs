@@ -124,10 +124,11 @@ public class Knife : InteractableObject
             }
             else
             {
-                gameManager.SetNextSection();
+               
                 if (!equipped && distanceToPlayer.magnitude <= pickUpRange)
                 {
                     PickUp();
+                     gameManager.SetNextSection();
                 }
 
             }

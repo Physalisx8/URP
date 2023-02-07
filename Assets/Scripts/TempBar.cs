@@ -12,7 +12,7 @@ public class TempBar : MonoBehaviour
 
     [SerializeField] GameObject _GO;
     [SerializeField] GameObject _UI;
-    [SerializeField] GameObject _UI2;
+    [SerializeField] CanvasGroup _UI2;
     private int maximum = 15;
     float fillAmount;
 
@@ -81,10 +81,20 @@ public class TempBar : MonoBehaviour
         _GO.GetComponent<Animator>().enabled = false;
         //_GO.GetComponent<Animator>().SetTrigger("paused");
         stap = true;
-        _UI.SetActive(false);
+        //_UI.SetActive(false);
+        _UI2.alpha = 0f;
+        animator.SetTrigger("OpenDoor");
+        OnDemo(false);
+        //gameManager.SetNextSection();
+
+        /*
         _UI2.SetActive(false);
-        animator.Play("ForgeDoor_open");
-        gameManager.SetNextSection();
+        image = GetComponent<Image>();
+          var tempColor = image.color;
+          tempColor.a = 1f;
+          image.color = tempColor;
+        */
+    
     }
 
     //checking timeframe from temperature Bar & sets Flag
@@ -115,7 +125,8 @@ public class TempBar : MonoBehaviour
         elapsedTime = 0;
         stap = false;
         _GO.GetComponent<Animator>().enabled = true;
-        _GO.GetComponent<Animator>().Play("coolingOff");
+        //ToDO Leiv dass er das machen muss :)
+        _GO.GetComponent<Animator>().Play("chill");
         // Animation Resetten!
     }
 

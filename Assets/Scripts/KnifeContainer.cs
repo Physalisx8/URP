@@ -9,61 +9,53 @@ public class KnifeContainer : InteractableObject
     GameManager gameManager;
     [SerializeField] GameObject knife;
     private GameObject knifeContainer;
+     [SerializeField] GameObject empties;
 
     private string oldParent = null;
     private Vector3 oldPosition;
     private Vector3 oldRotation;
 
 
-    Vector3 startPos;
-    Quaternion startRot;
 
-    void Awake()
+#region Additional Events
+// Hier die Events hinzufügen und für alle subscriben/unsubscriben + Change Methode anlegen und befüllen
+    [SerializeField] SectionEventSO OnAbschrecken;
+        public override void Enable()
     {
-        gameManager = FindObjectOfType<GameManager>();
-        knifeContainer = GameObject.Find("knifeContainer");
-        startPos = transform.position;
-        startRot = transform.rotation;
-
+                // Alle event subscriben
+        OnAbschrecken.OnInvoke += OnAbschreckenChange;
+      
     }
 
-    #region Additional Events
-    // Hier die Events hinzufügen und für alle subscriben/unsubscriben + Change Methode anlegen und befüllen
-    [SerializeField] SectionEventSO OnEsseII;
-    //[SerializeField] SectionEventSO OnDings;
-
-    public override void Enable()
+        public override void Disable()
     {
-        // Alle event subscriben
-        OnEsseII.OnInvoke += OnEsseIIChange;
-        //    OnDings.OnInvoke += OnDingsChange;
+                // Alle event unsubscriben
+        OnAbschrecken.OnInvoke -= OnAbschreckenChange;
     }
 
-    public override void Disable()
-    {
-        // Alle event unsubscriben
-        OnEsseII.OnInvoke -= OnEsseIIChange;
-        //    OnDings.OnInvoke -= OnDingsChange;
-    }
-
-    void OnEsseIIChange(SectionState state)
-    {
-        switch (state)
-        {
+//OnHaerteTemperatur - wenn das Messer glüht und die Tür sich öffnet 
+    void OnAbschreckenChange(SectionState state){
+        switch (state){
             case SectionState.Start:
-                // Section Resetten
-                Reset();
-                break;
+            // Section Resetten
+         Reset();
+            break;
             case SectionState.End:
-                OnClick();
-                // OnClick auslösen
-                break;
+            OnClick();
+            // OnClick auslösen
+            break;
         }
     }
 
 
     #endregion
-
+    void Awake()
+    {
+       // transform.position = Vector3.down *100;
+        gameManager = FindObjectOfType<GameManager>();
+        knifeContainer = GameObject.Find("knifeContainer");
+  
+    }
 
 
     public override void SectionChange(SectionState state)
@@ -88,8 +80,7 @@ public class KnifeContainer : InteractableObject
         if (debug)
             Debug.Log("Reset");
         transform.SetParent(null);
-        transform.position = startPos;
-        transform.rotation = startRot;
+   
     }
     public override void OnClick()
     {
@@ -108,9 +99,15 @@ public class KnifeContainer : InteractableObject
                 if (oldParent != null)
                 {
                     knife.transform.parent = GameObject.Find(oldParent).transform;
-                    knife.GetComponent<Knife>().MoveKnife(Vector3.zero, oldRotation);
-                    GameObject.Find("Door").GetComponent<Animator>().Play("ForgeDoor_close");
+                    knife.GetComponent<Knife>().MoveKnife(oldPosition, oldRotation);
+                    empties.transform.position = new Vector3(1.6f,3.16f,7.45f);
+                    //knife.transform.localPosition = oldPosition;
+                    //knife.transform.eulerAngles = oldRotation;
+                    //GameObject.Find("Door").GetComponent<Animator>().Play("ForgeDoor_close");
+                    
+                    //transform.position = Vector3.down*100;
                     gameManager.SetNextSection();
+            
                 }
                 else
                 {
@@ -119,6 +116,11 @@ public class KnifeContainer : InteractableObject
                     knife.transform.parent = transform;
                     Vector3 rotation = knife.transform.localEulerAngles;
                     knife.GetComponent<Knife>().MoveKnife(new Vector3(0, -0.48f, 0), new Vector3(90, rotation.y, rotation.z));
+                    empties.transform.position = new Vector3(1.6f,3.16f,7.45f);
+                   // transform.position = Vector3.down*100;
+                    //knife.transform.localPosition = new Vector3(0, -0.48f, 0);
+                    //Vector3 rotation = knife.transform.eulerAngles;
+                    //knife.transform.eulerAngles = new Vector3(90, rotation.y, rotation.z);
                     gameManager.SetNextSection();
                 }
             }

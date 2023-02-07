@@ -8,11 +8,14 @@ public class Forge : InteractableObject
     GameManager gameManager;
     Animator animator;
     GameObject door;
-    [SerializeField] GameObject UI;
+    [SerializeField] CanvasGroup UI;
 
     [SerializeField] GameObject skript;
+     [SerializeField] GameObject empties;
     TempBar tempBar;
     int count;
+
+    
 
 
     void Awake()
@@ -22,7 +25,7 @@ public class Forge : InteractableObject
         animator = door.GetComponent<Animator>();
         tempBar = skript.GetComponent<TempBar>();
     }
-
+/*
 #region Additional Events
 // Hier die Events hinzufügen und für alle subscriben/unsubscriben + Change Methode anlegen und befüllen
     [SerializeField] SectionEventSO OnHaerteTemperatur;
@@ -48,9 +51,10 @@ public class Forge : InteractableObject
             case SectionState.Start:
             // Section Resetten
             ResetUI();
+            UI.alpha = 1f;
             break;
             case SectionState.End:
-            UIPlay();
+            OnClick();
             // OnClick auslösen
             break;
         }
@@ -59,11 +63,12 @@ public class Forge : InteractableObject
         switch (state){
             case SectionState.Start:
             // Section Resetten
-            animator.Play("ForgeDoor_open");
+           
+            UI.alpha = 0f;
             break;
             case SectionState.End:
-            animator.Play("ForgeDoor_close");
-            gameManager.SetNextSection();
+            //animator.Play("ForgeDoor_close");
+            OnClick();
             // OnClick auslösen
             break;
         }
@@ -72,7 +77,7 @@ public class Forge : InteractableObject
 
 
     #endregion
-
+*/
 //OnEsse-
     public override void SectionChange(SectionState state)
     {
@@ -85,8 +90,7 @@ public class Forge : InteractableObject
             Reset();
             break;
             case SectionState.End:
-                animator.Play("ForgeDoor_open");
-                gameManager.SetNextSection();
+               OnClick();
             break;
         }
     }
@@ -94,31 +98,33 @@ public class Forge : InteractableObject
       void Reset(){
         if (debug)
             Debug.Log("Reset");
-            animator.Play("ForgeDoor_close");
+            GameObject.Find("Door").GetComponent<BoxCollider>().enabled = true;
+           //animator.Play("ForgeDoor_close");
     }
-
+/*
     void ResetUI(){
         if (debug)
             Debug.Log("Reset");
-            UI.SetActive(false);
+           
+            //UI.SetActive(false);
             //StopAllCoroutines();
             Debug.Log("I try to cancel you!");
             tempBar.Reset();
-            tempBar.OnDemo(false);
+            //tempBar.OnDemo(false);
             animator.Play("ForgeDoor_close");
+      
            
     }
 
        
     public void UIPlay(){
         Debug.Log("I'm trying to do my Job ffs");
-                    UI.SetActive(true);
+                    UI.alpha = 1f;
                     StartCoroutine(wait());
+                   // StopCoroutine(wait());
                     tempBar.OnDemo(true);
-                    gameManager.SetNextSection();
-                   
-
-                }
+  
+                }*/
     
 
     public override void OnClick()
@@ -134,21 +140,20 @@ public class Forge : InteractableObject
             }
             else
             {
-                count += 1;
-                Debug.Log("print count " + count);
-                
-                animator.SetTrigger("OpenDoor");
+                GameObject.Find("Door").GetComponent<BoxCollider>().enabled = false;
+               // empties.transform.position = new Vector3(1.51f,2.34f,7.24f);
                 gameManager.SetNextSection();
             
-
+/*
                 if ((count%2)==0 && count != 0)
                 {
                    // Debug.Log(" count = " + count + " this section should be UI ploppy");
-                    UI.SetActive(true);
+                    UI.alpha = 1f;
                     door.GetComponent<BoxCollider>().enabled = false;
+                    
                     StartCoroutine(wait());
 
-                }
+                }*/
 
             }
         }
@@ -164,6 +169,8 @@ public class Forge : InteractableObject
         yield return new WaitForSeconds(2);
        
         tempBar.TemperatureRise();
+        
+          //gameManager.SetNextSection();
 
     }
 
