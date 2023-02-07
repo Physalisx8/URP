@@ -91,7 +91,7 @@ public class KnifeContainer : InteractableObject
         {
             if (!isInteractable)
             {
-                gameManager.IncreaseErrorCounter();
+                //gameManager.IncreaseErrorCounter();
             }
             else
             {
