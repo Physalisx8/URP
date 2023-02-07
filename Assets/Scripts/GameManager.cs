@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour
     public void SkipToPrev(){
                 if (debug)
             Debug.Log("Skip to PREV");
-        StopAllCoroutines();
+       // StopAllCoroutines();
         // Wait until Cameras are set, then go to previous section
         StartPreviousSection();
         //StartCoroutine(WaitUntilCamIsSet(StartPreviousSection));
@@ -54,7 +54,7 @@ public class GameManager : MonoBehaviour
     public void SkipToNext(){
         if (debug)
             Debug.Log("Skip to NEXT");
-        StopAllCoroutines();
+       // StopAllCoroutines();
         sections[activeSectionIndex +1].triggerZone?.OnClick();
         StartNextSection();
     }
