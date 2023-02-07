@@ -117,11 +117,19 @@ public class GameManager : MonoBehaviour
 
     }
 
+    private IEnumerator ErrorBig()
+    {
+        errorText.fontSize = 42;
+        yield return new WaitForSeconds(0.5f);
+        errorText.fontSize = 36;
+    }
+    
     public void IncreaseErrorCounter()
     {
         errorCount += 1;
         errorText.text = "Fehler: " + errorCount;
         errorTextOutro.text = "Fehler: "+ errorCount;
+        StartCoroutine(ErrorBig());
     }
     public void Reset()
     {
