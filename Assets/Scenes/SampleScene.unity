@@ -425,7 +425,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraSwitch: {fileID: 835494459}
-  camera: {fileID: 758739518}
+  cam: {fileID: 758739518}
   UI_Training: {fileID: 208209927}
   UI_Demo: {fileID: 1251723252}
   UI_Start: {fileID: 714095353}
@@ -1801,42 +1801,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 290782647}
   m_CullTransparentMesh: 1
---- !u!21 &304129907
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: UI/RoundedCorners/RoundedCorners
-  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _ColorMask: 15
-    - _Stencil: 0
-    - _StencilComp: 8
-    - _StencilOp: 0
-    - _StencilReadMask: 255
-    - _StencilWriteMask: 255
-    - _UseUIAlphaClip: 0
-    m_Colors:
-    - _WidthHeightRadius: {r: 188.738, g: 949.831, b: 30, a: 0}
-  m_BuildTextureStacks: []
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -2256,6 +2220,42 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 374039163}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!21 &400591638
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UI/RoundedCorners/RoundedCorners
+  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _ColorMask: 15
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _UseUIAlphaClip: 0
+    m_Colors:
+    - _WidthHeightRadius: {r: 374.006, g: 1103.089, b: 90, a: 0}
+  m_BuildTextureStacks: []
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -2736,42 +2736,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 477580602}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!21 &558966201
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: UI/RoundedCorners/RoundedCorners
-  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _ColorMask: 15
-    - _Stencil: 0
-    - _StencilComp: 8
-    - _StencilOp: 0
-    - _StencilReadMask: 255
-    - _StencilWriteMask: 255
-    - _UseUIAlphaClip: 0
-    m_Colors:
-    - _WidthHeightRadius: {r: 193.818, g: 955.57, b: 30, a: 0}
-  m_BuildTextureStacks: []
 --- !u!1 &563617540
 GameObject:
   m_ObjectHideFlags: 0
@@ -7673,7 +7637,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b72f950d7982f334bb9a0fd658bfa539, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debug: 1
+  debug: 0
   instructionsText: {fileID: 11658234}
   errorText: {fileID: 2105546313}
   errorTextOutro: {fileID: 1793724954}
@@ -7769,30 +7733,15 @@ MonoBehaviour:
     - {fileID: 919132149142553208}
     stateEvent: {fileID: 11400000, guid: 55fab1301ad3e91489318a4f7929cccc, type: 2}
     triggerZone: {fileID: 1878100019}
-  - sectionName: "Abk\xFChlen"
-    instruction: "Lehne das Messer gegen die Dose, damit es auf Zimmertemperatur
-      abk\xFChlen kann."
-    hint: "Platz auf dem Tisch ist links neben dem \xD6lbad. Die Dose ist der Ort,
-      wo du es aufgesammelt hast"
-    activeObjects:
-    - {fileID: 659398530}
-    stateEvent: {fileID: 11400000, guid: 312d5a597c27da142914b191d8d08f0a, type: 2}
-    triggerZone: {fileID: 99355125}
   - sectionName: Anlassen
-    instruction: "Nach dem H\xE4rten ist der Stahl noch sehr spr\xF6de. Daher muss
-      er angelassen werden, damit es an Stabilit\xE4t und Z\xE4higkeit zunimmt. Das
-      geschieht in einem Anlassofen.\r\n\r\nNimm das Messer und gehe zum Anlassofen.\r\n"
-    hint: Nimm das Messer mit der Zange. Der Anlassofen ist links neben dir.
-    activeObjects:
-    - {fileID: 659398530}
-    stateEvent: {fileID: 11400000, guid: 5708c3a3fb0fa894a9c7c358b7086bb1, type: 2}
-    triggerZone: {fileID: 162149628}
-  - sectionName: "T\xFCr \xF6ffnen"
-    instruction: "\xD6ffne die T\xFCr des Anlassofens."
-    hint: "Interagiere mit der T\xFCr."
+    instruction: "Wir haben das Messer auf Zimmertemperatur abk\xFChlen lassen. Nach
+      dem H\xE4rten ist der Stahl noch sehr spr\xF6de. Daher muss er angelassen werden,
+      damit es an Stabilit\xE4t und Z\xE4higkeit zunimmt. Das geschieht in einem
+      Anlassofen.\r\n\r\nGehe zum Anlassofen und \xF6ffne die T\xFCr.\n"
+    hint: "Der Anlassofen ist links neben dir. Die T\xFCr ist gro\xDF und silber."
     activeObjects:
     - {fileID: 8953643127916298241}
-    stateEvent: {fileID: 11400000, guid: 9687b4962a1c4df4cad1b4d1b086f210, type: 2}
+    stateEvent: {fileID: 11400000, guid: 5708c3a3fb0fa894a9c7c358b7086bb1, type: 2}
     triggerZone: {fileID: 1174887942}
   - sectionName: Messer rein
     instruction: Lege das Messer in den Anlassofen
@@ -8122,7 +8071,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 659398527}
   m_LocalRotation: {x: 0.5, y: -0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: 5.879, y: 1.616, z: 3.2932}
+  m_LocalPosition: {x: 5.772, y: 1.616, z: 3.2932}
   m_LocalScale: {x: 0.8, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8151,7 +8100,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 659398527}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bccf040b836bc4649bc170f02f353b52, type: 3}
+  m_Script: {fileID: 11500000, guid: 0efdf0cd57b9d4b4eb238f46b7745a3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   debug: 0
@@ -8193,10 +8142,8 @@ MonoBehaviour:
       m_Calls: []
   isHovering: 0
   isInteractable: 0
-  OnSectionChange: {fileID: 11400000, guid: 312d5a597c27da142914b191d8d08f0a, type: 2}
+  OnSectionChange: {fileID: 11400000, guid: c934ee4cc70791a4c88527dad361743f, type: 2}
   knife: {fileID: 919132149101536966}
-  empties: {fileID: 0}
-  OnAbschrecken: {fileID: 0}
 --- !u!1 &707109433
 GameObject:
   m_ObjectHideFlags: 0
@@ -8928,6 +8875,42 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 806944274}
   m_CullTransparentMesh: 1
+--- !u!21 &809285974
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UI/RoundedCorners/RoundedCorners
+  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _ColorMask: 15
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _UseUIAlphaClip: 0
+    m_Colors:
+    - _WidthHeightRadius: {r: 324.233, g: 1013.2192, b: 90, a: 0}
+  m_BuildTextureStacks: []
 --- !u!1 &812617341
 GameObject:
   m_ObjectHideFlags: 0
@@ -10751,7 +10734,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 304129907}
+  m_Material: {fileID: 1232033186}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -11114,42 +11097,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c1fd33ef2e6f924d91f080e0aab74b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!21 &1074879285
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: UI/RoundedCorners/RoundedCorners
-  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _ColorMask: 15
-    - _Stencil: 0
-    - _StencilComp: 8
-    - _StencilOp: 0
-    - _StencilReadMask: 255
-    - _StencilWriteMask: 255
-    - _UseUIAlphaClip: 0
-    m_Colors:
-    - _WidthHeightRadius: {r: 324.233, g: 1013.2192, b: 90, a: 0}
-  m_BuildTextureStacks: []
 --- !u!1 &1079760422
 GameObject:
   m_ObjectHideFlags: 0
@@ -11538,6 +11485,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b843b7792c2956d4ca62bb7966b30e7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debug: 0
   firstPersonCam: {fileID: 359552715}
   detailTempCam: {fileID: 1763750177}
   ZoomOut: {fileID: 131822495}
@@ -11952,6 +11900,42 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1219381109}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!21 &1219750534
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UI/RoundedCorners/RoundedCorners
+  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _ColorMask: 15
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _UseUIAlphaClip: 0
+    m_Colors:
+    - _WidthHeightRadius: {r: 193.818, g: 955.57, b: 30, a: 0}
+  m_BuildTextureStacks: []
 --- !u!1 &1226515121
 GameObject:
   m_ObjectHideFlags: 0
@@ -11989,6 +11973,42 @@ RectTransform:
   m_AnchoredPosition: {x: -1, y: -18.5}
   m_SizeDelta: {x: 2852, y: 1067.1155}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!21 &1232033186
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UI/RoundedCorners/RoundedCorners
+  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _ColorMask: 15
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _UseUIAlphaClip: 0
+    m_Colors:
+    - _WidthHeightRadius: {r: 188.738, g: 949.831, b: 30, a: 0}
+  m_BuildTextureStacks: []
 --- !u!1 &1251723252
 GameObject:
   m_ObjectHideFlags: 0
@@ -14188,7 +14208,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 1994645522}
+  m_Material: {fileID: 400591638}
   m_Color: {r: 0.4339623, g: 0.4339623, b: 0.4339623, a: 0.45882353}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -16300,42 +16320,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 103458b6e6814d345813eb7ad11f86d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!21 &1994645522
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: UI/RoundedCorners/RoundedCorners
-  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _ColorMask: 15
-    - _Stencil: 0
-    - _StencilComp: 8
-    - _StencilOp: 0
-    - _StencilReadMask: 255
-    - _StencilWriteMask: 255
-    - _UseUIAlphaClip: 0
-    m_Colors:
-    - _WidthHeightRadius: {r: 374.006, g: 1103.089, b: 90, a: 0}
-  m_BuildTextureStacks: []
 --- !u!1 &2005848535
 GameObject:
   m_ObjectHideFlags: 0
@@ -16566,7 +16550,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 558966201}
+  m_Material: {fileID: 1219750534}
   m_Color: {r: 0.4245283, g: 0.40477037, b: 0.3504361, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -16647,7 +16631,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2051048727}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bccf040b836bc4649bc170f02f353b52, type: 3}
+  m_Script: {fileID: 11500000, guid: 0ce52a702175a654b89b54ebd289a967, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   debug: 0
@@ -16691,8 +16675,7 @@ MonoBehaviour:
   isInteractable: 0
   OnSectionChange: {fileID: 11400000, guid: 4484509a78fa2924ba38575b4c21fa24, type: 2}
   knife: {fileID: 919132149101536966}
-  empties: {fileID: 0}
-  OnAbschrecken: {fileID: 0}
+  OnAbschrecken: {fileID: 11400000, guid: 28589436d1b68e14b9d78714dfadd941, type: 2}
 --- !u!1 &2055269596
 GameObject:
   m_ObjectHideFlags: 0
@@ -16845,7 +16828,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 1074879285}
+  m_Material: {fileID: 809285974}
   m_Color: {r: 0.4339623, g: 0.4339623, b: 0.4339623, a: 0.53333336}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -17872,7 +17855,7 @@ MonoBehaviour:
   OnSectionChange: {fileID: 0}
   lampMaterial: {fileID: 0}
   Obj: {fileID: 0}
-  OnWarte: {fileID: 0}
+  OnWarte: {fileID: 11400000, guid: 1655c3a74d9bbdc41bf17c8dda1ed59e, type: 2}
 --- !u!1 &919132149101536966
 GameObject:
   m_ObjectHideFlags: 0
@@ -18983,7 +18966,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7202d844944945941b64febab7d3548f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debug: 1
+  debug: 0
   OnHoverStart:
     m_PersistentCalls:
       m_Calls:
@@ -22789,8 +22772,9 @@ MonoBehaviour:
       m_Calls: []
   isHovering: 0
   isInteractable: 0
-  OnSectionChange: {fileID: 11400000, guid: 9687b4962a1c4df4cad1b4d1b086f210, type: 2}
+  OnSectionChange: {fileID: 11400000, guid: 5708c3a3fb0fa894a9c7c358b7086bb1, type: 2}
   OnTuerSchliessen: {fileID: 11400000, guid: 004a97e521fa4c24ca29535277594610, type: 2}
+  OnDings: {fileID: 11400000, guid: 1fd679df0ca15e140a7ad7e55d18c059, type: 2}
 --- !u!65 &8953643127916298242
 BoxCollider:
   m_ObjectHideFlags: 0

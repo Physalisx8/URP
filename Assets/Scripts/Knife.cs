@@ -97,6 +97,7 @@ public class Knife : InteractableObject
     {
         transform.localPosition = Vector3.MoveTowards(transform.localPosition, position, Time.deltaTime * speed);
         transform.localEulerAngles = angles;
+        transform.localScale = new Vector3(15f,15f,15f);
 
         if (transform.localPosition.Equals(position)) { moveToParent = false; }
     }

@@ -140,7 +140,7 @@ public class GameManager : MonoBehaviour
         errorTextOutro.text = "Fehler: 0";
     }
 
-    void SectionsFinished()
+    public void SectionsFinished()
     {
         GameObject startMenu = GameObject.Find("StartMenu");
          startMenu.GetComponent<StartMenu>().EndDemonstrator();

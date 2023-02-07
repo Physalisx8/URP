@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 // Von InteractableObject erben lassen
@@ -15,23 +13,35 @@ public class ExampleDoor : InteractableObject
 #region Additional Events
 // Hier die Events hinzufügen und für alle subscriben/unsubscriben + Change Methode anlegen und befüllen
     [SerializeField] SectionEventSO OnTuerSchliessen;
-    //[SerializeField] SectionEventSO OnDings;
+    [SerializeField] SectionEventSO OnDings;
 
     public override void Enable()
     {
                 // Alle event subscriben
         OnTuerSchliessen.OnInvoke += OnTuerSchliessenChange;
-    //    OnDings.OnInvoke += OnDingsChange;
+       OnDings.OnInvoke += OnDingsChange;
     }
 
         public override void Disable()
     {
                 // Alle event unsubscriben
         OnTuerSchliessen.OnInvoke -= OnTuerSchliessenChange;
-    //    OnDings.OnInvoke -= OnDingsChange;
+       OnDings.OnInvoke -= OnDingsChange;
     }
 
     void OnTuerSchliessenChange(SectionState state){
+        switch (state){
+            case SectionState.Start:
+            // Section Resetten
+            Reset();
+            break;
+            case SectionState.End:
+            OnClick();
+            // OnClick auslösen
+            break;
+        }
+    }
+      void OnDingsChange(SectionState state){
         switch (state){
             case SectionState.Start:
             // Section Resetten

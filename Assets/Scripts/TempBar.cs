@@ -128,13 +128,14 @@ public class TempBar : MonoBehaviour
 
     public void Reset()
     {
+        _GO.GetComponent<Animator>().enabled = true;
+        //ToDO Leiv dass er das machen muss :)
+        _GO.GetComponent<Animator>().Play("chill");
         StopAllCoroutines();
         temp.fillAmount = 0;
         elapsedTime = 0;
         stap = false;
-        _GO.GetComponent<Animator>().enabled = true;
-        //ToDO Leiv dass er das machen muss :)
-        _GO.GetComponent<Animator>().Play("chill");
+        
         // Animation Resetten!
     }
 

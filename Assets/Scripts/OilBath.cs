@@ -56,11 +56,13 @@ public class OilBath : InteractableObject
             else
             {
                 KnifeDips();
+                gameManager.SetNextSection();
             }
         }
         else
         {
-            Debug.Log("gameManager = null");
+            if (debug)
+                Debug.Log("gameManager = null");
         }
     }
 
@@ -89,14 +91,15 @@ public class OilBath : InteractableObject
 
         yield return new WaitForSeconds(1f);
         smoke.Stop();
-        Debug.Log(animator.GetCurrentAnimatorClipInfo(0).Length);
+        if (debug)
+            Debug.Log(animator.GetCurrentAnimatorClipInfo(0).Length);
 
         yield return new WaitWhile(()=> animator.GetCurrentAnimatorStateInfo(0).normalizedTime <= 1);
         disableAnimator();
 
         yield return new WaitWhile(() => animator.isActiveAndEnabled);
         quenchContainer.GetComponent<Animator>().SetTrigger("returnQuench");
-        gameManager.SetNextSection();
+        
     }
 
 

@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KnifeContainer : InteractableObject
+public class KnifeContainer1 : InteractableObject
 {
     // Start is called before the first frame update
 
     GameManager gameManager;
     [SerializeField] GameObject knife;
     GameObject knifeContainer;
-     [SerializeField] GameObject empties;
+    // [SerializeField] GameObject empties;
 
     private string oldParent = null;
     private Vector3 oldPosition;
@@ -112,7 +112,7 @@ public class KnifeContainer : InteractableObject
                 {
                     knife.transform.parent = GameObject.Find(oldParent).transform;
                     knife.GetComponent<Knife>().MoveKnife(Vector3.zero, oldRotation);
-                    empties.transform.position = new Vector3(1.6f,3.16f,7.45f);
+                   // empties.transform.position = new Vector3(1.6f,3.16f,7.45f);
                     //knife.transform.localPosition = oldPosition;
                     //knife.transform.eulerAngles = oldRotation;
                     //GameObject.Find("Door").GetComponent<Animator>().Play("ForgeDoor_close");
@@ -128,7 +128,7 @@ public class KnifeContainer : InteractableObject
                     knife.transform.parent = transform;
                     Vector3 rotation = knife.transform.localEulerAngles;
                     knife.GetComponent<Knife>().MoveKnife(new Vector3(0, -0.48f, 0), new Vector3(90, rotation.y, rotation.z));
-                    empties.transform.position = new Vector3(1.6f,3.16f,7.45f);
+                   // empties.transform.position = new Vector3(1.6f,3.16f,7.45f);
                    // transform.position = Vector3.down*100;
                     //knife.transform.localPosition = new Vector3(0, -0.48f, 0);
                     //Vector3 rotation = knife.transform.eulerAngles;

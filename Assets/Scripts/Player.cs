@@ -3,6 +3,7 @@ using Cinemachine;
 
 public class Player : MonoBehaviour
 {
+    [SerializeField] bool debug;
     [SerializeField] CinemachineVirtualCamera firstPersonCam;
     [SerializeField] CinemachineVirtualCamera detailTempCam;
     [SerializeField] GameObject ZoomOut;
@@ -30,10 +31,12 @@ public class Player : MonoBehaviour
         if (Input.GetMouseButtonDown(1))
         {
             ZoomOut.SetActive(false);
-            Debug.Log("Check!");
+            if (debug)
+                 Debug.Log("Check!");
             if (!CameraSwitch.Instance.IsActiveCamera(firstPersonCam))
             {
-                Debug.Log("Is Detail!");
+                if (debug)
+                    Debug.Log("Is Detail!");
                 CameraSwitch.Instance.SwitchCamera(firstPersonCam);
 
             }

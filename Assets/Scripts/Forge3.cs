@@ -74,7 +74,7 @@ public class Forge3 : InteractableObject
                
                
                // empties.transform.position = new Vector3(1.51f,2.34f,7.24f);
-              
+               
                 transform.position = Vector3.down *100;
                 gameManager.SetNextSection();
 

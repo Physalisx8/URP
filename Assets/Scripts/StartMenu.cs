@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 using Cinemachine;
@@ -8,7 +6,7 @@ public class StartMenu : MonoBehaviour
 {
 
 [SerializeField] GameObject cameraSwitch;
-[SerializeField] CinemachineVirtualCamera camera;
+[SerializeField] CinemachineVirtualCamera cam;
 [SerializeField] GameObject UI_Training;
 [SerializeField] GameObject UI_Demo;
 [SerializeField] GameObject UI_Start;
@@ -24,7 +22,7 @@ bool demo;
 public void StartTraining(){
     UI_Start.SetActive(false);
     cameraSwitch.SetActive(true);
-    camera.m_Priority = 0;
+    cam.m_Priority = 0;
     UI_Training.SetActive(true);
     Obj.SetActive(true);
     UI_Demo?.SetActive(false);
@@ -65,7 +63,7 @@ public void QuitApplication(){
 public void EndDemonstrator(){
     Debug.Log("This is where we should end");
     cameraSwitch.SetActive(false);
-    camera.m_Priority = 2;
+    cam.m_Priority = 2;
     UI_Training.SetActive(false);
     UI_End.SetActive(true);
     UI_Demo?.SetActive(false);

@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 // Von InteractableObject erben lassen
@@ -50,6 +49,8 @@ public class Forge2 : InteractableObject
         if (debug)
             Debug.Log("Reset");
             animator.Play("ForgeDoor_open");
+            tempBar.Reset();
+         
             //animator.SetTrigger("CloseDoor");
            //animator.Play("ForgeDoor_close");
     }

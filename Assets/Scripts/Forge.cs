@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 // Von InteractableObject erben lassen
@@ -86,6 +85,7 @@ public class Forge : InteractableObject
             case SectionState.Start:
             if (debug)
                 Debug.Log("START");
+                Reset();
             Reset();
             break;
             case SectionState.End:
@@ -142,19 +142,10 @@ public class Forge : InteractableObject
             {
                 GameObject.Find("Door").GetComponent<BoxCollider>().enabled = false;
                 animator.SetTrigger("OpenDoor");
-               // empties.transform.position = new Vector3(1.51f,2.34f,7.24f);
+        
                 gameManager.SetNextSection();
             
-/*
-                if ((count%2)==0 && count != 0)
-                {
-                   // Debug.Log(" count = " + count + " this section should be UI ploppy");
-                    UI.alpha = 1f;
-                    door.GetComponent<BoxCollider>().enabled = false;
-                    
-                    StartCoroutine(wait());
 
-                }*/
 
             }
         }
