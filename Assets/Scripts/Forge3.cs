@@ -14,8 +14,7 @@ public class Forge3 : InteractableObject
 
     [SerializeField] GameObject skript;
 
-    [SerializeField] GameObject empties;
-  
+   
 
     
 
@@ -64,13 +63,13 @@ public class Forge3 : InteractableObject
         {
             if (!isInteractable)
             {
-                gameManager.IncreaseErrorCounter();
+              //  gameManager.IncreaseErrorCounter();
             }
             else
             {
                
 
-                empties.transform.position = new Vector3(1.51f,2.34f,7.24f);
+               // empties.transform.position = new Vector3(1.51f,2.34f,7.24f);
                 transform.position = Vector3.down *100;
                 gameManager.SetNextSection();
 
