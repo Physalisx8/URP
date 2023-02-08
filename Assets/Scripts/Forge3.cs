@@ -46,7 +46,7 @@ public class Forge3 : InteractableObject
     {
         if (debug)
             Debug.Log("Reset");
-        animator.Play("idle");
+        //animator.Play("idle");
         UI.alpha = 1f;
 
         //animator.Play("idle");
