@@ -57,9 +57,9 @@ public class GameManager : MonoBehaviour
     {
         if (debug)
             Debug.Log("Skip to NEXT");
-        if (sections.Length <= activeSectionIndex)
+        if (sections.Length <= activeSectionIndex +1)
         {
-            SectionsFinished(); // DemoMode end methode
+            DemonstratorFinished(); // DemoMode end methode
             return;
         }
             // StopAllCoroutines();
