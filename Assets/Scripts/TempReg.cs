@@ -33,31 +33,40 @@ public class TempReg : CameraTriggerZone
     [SerializeField]
     GameObject UI_;
 
+    private float counter = 0f;
+    private float timer = 0.15f;
+
     void Awake()
     {
         gameManager = FindObjectOfType<GameManager>();
     }
 
-     public override void SectionChange(SectionState state)
+    public override void SectionChange(SectionState state)
     {
         base.SectionChange(state);
 
-        switch (state){
+        switch (state)
+        {
             case SectionState.Start:
-            if (debug)
-                Debug.Log("START");
-            Reset();
-            break;
+                if (debug)
+                    Debug.Log("START");
+                Reset();
+                break;
             case SectionState.End:
                 OnClick();
-            break;
+                break;
         }
     }
 
-    void Reset(){
+    void Reset()
+    {
+
+        increasing = 0;
+        text.SetText(increasing + "°");
+
         if (debug)
             Debug.Log("Reset");
-           
+
     }
 
 
@@ -68,7 +77,7 @@ public class TempReg : CameraTriggerZone
         tongsContainer.SetActive(false);
         UI_.SetActive(true);
         GetComponent<Collider>().enabled = false;
-        
+
 
         if (gameManager != null)
         {
@@ -87,16 +96,36 @@ public class TempReg : CameraTriggerZone
     {
         if (adjustable)
         {
-            changeTemperature();
-
-            //triggers stopIncrease when rechtsklick, vll was anderes mit UI?
-            if (Input.GetMouseButtonDown(0) && increasing == 220)
+            if (GameObject.Find("UI_DemoModus") != null)
             {
-                StopInc();
+                if (increasing == 220)
+                {
+                    StopInc();
+                }
+                else
+                {
+                    counter += Time.deltaTime;
+                    if (counter >= timer)
+                    {
+                        increasing += 10;
+                        text.SetText(increasing + "°");
+                        counter %= timer;
+                    }
+                }
             }
-            if (Input.GetMouseButtonDown(0) && increasing != 220)
+            else
             {
-                gameManager.IncreaseErrorCounter();
+                changeTemperature();
+
+                //triggers stopIncrease when rechtsklick, vll was anderes mit UI?
+                if (Input.GetMouseButtonDown(0) && increasing == 220)
+                {
+                    StopInc();
+                }
+                if (Input.GetMouseButtonDown(0) && increasing != 220)
+                {
+                    gameManager.IncreaseErrorCounter();
+                }
             }
         }
     }
@@ -133,11 +162,11 @@ public class TempReg : CameraTriggerZone
         GameObject.Find("Clock").GetComponent<Animator>().Play("clock");
         UI_.SetActive(false);
         adjustable = false;
-        CameraSwitch.Instance.SwitchCamera (temperCam);
+        CameraSwitch.Instance.SwitchCamera(temperCam);
         tongsContainer.SetActive(true);
         gameManager.SetNextSection();
-        empties.transform.position = new Vector3(-1.24f,1.5f,4.17f);
+        empties.transform.position = new Vector3(-1.24f, 1.5f, 4.17f);
         Debug.Log("nopedidy");
-       
+
     }
 }
