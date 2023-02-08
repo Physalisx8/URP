@@ -11,6 +11,7 @@ public class StartMenu : MonoBehaviour
 [SerializeField] GameObject UI_Demo;
 [SerializeField] GameObject UI_Start;
 [SerializeField] GameObject UI_End;
+[SerializeField] GameObject UI_DemoEnd;
 [SerializeField] GameObject Obj;
 
 [SerializeField] GameObject[] stabbing;
@@ -69,5 +70,12 @@ public void EndDemonstrator(){
     UI_Demo?.SetActive(false);
     Obj.SetActive(false);
 
+}
+
+public void EndDemoMode(){
+     cameraSwitch.SetActive(false);
+    cam.m_Priority = 2;
+     UI_DemoEnd.SetActive(true);
+    Obj.SetActive(false);
 }
 }
