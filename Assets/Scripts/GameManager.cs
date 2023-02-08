@@ -57,8 +57,13 @@ public class GameManager : MonoBehaviour
     {
         if (debug)
             Debug.Log("Skip to NEXT");
-        // StopAllCoroutines();
-        sections[activeSectionIndex + 1].triggerZone?.OnClick();
+        if (sections.Length <= activeSectionIndex)
+        {
+            SectionsFinished(); // DemoMode end methode
+            return;
+        }
+            // StopAllCoroutines();
+            sections[activeSectionIndex + 1].triggerZone?.OnClick();
         StartNextSection();
     }
 
@@ -150,5 +155,11 @@ public class GameManager : MonoBehaviour
         GameObject startMenu = GameObject.Find("StartMenu");
         startMenu.GetComponent<StartMenu>().EndDemonstrator();
         // All Sections are complete, go to main menu or something
+    }
+
+    public void DemonstratorFinished()
+    {
+        GameObject startMenu = GameObject.Find("StartMenu");
+        startMenu.GetComponent<StartMenu>().EndDemoMode();
     }
 }

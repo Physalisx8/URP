@@ -78,7 +78,7 @@ public class KnifeContainer2 : InteractableObject
 
                 if(GameObject.Find("UI_DemoModus") != null)
                 {
-                    gameManager.SetNextSection();
+                    gameManager.DemonstratorFinished();
                 } else
                 {
                     gameManager.SectionsFinished();
