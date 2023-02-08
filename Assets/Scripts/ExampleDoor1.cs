@@ -7,6 +7,7 @@ public class ExampleDoor1 : InteractableObject
 
     void Awake(){
         gameManager = FindObjectOfType<GameManager>();
+        transform.position = Vector3.down *100;
     }
 
   //ONTuerSchließen danach OnAnschalten -> TurningRed danach -> OnTemperatur -> OnWarte (TurningRed) -> OnTürÖffnen ()
@@ -30,7 +31,7 @@ public class ExampleDoor1 : InteractableObject
     void Reset(){
         if (debug)
             Debug.Log("Reset");
-            GetComponent<Animator>().SetTrigger("Interact");
+            GameObject.Find("DoorNew").GetComponent<Animator>().SetTrigger("Interact");
            
     }
 
@@ -45,8 +46,10 @@ public class ExampleDoor1 : InteractableObject
                 gameManager.IncreaseErrorCounter();
             }
             else{
-               GetComponent<Animator>().SetTrigger("Interact");
+               
+            GameObject.Find("DoorNew").GetComponent<Animator>().SetTrigger("Interact");
                 gameManager.SetNextSection();
+                transform.position= Vector3.down*100;
             }
         } else {
             Debug.Log("gameManager = null");

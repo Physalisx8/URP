@@ -28,9 +28,12 @@ public class TempReg : CameraTriggerZone
     [SerializeField]
     GameObject tongsContainer;
 
+    [SerializeField] GameObject empties;
+
     [SerializeField]
     GameObject UI_;
 
+//Vector3(-0.61500001,1.96800005,2.7190001)
     void Awake()
     {
         gameManager = FindObjectOfType<GameManager>();
@@ -132,6 +135,7 @@ public class TempReg : CameraTriggerZone
         CameraSwitch.Instance.SwitchCamera (temperCam);
         tongsContainer.SetActive(true);
         gameManager.SetNextSection();
+        empties.transform.position = new Vector3(-1.24f,1.5f,4.17f);
         Debug.Log("nopedidy");
        
     }

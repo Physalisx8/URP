@@ -3,17 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // Von InteractableObject erben lassen
-public class ChangeEmission : InteractableObject
+public class ChangeEmission1 : InteractableObject
 {
        GameManager gameManager;
 
     [SerializeField] Material lampMaterial;
     [SerializeField] GameObject Obj;
+    [SerializeField] GameObject empties;
 
         void Awake(){
         gameManager = FindObjectOfType<GameManager>();
+        transform.position = Vector3.down*100;
     }
-
 
      public override void SectionChange(SectionState state)
     {
@@ -34,7 +35,7 @@ public class ChangeEmission : InteractableObject
     void Reset(){
         if (debug)
             Debug.Log("Reset");
-            GetComponent<BoxCollider>().enabled = true;
+            GameObject.Find("TurningRed").GetComponent<Animator>().SetTrigger("Interaction_2");
     
     }
 
@@ -49,9 +50,11 @@ public class ChangeEmission : InteractableObject
                 gameManager.IncreaseErrorCounter();
             }
             else{
-                GetComponent<Animator>().SetTrigger("Interaction_2");
+                GameObject.Find("TurningRed").GetComponent<Animator>().SetTrigger("Interaction_2");
+                empties.transform.position = new Vector3(-1.03f,1.97f,3.47f);
                 gameManager.SetNextSection();
-                GetComponent<BoxCollider>().enabled = false;
+                transform.position = Vector3.down *100;
+
             }
         } else {
             Debug.Log("gameManager = null");

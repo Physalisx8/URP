@@ -30,6 +30,7 @@ public class ExampleDoor : InteractableObject
         if (debug)
             Debug.Log("Reset");
             GetComponent<Animator>().SetTrigger("Interact");
+             GetComponent<BoxCollider>().enabled = true;
            
     }
 
@@ -45,6 +46,7 @@ public class ExampleDoor : InteractableObject
             }
             else{
                GetComponent<Animator>().SetTrigger("Interact");
+                GetComponent<BoxCollider>().enabled = false;
                 gameManager.SetNextSection();
             }
         } else {

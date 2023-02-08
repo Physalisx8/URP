@@ -9,7 +9,7 @@ public class KnifeContainer1 : InteractableObject
     GameManager gameManager;
     [SerializeField] GameObject knife;
     GameObject knifeContainer;
-    // [SerializeField] GameObject empties;
+    [SerializeField] GameObject empties;
 
     private string oldParent = null;
     private Vector3 oldPosition;
@@ -112,7 +112,7 @@ public class KnifeContainer1 : InteractableObject
                 {
                     knife.transform.parent = GameObject.Find(oldParent).transform;
                     knife.GetComponent<Knife>().MoveKnife(Vector3.zero, oldRotation);
-                   // empties.transform.position = new Vector3(1.6f,3.16f,7.45f);
+                    empties.transform.position = new Vector3(-0.62f,1.96f,2.72f);
                     //knife.transform.localPosition = oldPosition;
                     //knife.transform.eulerAngles = oldRotation;
                     //GameObject.Find("Door").GetComponent<Animator>().Play("ForgeDoor_close");
@@ -128,7 +128,7 @@ public class KnifeContainer1 : InteractableObject
                     knife.transform.parent = transform;
                     Vector3 rotation = knife.transform.localEulerAngles;
                     knife.GetComponent<Knife>().MoveKnife(new Vector3(0, -0.75f, 0.5f), new Vector3(90, rotation.y, 125f));
-                   // empties.transform.position = new Vector3(1.6f,3.16f,7.45f);
+                         empties.transform.position = new Vector3(-0.62f,1.96f,2.72f);
                    // transform.position = Vector3.down*100;
                     //knife.transform.localPosition = new Vector3(0, -0.48f, 0);
                     //Vector3 rotation = knife.transform.eulerAngles;
