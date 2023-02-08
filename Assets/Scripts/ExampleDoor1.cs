@@ -1,7 +1,7 @@
 using UnityEngine;
 
 // Von InteractableObject erben lassen
-public class ExampleDoor : InteractableObject
+public class ExampleDoor1 : InteractableObject
 {
     GameManager gameManager;
 
@@ -9,7 +9,8 @@ public class ExampleDoor : InteractableObject
         gameManager = FindObjectOfType<GameManager>();
     }
 
- 
+  //ONTuerSchließen danach OnAnschalten -> TurningRed danach -> OnTemperatur -> OnWarte (TurningRed) -> OnTürÖffnen ()
+
     public override void SectionChange(SectionState state)
     {
         base.SectionChange(state);

@@ -1,7 +1,7 @@
 using UnityEngine;
 
 // Von InteractableObject erben lassen
-public class ExampleDoor : InteractableObject
+public class ExampleDoor2 : InteractableObject
 {
     GameManager gameManager;
 
@@ -9,7 +9,7 @@ public class ExampleDoor : InteractableObject
         gameManager = FindObjectOfType<GameManager>();
     }
 
- 
+
     public override void SectionChange(SectionState state)
     {
         base.SectionChange(state);
