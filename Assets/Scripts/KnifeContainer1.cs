@@ -128,7 +128,7 @@ public class KnifeContainer1 : InteractableObject
                     knife.transform.parent = transform;
                     Vector3 rotation = knife.transform.localEulerAngles;
                     knife.GetComponent<Knife>().MoveKnife(new Vector3(0, -0.75f, 0.5f), new Vector3(90, rotation.y, 125f));
-                         empties.transform.position = new Vector3(-0.62f,1.96f,2.72f);
+                    empties.transform.position = new Vector3(-0.62f,1.96f,2.72f);
                    // transform.position = Vector3.down*100;
                     //knife.transform.localPosition = new Vector3(0, -0.48f, 0);
                     //Vector3 rotation = knife.transform.eulerAngles;

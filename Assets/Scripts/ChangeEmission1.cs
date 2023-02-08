@@ -35,7 +35,7 @@ public class ChangeEmission1 : InteractableObject
     void Reset(){
         if (debug)
             Debug.Log("Reset");
-            GameObject.Find("TurningRed").GetComponent<Animator>().SetTrigger("Interaction_2");
+            GameObject.Find("TurningRed").GetComponent<Animator>().Play("idle");
     
     }
 

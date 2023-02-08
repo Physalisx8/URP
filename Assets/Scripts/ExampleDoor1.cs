@@ -31,7 +31,7 @@ public class ExampleDoor1 : InteractableObject
     void Reset(){
         if (debug)
             Debug.Log("Reset");
-            GameObject.Find("DoorNew").GetComponent<Animator>().SetTrigger("Interact");
+            GameObject.Find("DoorNew").GetComponent<Animator>().Play("temper_oven_close");
            
     }
 

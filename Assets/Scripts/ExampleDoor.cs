@@ -29,9 +29,9 @@ public class ExampleDoor : InteractableObject
     void Reset(){
         if (debug)
             Debug.Log("Reset");
+          
+            GetComponent<BoxCollider>().enabled = true;
             GetComponent<Animator>().SetTrigger("Interact");
-             GetComponent<BoxCollider>().enabled = true;
-           
     }
 
     public override void OnClick()
