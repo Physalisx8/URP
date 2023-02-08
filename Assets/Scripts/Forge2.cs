@@ -8,8 +8,7 @@ public class Forge2 : InteractableObject
     Animator animator;
     GameObject door;
    [SerializeField] GameObject empties;
-   
-    [SerializeField] CanvasGroup UI;
+       [SerializeField] CanvasGroup UI;
 
     [SerializeField] GameObject skript;
     TempBar tempBar;

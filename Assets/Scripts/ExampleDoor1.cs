@@ -1,15 +1,17 @@
 using UnityEngine;
 
 // Von InteractableObject erben lassen
-public class ExampleDoor : InteractableObject
+public class ExampleDoor1 : InteractableObject
 {
     GameManager gameManager;
 
     void Awake(){
         gameManager = FindObjectOfType<GameManager>();
+        transform.position = Vector3.down *100;
     }
 
- 
+  //ONTuerSchließen danach OnAnschalten -> TurningRed danach -> OnTemperatur -> OnWarte (TurningRed) -> OnTürÖffnen ()
+
     public override void SectionChange(SectionState state)
     {
         base.SectionChange(state);
@@ -29,8 +31,7 @@ public class ExampleDoor : InteractableObject
     void Reset(){
         if (debug)
             Debug.Log("Reset");
-            GetComponent<Animator>().SetTrigger("Interact");
-             GetComponent<BoxCollider>().enabled = true;
+            GameObject.Find("DoorNew").GetComponent<Animator>().SetTrigger("Interact");
            
     }
 
@@ -45,9 +46,10 @@ public class ExampleDoor : InteractableObject
                 gameManager.IncreaseErrorCounter();
             }
             else{
-               GetComponent<Animator>().SetTrigger("Interact");
-                GetComponent<BoxCollider>().enabled = false;
+               
+            GameObject.Find("DoorNew").GetComponent<Animator>().SetTrigger("Interact");
                 gameManager.SetNextSection();
+                transform.position= Vector3.down*100;
             }
         } else {
             Debug.Log("gameManager = null");
