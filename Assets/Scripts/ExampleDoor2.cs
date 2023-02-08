@@ -31,7 +31,7 @@ public class ExampleDoor2 : InteractableObject
         if (debug)
             Debug.Log("Reset");
            
-            GameObject.Find("DoorNew").GetComponent<Animator>().SetTrigger("Interact");
+            GameObject.Find("DoorNew").GetComponent<Animator>().Play("idle");
            
     }
 

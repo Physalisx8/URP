@@ -33,7 +33,6 @@ public class TempReg : CameraTriggerZone
     [SerializeField]
     GameObject UI_;
 
-//Vector3(-0.61500001,1.96800005,2.7190001)
     void Awake()
     {
         gameManager = FindObjectOfType<GameManager>();

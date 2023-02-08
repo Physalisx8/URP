@@ -35,6 +35,7 @@ public class ChangeEmission : InteractableObject
         if (debug)
             Debug.Log("Reset");
             GetComponent<BoxCollider>().enabled = true;
+            GetComponent<Animator>().Play("idle");
     
     }
 
