@@ -9,6 +9,7 @@ public class OilBath : InteractableObject
     [SerializeField] GameObject knife;
     GameObject quenchContainer;
     GameManager gameManager;
+    bool done;
 
     void Awake()
     {
@@ -40,34 +41,45 @@ public class OilBath : InteractableObject
     {
         if (debug)
             Debug.Log("Reset");
-              quenchContainer.GetComponent<Animator>().Play("idle");
-            smoke.Stop();
-            animator.Play("sevenSec");
-            animator.enabled = false;
-          
+        quenchContainer.GetComponent<Animator>().Play("idle");
+        smoke.Stop();
+        animator.Play("sevenSec");
+        animator.enabled = false;
+        done = false;
+
     }
 
     public override void OnClick()
     {
         base.OnClick(); // Immer den BUms hier ausführen
 
-        // Your code what happens on a click
-        if (gameManager != null)
+        if (GameObject.Find("UI_DemoModus") != null)
         {
-            if (!isInteractable)
-            {
-                gameManager.IncreaseErrorCounter();
-            }
-            else
-            {
-                KnifeDips();
-                gameManager.SetNextSection();
-            }
+            Debug.Log("now");
+            KnifeDips();
+            gameManager.SetNextSection();
         }
         else
         {
-            if (debug)
-                Debug.Log("gameManager = null");
+
+            // Your code what happens on a click
+            if (gameManager != null)
+            {
+                if (!isInteractable)
+                {
+                    gameManager.IncreaseErrorCounter();
+                }
+                else
+                {
+                    KnifeDips();
+                    gameManager.SetNextSection();
+                }
+            }
+            else
+            {
+                if (debug)
+                    Debug.Log("gameManager = null");
+            }
         }
     }
 
@@ -99,18 +111,19 @@ public class OilBath : InteractableObject
         if (debug)
             Debug.Log(animator.GetCurrentAnimatorClipInfo(0).Length);
 
-        yield return new WaitWhile(()=> animator.GetCurrentAnimatorStateInfo(0).normalizedTime <= 1);
+        yield return new WaitWhile(() => animator.GetCurrentAnimatorStateInfo(0).normalizedTime <= 1);
         disableAnimator();
 
-       // yield return new WaitWhile(() => animator.isActiveAndEnabled);
+        // yield return new WaitWhile(() => animator.isActiveAndEnabled);
         quenchContainer.GetComponent<Animator>().SetTrigger("returnQuench");
-        
+        done = true;
+
     }
 
 
     private void disableAnimator()
     {
-        animator.enabled = false; 
+        animator.enabled = false;
     }
 
     private void enableAnimator()

@@ -72,15 +72,18 @@ public class KnifeContainer2 : InteractableObject
                     .GetComponent<Knife>()
                     .MoveKnife(new Vector3(0, -0.0175f, 0.1f),
                     new Vector3(80f, 0, 0));
-                tongs.transform.position = Vector3.down*100;
+                tongs.transform.parent = GameObject.Find("---- Level --------").transform;
+                tongs.transform.position = new Vector3(5.351f, 1.549f, 3.75f);
+                tongs.transform.eulerAngles = new Vector3(1.5f, 211.5f, 3.336f);
 
-                // empties.transform.position = new Vector3(1.6f,3.16f,7.45f);
-                // transform.position = Vector3.down*100;
-                //knife.transform.localPosition = new Vector3(0, -0.48f, 0);
-                //Vector3 rotation = knife.transform.eulerAngles;
-                //knife.transform.eulerAngles = new Vector3(90, rotation.y, rotation.z);
-                gameManager.SetNextSection();
-                //gameManager.SectionsFinished();
+                if(GameObject.Find("UI_DemoModus") != null)
+                {
+                    gameManager.SetNextSection();
+                } else
+                {
+                    gameManager.SectionsFinished();
+                }
+
             }
         }
         else

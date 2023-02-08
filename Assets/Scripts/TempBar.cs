@@ -13,7 +13,7 @@ public class TempBar : MonoBehaviour
     [SerializeField] GameObject _GO;
     [SerializeField] GameObject _UI;
     [SerializeField] CanvasGroup _UI2;
-    
+
 
     private int maximum = 15;
     float fillAmount;
@@ -30,7 +30,7 @@ public class TempBar : MonoBehaviour
     Animator animator;
     GameManager gameManager;
     GameObject door;
-    
+
 
 
     void Start()
@@ -49,11 +49,11 @@ public class TempBar : MonoBehaviour
     void Update()
     {
 
-        
+
 
         if (!window)
         {
-            if (Input.GetMouseButtonDown(0) && _UI2.alpha==1)
+            if (Input.GetMouseButtonDown(0) && _UI2.alpha == 1)
             {
                 gameManager.IncreaseErrorCounter();
             }
@@ -61,7 +61,7 @@ public class TempBar : MonoBehaviour
         //if Flag, then check for input from User, if Input comes, Stop animation and set flag for Stopping Coroutine
         if (window)
         {
-            if ((Input.GetMouseButtonDown(0) || demo) && _UI2.alpha ==1 )
+            if ((Input.GetMouseButtonDown(0) || demo) && _UI2.alpha == 1)
             {
                 Successfull();
             }
@@ -93,7 +93,8 @@ public class TempBar : MonoBehaviour
         animator.SetTrigger("OpenDoor");
 
         OnDemo(false);
-       
+
+
 
         /*
         _UI2.SetActive(false);
@@ -102,16 +103,17 @@ public class TempBar : MonoBehaviour
           tempColor.a = 1f;
           image.color = tempColor;
         */
-    
+
     }
 
 
-public void SuccessDemo(){
-    stap = true;
-    _UI2.alpha = 0f;
-    animator.Play("openidle");
-    OnDemo(false);
-}
+    public void SuccessDemo()
+    {
+        stap = true;
+        _UI2.alpha = 0f;
+        animator.Play("openidle");
+        OnDemo(false);
+    }
     //checking timeframe from temperature Bar & sets Flag
     void CheckInput(float amount)
     {
@@ -142,7 +144,7 @@ public void SuccessDemo(){
         temp.fillAmount = 0;
         elapsedTime = 0;
         stap = false;
-        
+
         // Animation Resetten!
     }
 
