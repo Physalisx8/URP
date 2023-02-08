@@ -86,7 +86,7 @@ public class Forge : InteractableObject
             if (debug)
                 Debug.Log("START");
                 Reset();
-         
+                //Reset();
             break;
             case SectionState.End:
                OnClick();

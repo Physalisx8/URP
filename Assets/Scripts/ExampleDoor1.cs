@@ -20,7 +20,7 @@ public class ExampleDoor1 : InteractableObject
             case SectionState.Start:
             if (debug)
                 Debug.Log("START");
-            Reset();
+                Reset();
             break;
             case SectionState.End:
                 OnClick();
@@ -28,12 +28,6 @@ public class ExampleDoor1 : InteractableObject
         }
     }
 
-    void Reset(){
-        if (debug)
-            Debug.Log("Reset");
-            GameObject.Find("DoorNew").GetComponent<Animator>().Play("temper_oven_close");
-           
-    }
 
     public override void OnClick()
     {
@@ -47,7 +41,7 @@ public class ExampleDoor1 : InteractableObject
             }
             else{
                
-            GameObject.Find("DoorNew").GetComponent<Animator>().SetTrigger("Interact");
+            GameObject.Find("DoorNew").GetComponent<Animator>().SetTrigger("Close_Door");
                 gameManager.SetNextSection();
                 transform.position= Vector3.down*100;
             }
@@ -56,6 +50,14 @@ public class ExampleDoor1 : InteractableObject
         }
         
         
+    }
+
+    
+    void Reset(){
+        if (debug)
+            Debug.Log("Reset");
+            GameObject.Find("DoorNew").GetComponent<Animator>().Play("temper_oven_open");
+           
     }
 
     public override void HoverStart()
