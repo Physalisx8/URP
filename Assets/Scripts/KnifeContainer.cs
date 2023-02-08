@@ -57,6 +57,7 @@ public class KnifeContainer : InteractableObject
         Debug.Log(knifeContainer.transform.parent + "second first");
         knife.GetComponent<Animator>().enabled= true;
         knife.GetComponent<Animator>().Play("sevenSec");
+        //GameObject.Find("Door").GetComponent<Animator>().Play("idle");
        // knife.GetComponent<Animator>().enabled= false;
 
     }

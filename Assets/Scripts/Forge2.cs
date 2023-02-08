@@ -47,9 +47,10 @@ public class Forge2 : InteractableObject
       void Reset(){
         if (debug)
             Debug.Log("Reset");
-            animator.Play("ForgeDoor_open");
+            //animator.Play("openidle");
             tempBar.Reset();
-         
+            //StartCoroutine(wait());
+            UI.alpha = 1f;
             //animator.SetTrigger("CloseDoor");
            //animator.Play("ForgeDoor_close");
     }
@@ -76,6 +77,7 @@ public class Forge2 : InteractableObject
                 StartCoroutine(wait());
                 empties.transform.position = new Vector3(1.51f,2.34f,7.24f);
                 transform.position = Vector3.down *100;
+                
                 
         
 

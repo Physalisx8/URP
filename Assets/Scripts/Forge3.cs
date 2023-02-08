@@ -50,7 +50,10 @@ public class Forge3 : InteractableObject
       void Reset(){
         if (debug)
             Debug.Log("Reset");
-           // UI.alpha =0f;
+            animator.Play("idle");
+            UI.alpha =1f;
+            
+            
             //animator.Play("idle");
            //animator.Play("ForgeDoor_close");
     }
@@ -67,7 +70,7 @@ public class Forge3 : InteractableObject
         {
             if (!isInteractable)
             {
-              //  gameManager.IncreaseErrorCounter();
+               gameManager.IncreaseErrorCounter();
             }
             else
             {
@@ -77,6 +80,7 @@ public class Forge3 : InteractableObject
                
                 transform.position = Vector3.down *100;
                 gameManager.SetNextSection();
+                //animator.Play("idle");
 
             }
         }

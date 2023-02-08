@@ -81,7 +81,7 @@ public class TempBar : MonoBehaviour
             demo = false;
         }
     }
-    void Successfull()
+    public void Successfull()
     {
 
         GameObject.Find("Door").GetComponent<BoxCollider>().enabled = true;
@@ -105,6 +105,13 @@ public class TempBar : MonoBehaviour
     
     }
 
+
+public void SuccessDemo(){
+    stap = true;
+    _UI2.alpha = 0f;
+    animator.Play("openidle");
+    OnDemo(false);
+}
     //checking timeframe from temperature Bar & sets Flag
     void CheckInput(float amount)
     {
