@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] TMPro.TextMeshProUGUI instructionsText;
     [SerializeField] TMPro.TextMeshProUGUI errorText;
     [SerializeField] TMPro.TextMeshProUGUI errorTextOutro;
-    
+
     [SerializeField] TMPro.TextMeshProUGUI sectionNameText;
     [SerializeField] SceneSection[] sections;
     [SerializeField] SceneSection activeSection;
@@ -35,40 +35,45 @@ public class GameManager : MonoBehaviour
         Reset();
     }
 
-#region DEMO MODE
-    IEnumerator WaitUntilCamIsSet(Action callAfterCamIsSet){
+    #region DEMO MODE
+    IEnumerator WaitUntilCamIsSet(Action callAfterCamIsSet)
+    {
         yield return new WaitForSeconds(brain.m_DefaultBlend.BlendTime);
         callAfterCamIsSet();
     }
 
-// Called By Button
-    public void SkipToPrev(){
-                if (debug)
+    // Called By Button
+    public void SkipToPrev()
+    {
+        if (debug)
             Debug.Log("Skip to PREV");
-       // StopAllCoroutines();
+        // StopAllCoroutines();
         // Wait until Cameras are set, then go to previous section
         StartPreviousSection();
         //StartCoroutine(WaitUntilCamIsSet(StartPreviousSection));
     }
     // Called By Button
-    public void SkipToNext(){
+    public void SkipToNext()
+    {
         if (debug)
             Debug.Log("Skip to NEXT");
-       // StopAllCoroutines();
-        sections[activeSectionIndex +1].triggerZone?.OnClick();
+        // StopAllCoroutines();
+        sections[activeSectionIndex + 1].triggerZone?.OnClick();
         StartNextSection();
     }
 
-    void StartPreviousSection(){
+    void StartPreviousSection()
+    {
         // Start EVENT OF PREVIOUS SECTION
-        sections[activeSectionIndex -1].StateEvent.Invoke(SectionState.Start);
-        sections[activeSectionIndex -1].triggerZone?.OnClick();
+        sections[activeSectionIndex - 1].StateEvent.Invoke(SectionState.Start);
+        sections[activeSectionIndex - 1].triggerZone?.OnClick();
         if (debug)
-            Debug.Log("Invoke " + sections[activeSectionIndex -1].StateEvent + " Start");
+            Debug.Log("Invoke " + sections[activeSectionIndex - 1].StateEvent + " Start");
         SetPreviousSection();
     }
 
-    void StartNextSection(){
+    void StartNextSection()
+    {
         // Start EVENT OF CURRENT SECTION
         activeSection.StateEvent.Invoke(SectionState.End);
         activeSection.StateEvent.Invoke(SectionState.Start);
@@ -94,10 +99,10 @@ public class GameManager : MonoBehaviour
 
         showHint.Hide();
         activeSectionIndex += 1;
- 
+
         SetupActiveSection(sections[activeSectionIndex]);
-   
-       
+
+
     }
 
     void SetupActiveSection(SceneSection activeSection)
@@ -123,12 +128,12 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         errorText.fontSize = 36;
     }
-    
+
     public void IncreaseErrorCounter()
     {
         errorCount += 1;
         errorText.text = "Fehler: " + errorCount;
-        errorTextOutro.text = "Fehler: "+ errorCount;
+        errorTextOutro.text = "Fehler: " + errorCount;
         StartCoroutine(ErrorBig());
     }
     public void Reset()
