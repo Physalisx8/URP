@@ -41,6 +41,7 @@ public class Security : InteractableObject
 
     void Reset()
     {
+        GetComponent<MeshRenderer>().enabled = true;
         animator.Play("flying_apron_back");
         transform.position = startPos;
         transform.rotation = startRot;

@@ -129,6 +129,8 @@ public class TempReg : CameraTriggerZone
 
     public void StopInc()
     {
+        GameObject.Find("Clock").GetComponent<Animator>().enabled = true;
+        GameObject.Find("Clock").GetComponent<Animator>().Play("clock");
         UI_.SetActive(false);
         adjustable = false;
         CameraSwitch.Instance.SwitchCamera (temperCam);
