@@ -33,7 +33,7 @@ public class KnifeContainer1 : InteractableObject
         OnAbschrecken.OnInvoke -= OnAbschreckenChange;
     }
 
-//OnHaerteTemperatur - wenn das Messer glüht und die Tür sich öffnet 
+//On Entnehme btw.  
     void OnAbschreckenChange(SectionState state){
         switch (state){
             case SectionState.Start:

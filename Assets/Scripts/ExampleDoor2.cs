@@ -30,7 +30,6 @@ public class ExampleDoor2 : InteractableObject
     void Reset(){
         if (debug)
             Debug.Log("Reset");
-           
             GameObject.Find("DoorNew").GetComponent<Animator>().Play("idle");
            
     }
@@ -48,8 +47,9 @@ public class ExampleDoor2 : InteractableObject
             else{
                
             GameObject.Find("DoorNew").GetComponent<Animator>().SetTrigger("Interact");
-                gameManager.SetNextSection();
-                transform.position = Vector3.down *100;
+               
+            transform.position = Vector3.down *100;
+            gameManager.SetNextSection();
             }
         } else {
             Debug.Log("gameManager = null");

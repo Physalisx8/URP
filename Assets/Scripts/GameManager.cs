@@ -143,7 +143,7 @@ public class GameManager : MonoBehaviour
     public void SectionsFinished()
     {
         GameObject startMenu = GameObject.Find("StartMenu");
-         startMenu.GetComponent<StartMenu>().EndDemonstrator();
+        startMenu.GetComponent<StartMenu>().EndDemonstrator();
         // All Sections are complete, go to main menu or something
     }
 }

@@ -11,6 +11,7 @@ public class KnifeContainer2 : InteractableObject
     GameObject knife;
 
     GameObject knifeContainer;
+    GameObject tongs;
 
     // [SerializeField] GameObject empties;
     private string oldParent = null;
@@ -24,6 +25,7 @@ public class KnifeContainer2 : InteractableObject
         // transform.position = Vector3.down *100;
         gameManager = FindObjectOfType<GameManager>();
         knifeContainer = GameObject.Find("knifeContainer");
+        tongs = GameObject.Find("tongs");
     }
 
     public override void SectionChange(SectionState state)
@@ -46,9 +48,8 @@ public class KnifeContainer2 : InteractableObject
     {
         if (debug) Debug.Log("Reset");
         knife.transform.parent = knifeContainer.transform;
-        Debug.Log("knifetransform " + knife.transform.parent);
         knife.GetComponent<Knife>().MoveKnife(Vector3.zero, Vector3.zero);
-        Debug.Log("oldParent" + oldParent);
+        tongs.transform.position = Vector3.up*100;
         oldParent = null;
     }
 
@@ -71,13 +72,15 @@ public class KnifeContainer2 : InteractableObject
                     .GetComponent<Knife>()
                     .MoveKnife(new Vector3(0, -0.0175f, 0.1f),
                     new Vector3(80f, 0, 0));
+                tongs.transform.position = Vector3.down*100;
 
                 // empties.transform.position = new Vector3(1.6f,3.16f,7.45f);
                 // transform.position = Vector3.down*100;
                 //knife.transform.localPosition = new Vector3(0, -0.48f, 0);
                 //Vector3 rotation = knife.transform.eulerAngles;
                 //knife.transform.eulerAngles = new Vector3(90, rotation.y, rotation.z);
-                gameManager.SectionsFinished();
+                gameManager.SetNextSection();
+                //gameManager.SectionsFinished();
             }
         }
         else

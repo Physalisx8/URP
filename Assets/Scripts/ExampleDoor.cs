@@ -31,7 +31,7 @@ public class ExampleDoor : InteractableObject
             Debug.Log("Reset");
           
             GetComponent<BoxCollider>().enabled = true;
-            GetComponent<Animator>().SetTrigger("idle");
+            GetComponent<Animator>().Play("idle");
     }
 
     public override void OnClick()
