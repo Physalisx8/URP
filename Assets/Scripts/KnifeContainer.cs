@@ -55,6 +55,10 @@ public class KnifeContainer : InteractableObject
         knife.transform.parent=knifeContainer.transform;
         knife.GetComponent<Knife>().MoveKnife(Vector3.zero, oldRotation);
         Debug.Log(knifeContainer.transform.parent + "second first");
+        knife.GetComponent<Animator>().enabled= true;
+        knife.GetComponent<Animator>().Play("sevenSec");
+       // knife.GetComponent<Animator>().enabled= false;
+
     }
     void Awake()
     {
@@ -85,7 +89,7 @@ public class KnifeContainer : InteractableObject
     void Reset()
     {
         if (debug)
-            Debug.Log("Reset");
+        Debug.Log("Reset");
         knife.transform.parent = knifeContainer.transform;
         Debug.Log("knifetransform "+ knife.transform.parent);
         knife.GetComponent<Knife>().MoveKnife(Vector3.zero,Vector3.zero);

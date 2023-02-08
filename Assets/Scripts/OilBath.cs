@@ -40,6 +40,11 @@ public class OilBath : InteractableObject
     {
         if (debug)
             Debug.Log("Reset");
+              quenchContainer.GetComponent<Animator>().Play("idle");
+            smoke.Stop();
+            animator.Play("sevenSec");
+            animator.enabled = false;
+          
     }
 
     public override void OnClick()
@@ -97,7 +102,7 @@ public class OilBath : InteractableObject
         yield return new WaitWhile(()=> animator.GetCurrentAnimatorStateInfo(0).normalizedTime <= 1);
         disableAnimator();
 
-        yield return new WaitWhile(() => animator.isActiveAndEnabled);
+       // yield return new WaitWhile(() => animator.isActiveAndEnabled);
         quenchContainer.GetComponent<Animator>().SetTrigger("returnQuench");
         
     }
